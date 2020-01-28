@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UserSelectorVC.swift
 //  Sitwitus
 //
 //  Created by Syed ShahRukh Haider on 28/01/2020.
@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class UserSelectorVC: UIViewController {
 
+     override var preferredStatusBarStyle: UIStatusBarStyle {
+         return .lightContent
+     }
+     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
+    
 
+   
 
 }
-

@@ -8,19 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
+		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
+		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
+		F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C423DFFD3B00DCF976 /* Custom_Label.swift */; };
+		F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C523DFFD3B00DCF976 /* Custom_Segment.swift */; };
+		F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C623DFFD3B00DCF976 /* Custom_ImageView.swift */; };
+		F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C723DFFD3B00DCF976 /* UnderlinedTextField.swift */; };
+		F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C823DFFD3B00DCF976 /* ConfigureUserInterface.swift */; };
+		F2C0D5DC23E0011200DCF976 /* Neuzeit Grotesk W01 Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5D823E0010B00DCF976 /* Neuzeit Grotesk W01 Black.otf */; };
+		F2C0D5DD23E0011200DCF976 /* Neuzeit Grotesk W01 Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5DB23E0010B00DCF976 /* Neuzeit Grotesk W01 Light.otf */; };
+		F2C0D5DE23E0011200DCF976 /* Neuzeit Grotesk W01 Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5D923E0010B00DCF976 /* Neuzeit Grotesk W01 Regular.otf */; };
+		F2C0D5DF23E0011200DCF976 /* NeuzeitSBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5DA23E0010B00DCF976 /* NeuzeitSBook.ttf */; };
+		F2C0D5E223E011AB00DCF976 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5E123E011AB00DCF976 /* Sitter.storyboard */; };
+		F2C0D5E423E011BC00DCF976 /* Parent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5E323E011BC00DCF976 /* Parent.storyboard */; };
+		F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */; };
 		F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F123DFF588009B385E /* AppDelegate.swift */; };
 		F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F323DFF588009B385E /* SceneDelegate.swift */; };
-		F2CCE2F623DFF588009B385E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F523DFF588009B385E /* ViewController.swift */; };
+		F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F523DFF588009B385E /* InitialController.swift */; };
 		F2CCE2F923DFF588009B385E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2F723DFF588009B385E /* Main.storyboard */; };
 		F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
+		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
+		F2C0D5C423DFFD3B00DCF976 /* Custom_Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Label.swift; sourceTree = "<group>"; };
+		F2C0D5C523DFFD3B00DCF976 /* Custom_Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Segment.swift; sourceTree = "<group>"; };
+		F2C0D5C623DFFD3B00DCF976 /* Custom_ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_ImageView.swift; sourceTree = "<group>"; };
+		F2C0D5C723DFFD3B00DCF976 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		F2C0D5C823DFFD3B00DCF976 /* ConfigureUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureUserInterface.swift; sourceTree = "<group>"; };
+		F2C0D5D823E0010B00DCF976 /* Neuzeit Grotesk W01 Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neuzeit Grotesk W01 Black.otf"; sourceTree = "<group>"; };
+		F2C0D5D923E0010B00DCF976 /* Neuzeit Grotesk W01 Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neuzeit Grotesk W01 Regular.otf"; sourceTree = "<group>"; };
+		F2C0D5DA23E0010B00DCF976 /* NeuzeitSBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NeuzeitSBook.ttf; sourceTree = "<group>"; };
+		F2C0D5DB23E0010B00DCF976 /* Neuzeit Grotesk W01 Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neuzeit Grotesk W01 Light.otf"; sourceTree = "<group>"; };
+		F2C0D5E123E011AB00DCF976 /* Sitter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
+		F2C0D5E323E011BC00DCF976 /* Parent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parent.storyboard; sourceTree = "<group>"; };
+		F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectorVC.swift; sourceTree = "<group>"; };
 		F2CCE2EE23DFF588009B385E /* Sitwitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sitwitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CCE2F123DFF588009B385E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2CCE2F323DFF588009B385E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F2CCE2F523DFF588009B385E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2CCE2F523DFF588009B385E /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		F2CCE2F823DFF588009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2CCE2FD23DFF589009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2CCE2FF23DFF589009B385E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,12 +65,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2C0D5B823DFFCD100DCF976 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F2C0D5D823E0010B00DCF976 /* Neuzeit Grotesk W01 Black.otf */,
+				F2C0D5DB23E0010B00DCF976 /* Neuzeit Grotesk W01 Light.otf */,
+				F2C0D5D923E0010B00DCF976 /* Neuzeit Grotesk W01 Regular.otf */,
+				F2C0D5DA23E0010B00DCF976 /* NeuzeitSBook.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F2C0D5C123DFFD1E00DCF976 /* Customize */ = {
+			isa = PBXGroup;
+			children = (
+				F2C0D5C823DFFD3B00DCF976 /* ConfigureUserInterface.swift */,
+				F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */,
+				F2C0D5C623DFFD3B00DCF976 /* Custom_ImageView.swift */,
+				F2C0D5C423DFFD3B00DCF976 /* Custom_Label.swift */,
+				F2C0D5C523DFFD3B00DCF976 /* Custom_Segment.swift */,
+				F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */,
+				F2C0D5C723DFFD3B00DCF976 /* UnderlinedTextField.swift */,
+			);
+			path = Customize;
+			sourceTree = "<group>";
+		};
+		F2C0D5E023E0117800DCF976 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				F2CCE2F723DFF588009B385E /* Main.storyboard */,
+				F2C0D5E123E011AB00DCF976 /* Sitter.storyboard */,
+				F2C0D5E323E011BC00DCF976 /* Parent.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		F2C0D5E523E014DC00DCF976 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F2C0D5EA23E015D300DCF976 /* Parent */,
+				F2C0D5E923E015C800DCF976 /* Sitter */,
+				F2C0D5E823E015B600DCF976 /* Main */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F2C0D5E823E015B600DCF976 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F2CCE2F523DFF588009B385E /* InitialController.swift */,
+				F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F2C0D5E923E015C800DCF976 /* Sitter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sitter;
+			sourceTree = "<group>";
+		};
+		F2C0D5EA23E015D300DCF976 /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
 		F2CCE2E523DFF588009B385E = {
 			isa = PBXGroup;
 			children = (
 				F2CCE2F023DFF588009B385E /* Sitwitus */,
 				F2CCE2EF23DFF588009B385E /* Products */,
 			);
+			indentWidth = 5;
 			sourceTree = "<group>";
 		};
 		F2CCE2EF23DFF588009B385E /* Products */ = {
@@ -56,10 +153,12 @@
 		F2CCE2F023DFF588009B385E /* Sitwitus */ = {
 			isa = PBXGroup;
 			children = (
+				F2C0D5C123DFFD1E00DCF976 /* Customize */,
+				F2C0D5B823DFFCD100DCF976 /* Fonts */,
 				F2CCE2F123DFF588009B385E /* AppDelegate.swift */,
 				F2CCE2F323DFF588009B385E /* SceneDelegate.swift */,
-				F2CCE2F523DFF588009B385E /* ViewController.swift */,
-				F2CCE2F723DFF588009B385E /* Main.storyboard */,
+				F2C0D5E523E014DC00DCF976 /* Controller */,
+				F2C0D5E023E0117800DCF976 /* StoryBoard */,
 				F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */,
 				F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */,
 				F2CCE2FF23DFF589009B385E /* Info.plist */,
@@ -125,6 +224,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C0D5E423E011BC00DCF976 /* Parent.storyboard in Resources */,
+				F2C0D5DC23E0011200DCF976 /* Neuzeit Grotesk W01 Black.otf in Resources */,
+				F2C0D5DF23E0011200DCF976 /* NeuzeitSBook.ttf in Resources */,
+				F2C0D5DE23E0011200DCF976 /* Neuzeit Grotesk W01 Regular.otf in Resources */,
+				F2C0D5E223E011AB00DCF976 /* Sitter.storyboard in Resources */,
+				F2C0D5DD23E0011200DCF976 /* Neuzeit Grotesk W01 Light.otf in Resources */,
 				F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */,
 				F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */,
 				F2CCE2F923DFF588009B385E /* Main.storyboard in Resources */,
@@ -138,9 +243,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2CCE2F623DFF588009B385E /* ViewController.swift in Sources */,
+				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
+				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
+				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
+				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
+				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
+				F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */,
+				F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */,
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
+				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
+				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
