@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jI-vc-3N6">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Neuzeit Grotesk W01 Black.otf">
-            <string>NeuzeitGroteskCondW01-Black</string>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -17,22 +20,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="InitialController" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3Qt-KG-2c6">
-                                <rect key="frame" x="65" y="343.5" width="284" height="128"/>
+                                <rect key="frame" x="81.5" y="252.5" width="212" height="95.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3Qt-KG-2c6" secondAttribute="height" multiplier="20:9" id="Sef-Te-Tia"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-Vv-Q0k" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="95" y="591.5" width="224" height="45"/>
+                                <rect key="frame" x="104" y="468" width="167" height="33"/>
                                 <color key="backgroundColor" red="0.34211480620000001" green="0.73010283710000001" blue="0.68236076830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5XY-Vv-Q0k" secondAttribute="height" multiplier="20:4" id="GUz-kH-0u9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NeuzeitGroteskCondW01-Black" family="NeuzeitGroteskCondW01-Black" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <state key="normal" title="Get Started">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -68,26 +71,26 @@
             <objects>
                 <viewController id="Ew3-UG-XdL" customClass="UserSelectorVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lge-Bd-ahg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kG-Sl-YMq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-za-EYh" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="20.5" y="156" width="373" height="148"/>
+                                        <rect key="frame" x="19" y="114" width="337.5" height="117.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="baA-Ah-sqw">
-                                                <rect key="frame" x="103.5" y="29.5" width="166" height="89"/>
+                                                <rect key="frame" x="115.5" y="35.5" width="106" height="47"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="baA-Ah-sqw" secondAttribute="height" multiplier="15:8" id="r4J-pr-K10"/>
+                                                    <constraint firstAttribute="width" secondItem="baA-Ah-sqw" secondAttribute="height" multiplier="18:8" id="r4J-pr-K10"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97279661890000002" green="0.98422712089999997" blue="0.98823839430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="baA-Ah-sqw" firstAttribute="centerX" secondItem="zeB-za-EYh" secondAttribute="centerX" id="X2Q-Y3-o6r"/>
-                                            <constraint firstItem="baA-Ah-sqw" firstAttribute="height" secondItem="zeB-za-EYh" secondAttribute="height" multiplier="0.6" id="lDH-sw-VOc"/>
+                                            <constraint firstItem="baA-Ah-sqw" firstAttribute="height" secondItem="zeB-za-EYh" secondAttribute="height" multiplier="0.4" id="lDH-sw-VOc"/>
                                             <constraint firstItem="baA-Ah-sqw" firstAttribute="centerY" secondItem="zeB-za-EYh" secondAttribute="centerY" id="ujq-3z-a3V"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -106,16 +109,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHM-8t-xPQ">
-                                <rect key="frame" x="139" y="439" width="136" height="28"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="24"/>
+                                <rect key="frame" x="105" y="266.5" width="165.5" height="34"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLL-qx-cvG" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="72.5" y="507" width="269" height="50"/>
+                                <rect key="frame" x="65.5" y="340.5" width="244" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-q2-RNW" customClass="Custom_Segment" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="5" width="235" height="40"/>
+                                        <rect key="frame" x="15.5" y="5" width="213" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitle" value=" Sitter,  Parent"/>
@@ -152,15 +155,27 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-Dy-n9L" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="95" y="677" width="224" height="45"/>
+                                <rect key="frame" x="104" y="510.5" width="167" height="33.5"/>
                                 <color key="backgroundColor" red="0.34211480620000001" green="0.73010283710000001" blue="0.68236076830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nIw-Dy-n9L" secondAttribute="height" multiplier="20:4" id="jQU-BT-GjE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="NeuzeitGroteskCondW01-Black" family="NeuzeitGroteskCondW01-Black" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -177,7 +192,7 @@
                         <color key="backgroundColor" red="0.97279661890000002" green="0.98422712089999997" blue="0.98823839430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FLL-qx-cvG" firstAttribute="width" secondItem="lge-Bd-ahg" secondAttribute="width" multiplier="0.65" id="35p-EE-Lu5"/>
-                            <constraint firstItem="hHM-8t-xPQ" firstAttribute="centerY" secondItem="frz-5X-Uj6" secondAttribute="centerY" id="3V5-9H-4kD"/>
+                            <constraint firstItem="hHM-8t-xPQ" firstAttribute="centerY" secondItem="frz-5X-Uj6" secondAttribute="centerY" multiplier="0.85" id="3V5-9H-4kD"/>
                             <constraint firstItem="FLL-qx-cvG" firstAttribute="top" secondItem="hHM-8t-xPQ" secondAttribute="bottom" constant="40" id="BiA-O4-mZe"/>
                             <constraint firstItem="nIw-Dy-n9L" firstAttribute="centerX" secondItem="FLL-qx-cvG" secondAttribute="centerX" id="KGF-Qc-dMM"/>
                             <constraint firstItem="hHM-8t-xPQ" firstAttribute="centerX" secondItem="zeB-za-EYh" secondAttribute="centerX" id="NqY-OA-9b7"/>
@@ -227,6 +242,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="512" height="512"/>
+        <image name="logo" width="689" height="218"/>
     </resources>
 </document>
