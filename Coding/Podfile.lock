@@ -1,0 +1,20 @@
+PODS:
+  - IQKeyboardManagerSwift (6.5.4)
+  - LocationPickerViewController (3.4)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - LocationPickerViewController
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManagerSwift
+    - LocationPickerViewController
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
+  LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
+
+PODFILE CHECKSUM: 180785f255701da834e9514fce17ef288a6064bc
+
+COCOAPODS: 1.8.3

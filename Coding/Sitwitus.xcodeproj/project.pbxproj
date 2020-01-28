@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46A53F353F473EB60A2A4CE9 /* Pods_Sitwitus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D654F030BBBD35895B99771 /* Pods_Sitwitus.framework */; };
+		F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -45,6 +47,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D654F030BBBD35895B99771 /* Pods_Sitwitus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sitwitus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sitwitus.release.xcconfig"; path = "Target Support Files/Pods-Sitwitus/Pods-Sitwitus.release.xcconfig"; sourceTree = "<group>"; };
+		CA9B8907B09297CCAE85BE14 /* Pods-Sitwitus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sitwitus.debug.xcconfig"; path = "Target Support Files/Pods-Sitwitus/Pods-Sitwitus.debug.xcconfig"; sourceTree = "<group>"; };
+		F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSignUpVC.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -89,12 +95,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A53F353F473EB60A2A4CE9 /* Pods_Sitwitus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51EBA8EF13D3FDF532697D16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D654F030BBBD35895B99771 /* Pods_Sitwitus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DE857CAFEB15C0899DD5421 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA9B8907B09297CCAE85BE14 /* Pods-Sitwitus.debug.xcconfig */,
+				8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F2C0D5B823DFFCD100DCF976 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +191,7 @@
 		F2C0D5E923E015C800DCF976 /* Sitter */ = {
 			isa = PBXGroup;
 			children = (
+				F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */,
 			);
 			path = Sitter;
 			sourceTree = "<group>";
@@ -183,6 +208,8 @@
 			children = (
 				F2CCE2F023DFF588009B385E /* Sitwitus */,
 				F2CCE2EF23DFF588009B385E /* Products */,
+				8DE857CAFEB15C0899DD5421 /* Pods */,
+				51EBA8EF13D3FDF532697D16 /* Frameworks */,
 			);
 			indentWidth = 5;
 			sourceTree = "<group>";
@@ -218,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2CCE30223DFF589009B385E /* Build configuration list for PBXNativeTarget "Sitwitus" */;
 			buildPhases = (
+				15AB8BD8AB746B33ABC26666 /* [CP] Check Pods Manifest.lock */,
 				F2CCE2EA23DFF588009B385E /* Sources */,
 				F2CCE2EB23DFF588009B385E /* Frameworks */,
 				F2CCE2EC23DFF588009B385E /* Resources */,
+				B3DC61694E24B664232F9FD3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,12 +327,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15AB8BD8AB746B33ABC26666 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sitwitus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3DC61694E24B664232F9FD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2CCE2EA23DFF588009B385E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
+				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
@@ -455,6 +527,7 @@
 		};
 		F2CCE30323DFF589009B385E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA9B8907B09297CCAE85BE14 /* Pods-Sitwitus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -473,6 +546,7 @@
 		};
 		F2CCE30423DFF589009B385E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
