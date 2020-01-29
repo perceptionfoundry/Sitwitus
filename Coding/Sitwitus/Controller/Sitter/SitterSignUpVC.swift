@@ -43,6 +43,10 @@ class SitterSignUpVC: UIViewController {
 
                                     //*************** OUTLET ACTION ******************
 
+     
+     @IBAction func backButton(){
+          self.navigationController?.popViewController(animated: true)
+     }
 
 }
 

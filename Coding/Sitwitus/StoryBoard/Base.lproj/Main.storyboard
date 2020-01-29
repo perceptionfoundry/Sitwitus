@@ -81,9 +81,9 @@
                                         <rect key="frame" x="19" y="114" width="337.5" height="117.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="baA-Ah-sqw">
-                                                <rect key="frame" x="115.5" y="35.5" width="106" height="47"/>
+                                                <rect key="frame" x="98" y="35.5" width="141" height="47"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="baA-Ah-sqw" secondAttribute="height" multiplier="18:8" id="r4J-pr-K10"/>
+                                                    <constraint firstAttribute="width" secondItem="baA-Ah-sqw" secondAttribute="height" multiplier="24:8" id="r4J-pr-K10"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
