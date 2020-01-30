@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		46A53F353F473EB60A2A4CE9 /* Pods_Sitwitus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D654F030BBBD35895B99771 /* Pods_Sitwitus.framework */; };
+		F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C1A4723E3293400F058F8 /* MapMarkerView.swift */; };
+		F20C1A4A23E3295100F058F8 /* MapMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20C1A4923E3295100F058F8 /* MapMarkerView.xib */; };
 		F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */; };
 		F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		2D654F030BBBD35895B99771 /* Pods_Sitwitus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sitwitus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sitwitus.release.xcconfig"; path = "Target Support Files/Pods-Sitwitus/Pods-Sitwitus.release.xcconfig"; sourceTree = "<group>"; };
 		CA9B8907B09297CCAE85BE14 /* Pods-Sitwitus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sitwitus.debug.xcconfig"; path = "Target Support Files/Pods-Sitwitus/Pods-Sitwitus.debug.xcconfig"; sourceTree = "<group>"; };
+		F20C1A4723E3293400F058F8 /* MapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerView.swift; sourceTree = "<group>"; };
+		F20C1A4923E3295100F058F8 /* MapMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerView.xib; sourceTree = "<group>"; };
 		F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSignUpVC.swift; sourceTree = "<group>"; };
 		F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMainVC.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 				8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F20C1A4423E328A200F058F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F20C1A4723E3293400F058F8 /* MapMarkerView.swift */,
+				F20C1A4923E3295100F058F8 /* MapMarkerView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F2C0D5B823DFFCD100DCF976 /* Fonts */ = {
@@ -232,6 +245,7 @@
 				F2C0D5B823DFFCD100DCF976 /* Fonts */,
 				F2C0D5E023E0117800DCF976 /* StoryBoard */,
 				F2C0D5E523E014DC00DCF976 /* Controller */,
+				F20C1A4423E328A200F058F8 /* View */,
 				F2CCE2F123DFF588009B385E /* AppDelegate.swift */,
 				F2CCE2F323DFF588009B385E /* SceneDelegate.swift */,
 				F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */,
@@ -319,6 +333,7 @@
 				F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */,
 				F2CCE2F923DFF588009B385E /* Main.storyboard in Resources */,
 				F2EBBE2C23E0607700E931D1 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				F20C1A4A23E3295100F058F8 /* MapMarkerView.xib in Resources */,
 				F2EBBE2123E0607700E931D1 /* Poppins-BoldItalic.ttf in Resources */,
 				F2EBBE2A23E0607700E931D1 /* Poppins-BlackItalic.ttf in Resources */,
 				F2EBBE2F23E0607700E931D1 /* Poppins-Bold.ttf in Resources */,
@@ -398,6 +413,7 @@
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
+				F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */,
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
