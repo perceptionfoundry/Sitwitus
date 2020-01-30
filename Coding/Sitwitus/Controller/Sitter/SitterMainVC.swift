@@ -96,10 +96,11 @@ extension SitterMainVC: GMSMapViewDelegate{
           infoWindow.personAddress.text = "Karachi"
 //          infoWindow.bookButton.addTarget(Any?, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
           infoWindow.center = mapView.projection.point(for: location)
-          infoWindow.center.y = infoWindow.center.y + 100
-          infoWindow.frame.size.width = 250
+          infoWindow.center.y = infoWindow.center.y + 90
+          infoWindow.frame.size.width = 225
           infoWindow.frame.size.height = 150
-//          
+//
+     
           self.view.addSubview(infoWindow)
           return false
 
