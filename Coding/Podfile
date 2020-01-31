@@ -13,4 +13,6 @@ pod 'LocationPickerViewController'
 
 pod 'GoogleMaps'
 
+pod 'HCSStarRatingView'
+
 end
