@@ -16,7 +16,9 @@ class SitterPendingVC: UIViewController {
      @IBOutlet weak var pendingTable : UITableView!
 
                                    //******** VARIABLES *************
-
+     override var preferredStatusBarStyle: UIStatusBarStyle {
+         return .lightContent
+     }
                                    
                                    //********* FUNCTIONS ***************
     

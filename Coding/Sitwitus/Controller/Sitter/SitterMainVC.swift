@@ -18,6 +18,9 @@ class SitterMainVC: UIViewController {
 
 
                                    //******** VARIABLES *************
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
      var mapView : GMSMapView?
      var tappedMarker = GMSMarker()
      

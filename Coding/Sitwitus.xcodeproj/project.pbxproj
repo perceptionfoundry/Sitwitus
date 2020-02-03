@@ -50,6 +50,14 @@
 		F2EBBE2D23E0607700E931D1 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */; };
 		F2EBBE2E23E0607700E931D1 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */; };
 		F2EBBE2F23E0607700E931D1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */; };
+		F2ED97AB23E7FAEE0048C782 /* SenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97A923E7FAEE0048C782 /* SenderTableViewCell.swift */; };
+		F2ED97AC23E7FAEE0048C782 /* SenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ED97AA23E7FAEE0048C782 /* SenderTableViewCell.xib */; };
+		F2ED97B123E7FF0D0048C782 /* RecieverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97AF23E7FF0D0048C782 /* RecieverTableViewCell.swift */; };
+		F2ED97B223E7FF0D0048C782 /* RecieverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ED97B023E7FF0D0048C782 /* RecieverTableViewCell.xib */; };
+		F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97B423E800B80048C782 /* TImeTableViewCell.swift */; };
+		F2ED97B723E800B80048C782 /* TImeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ED97B523E800B80048C782 /* TImeTableViewCell.xib */; };
+		F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97B823E802810048C782 /* SitterMessageVC.swift */; };
+		F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97BA23E809C10048C782 /* SignInVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +108,14 @@
 		F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		F2ED97A923E7FAEE0048C782 /* SenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderTableViewCell.swift; sourceTree = "<group>"; };
+		F2ED97AA23E7FAEE0048C782 /* SenderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderTableViewCell.xib; sourceTree = "<group>"; };
+		F2ED97AF23E7FF0D0048C782 /* RecieverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieverTableViewCell.swift; sourceTree = "<group>"; };
+		F2ED97B023E7FF0D0048C782 /* RecieverTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecieverTableViewCell.xib; sourceTree = "<group>"; };
+		F2ED97B423E800B80048C782 /* TImeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeTableViewCell.swift; sourceTree = "<group>"; };
+		F2ED97B523E800B80048C782 /* TImeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TImeTableViewCell.xib; sourceTree = "<group>"; };
+		F2ED97B823E802810048C782 /* SitterMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMessageVC.swift; sourceTree = "<group>"; };
+		F2ED97BA23E809C10048C782 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +152,7 @@
 			children = (
 				F20C1A4723E3293400F058F8 /* MapMarkerView.swift */,
 				F20C1A4923E3295100F058F8 /* MapMarkerView.xib */,
+				F2ED97B323E800900048C782 /* Message */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,11 +229,13 @@
 		F2C0D5E923E015C800DCF976 /* Sitter */ = {
 			isa = PBXGroup;
 			children = (
+				F2ED97BA23E809C10048C782 /* SignInVC.swift */,
 				F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */,
 				F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */,
 				F240267223E415050066A027 /* SitterPendingVC.swift */,
 				F240267423E418860066A027 /* SitterSideMenuVC.swift */,
 				F240267623E41DA80066A027 /* SitterInboxVC.swift */,
+				F2ED97B823E802810048C782 /* SitterMessageVC.swift */,
 			);
 			path = Sitter;
 			sourceTree = "<group>";
@@ -262,6 +281,19 @@
 				F2CCE2FF23DFF589009B385E /* Info.plist */,
 			);
 			path = Sitwitus;
+			sourceTree = "<group>";
+		};
+		F2ED97B323E800900048C782 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F2ED97A923E7FAEE0048C782 /* SenderTableViewCell.swift */,
+				F2ED97AA23E7FAEE0048C782 /* SenderTableViewCell.xib */,
+				F2ED97AF23E7FF0D0048C782 /* RecieverTableViewCell.swift */,
+				F2ED97B023E7FF0D0048C782 /* RecieverTableViewCell.xib */,
+				F2ED97B423E800B80048C782 /* TImeTableViewCell.swift */,
+				F2ED97B523E800B80048C782 /* TImeTableViewCell.xib */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +365,13 @@
 				F2C0D5E423E011BC00DCF976 /* Parent.storyboard in Resources */,
 				F2EBBE2323E0607700E931D1 /* Poppins-Regular.ttf in Resources */,
 				F2EBBE2E23E0607700E931D1 /* Poppins-Light.ttf in Resources */,
+				F2ED97B723E800B80048C782 /* TImeTableViewCell.xib in Resources */,
 				F2EBBE2923E0607700E931D1 /* Poppins-MediumItalic.ttf in Resources */,
 				F2EBBE2023E0607700E931D1 /* Poppins-Thin.ttf in Resources */,
+				F2ED97AC23E7FAEE0048C782 /* SenderTableViewCell.xib in Resources */,
 				F2EBBE2523E0607700E931D1 /* Poppins-ThinItalic.ttf in Resources */,
 				F2C0D5E223E011AB00DCF976 /* Sitter.storyboard in Resources */,
+				F2ED97B223E7FF0D0048C782 /* RecieverTableViewCell.xib in Resources */,
 				F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */,
 				F2EBBE1D23E0607700E931D1 /* Poppins-Medium.ttf in Resources */,
 				F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */,
@@ -423,17 +458,22 @@
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
+				F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */,
 				F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */,
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
+				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
 				F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */,
 				F240267323E415050066A027 /* SitterPendingVC.swift in Sources */,
+				F2ED97AB23E7FAEE0048C782 /* SenderTableViewCell.swift in Sources */,
+				F2ED97B123E7FF0D0048C782 /* RecieverTableViewCell.swift in Sources */,
 				F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */,
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
+				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
 			);

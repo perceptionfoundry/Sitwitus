@@ -16,7 +16,9 @@ class SitterInboxVC: UIViewController {
      @IBOutlet weak var inboxTable : UITableView!
 
                                    //******** VARIABLES *************
-
+     override var preferredStatusBarStyle: UIStatusBarStyle {
+         return .lightContent
+     }
                                    
                                    //********* FUNCTIONS ***************
     
@@ -67,5 +69,10 @@ extension SitterInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
           return 120
+     }
+     
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          
+          performSegue(withIdentifier: "Message_Segue", sender: nil)
      }
 }

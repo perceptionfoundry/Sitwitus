@@ -19,7 +19,9 @@ class SitterSignUpVC: UIViewController {
 
 
                                    //******** VARIABLES *************
-
+     override var preferredStatusBarStyle: UIStatusBarStyle {
+         return .lightContent
+     }
                                    
                                    //********* FUNCTIONS ***************
     
