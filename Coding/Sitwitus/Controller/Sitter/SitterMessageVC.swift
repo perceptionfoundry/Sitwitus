@@ -15,6 +15,7 @@ class SitterMessageVC: UIViewController
                                     //******** OUTLETS ***************
 
      @IBOutlet weak var messageTable: UITableView!
+      @IBOutlet weak var messageTF: UITextField!
 
                                    //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
