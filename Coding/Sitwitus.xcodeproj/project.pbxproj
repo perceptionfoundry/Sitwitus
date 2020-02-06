@@ -14,6 +14,9 @@
 		F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */; };
 		F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */; };
 		F2206D6C23EBF75200CCE6D4 /* PendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */; };
+		F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */; };
+		F2206D7023EC019800CCE6D4 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */; };
+		F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */; };
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
 		F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267623E41DA80066A027 /* SitterInboxVC.swift */; };
@@ -73,6 +76,9 @@
 		F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterProfileVC.swift; sourceTree = "<group>"; };
 		F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterAddSKillVC.swift; sourceTree = "<group>"; };
 		F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTableViewCell.swift; sourceTree = "<group>"; };
+		F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
+		F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterFaqVC.swift; sourceTree = "<group>"; };
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
 		F240267623E41DA80066A027 /* SitterInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterInboxVC.swift; sourceTree = "<group>"; };
@@ -163,6 +169,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F2206D7123EC01AB00CCE6D4 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */,
+				F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */,
+				F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		F2C0D5B823DFFCD100DCF976 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +260,8 @@
 				F2ED97B823E802810048C782 /* SitterMessageVC.swift */,
 				F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */,
 				F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */,
-				F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */,
+				F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */,
+				F2206D7123EC01AB00CCE6D4 /* TableView */,
 			);
 			path = Sitter;
 			sourceTree = "<group>";
@@ -378,6 +395,7 @@
 				F2EBBE2923E0607700E931D1 /* Poppins-MediumItalic.ttf in Resources */,
 				F2EBBE2023E0607700E931D1 /* Poppins-Thin.ttf in Resources */,
 				F2ED97AC23E7FAEE0048C782 /* SenderTableViewCell.xib in Resources */,
+				F2206D7023EC019800CCE6D4 /* FAQTableViewCell.xib in Resources */,
 				F2EBBE2523E0607700E931D1 /* Poppins-ThinItalic.ttf in Resources */,
 				F2C0D5E223E011AB00DCF976 /* Sitter.storyboard in Resources */,
 				F2ED97B223E7FF0D0048C782 /* RecieverTableViewCell.xib in Resources */,
@@ -463,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */,
 				F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */,
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
@@ -485,6 +504,7 @@
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
+				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
