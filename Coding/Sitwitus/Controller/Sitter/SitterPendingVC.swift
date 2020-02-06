@@ -19,7 +19,10 @@ class SitterPendingVC: UIViewController {
      override var preferredStatusBarStyle: UIStatusBarStyle {
          return .lightContent
      }
-                                   
+        
+     var selectedIndex = -1
+     var rejectRequest = [Int]()
+     var acceptedRequest = [Int]()
                                    //********* FUNCTIONS ***************
     
     
@@ -39,6 +42,37 @@ class SitterPendingVC: UIViewController {
      pendingTable.reloadData()
     }
 
+     
+     @objc func requestButtonAction (button : UIButton){
+          
+          self.selectedIndex = button.tag
+          
+          let alertVC = UIAlertController(title: "Request Action", message: "Choose your desire action", preferredStyle: .actionSheet)
+          
+          let Accept = UIAlertAction(title: "Accept", style: .default) { (action) in
+               self.acceptedRequest.append(self.selectedIndex)
+               self.pendingTable.reloadData()
+          }
+          
+          let reject = UIAlertAction(title: "Reject", style: .destructive) { (action) in
+               self.rejectRequest.append(self.selectedIndex)
+               self.pendingTable.reloadData()
+          }
+          
+          
+          let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+          
+          alertVC.addAction(Accept)
+          alertVC.addAction(reject)
+          alertVC.addAction(cancel)
+          
+          self.present(alertVC, animated: true, completion: nil)
+          
+     }
+     
+     @objc func messageButtonAction (button : UIButton){
+              print("Message")
+         }
 
 
                                     //*************** OUTLET ACTION ******************
@@ -62,9 +96,31 @@ extension SitterPendingVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           
-          let cell = tableView.dequeueReusableCell(withIdentifier: "PENDING", for: indexPath)
+          let cell = tableView.dequeueReusableCell(withIdentifier: "PENDING", for: indexPath) as! PendingTableViewCell
           
+          if rejectRequest.contains(indexPath.row){
+               cell.pendingButton.backgroundColor = .red
+               cell.pendingButton.setTitle("Rejected", for: .normal)
+
+          }
+          
+          if acceptedRequest.contains(indexPath.row){
+               cell.pendingButton.setTitle("Accepted", for: .normal)
+          }
+         
+          cell.pendingButton.tag = indexPath.row
+          cell.pendingButton.addTarget(self, action: #selector(requestButtonAction), for: .touchUpInside)
+          
+          cell.messageButton.tag = indexPath.row
+
           return cell
+     }
+     
+     
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          
+   
+          
      }
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
