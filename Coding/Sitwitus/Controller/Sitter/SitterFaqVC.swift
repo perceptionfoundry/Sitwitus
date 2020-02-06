@@ -17,7 +17,7 @@ class SitterFaqVC: UIViewController {
 
                                    //******** VARIABLES *************
  var selectIndex = -1
-     var cellHeight = 80.0
+     var cellHeight: CGFloat = 80.0
                                    
                                    //********* FUNCTIONS ***************
     
@@ -44,6 +44,17 @@ class SitterFaqVC: UIViewController {
     }
 
 
+     
+     
+      func heightForView(text:String, width:CGFloat) -> CGFloat{
+          let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+         label.numberOfLines = 0
+         label.lineBreakMode = NSLineBreakMode.byWordWrapping
+         label.text = text
+
+         label.sizeToFit()
+         return label.frame.height
+     }
 
                                     //*************** OUTLET ACTION ******************
 
@@ -74,9 +85,12 @@ extension SitterFaqVC: UITableViewDelegate, UITableViewDataSource{
                
                cell.answerView.isHidden = false
 
-         
-               self.cellHeight  = Double(cell.answerText.bounds.size.height)
-               print(self.cellHeight)
+               let test = cell.answerText.text!
+               
+               let checkHeight = heightForView(text: test, width: cell.answerView.frame.width)
+               self.cellHeight = checkHeight
+               
+//               cell.answerView.frame.size.height = checkHeight
                
           }
           return cell
@@ -103,7 +117,15 @@ extension SitterFaqVC: UITableViewDelegate, UITableViewDataSource{
 
           if self.selectIndex == indexPath.row{
                
-               return CGFloat(self.cellHeight + 80)
+               
+//               if cellHeight < 80 {
+//                    return CGFloat(self.cellHeight + 100)
+//
+//               }
+//               else{
+                    return CGFloat(self.cellHeight + 100)
+
+//               }
                
          
           }
