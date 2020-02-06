@@ -7,12 +7,14 @@ PODS:
   - HCSStarRatingView (1.5)
   - IQKeyboardManagerSwift (6.5.4)
   - LocationPickerViewController (3.4)
+  - TagListView (1.4.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - HCSStarRatingView
   - IQKeyboardManagerSwift
   - LocationPickerViewController
+  - TagListView
 
 SPEC REPOS:
   trunk:
@@ -20,13 +22,15 @@ SPEC REPOS:
     - HCSStarRatingView
     - IQKeyboardManagerSwift
     - LocationPickerViewController
+    - TagListView
 
 SPEC CHECKSUMS:
   GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
   HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: ad7749b3cb6bcbcd2996219949eaac75db2d315b
+PODFILE CHECKSUM: 3e614772fbebe9caba7ed40565e87fbf4f26e2aa
 
 COCOAPODS: 1.8.3

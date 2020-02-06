@@ -15,4 +15,6 @@ pod 'GoogleMaps'
 
 pod 'HCSStarRatingView'
 
+pod 'TagListView'
+
 end

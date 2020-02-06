@@ -16,9 +16,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="S6F-0O-sDK">
-                                <rect key="frame" x="39" y="341" width="336" height="179"/>
+                                <rect key="frame" x="65" y="366.5" width="284" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="S6F-0O-sDK" secondAttribute="height" multiplier="15:8" id="2tY-aK-6tw"/>
+                                    <constraint firstAttribute="width" secondItem="S6F-0O-sDK" secondAttribute="height" multiplier="20:9" id="2tY-aK-6tw"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstItem="S6F-0O-sDK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Age-VI-7B0"/>
                             <constraint firstItem="S6F-0O-sDK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.95" id="PBz-fR-QND"/>
-                            <constraint firstItem="S6F-0O-sDK" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.2" id="nD0-hG-KTU"/>
+                            <constraint firstItem="S6F-0O-sDK" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.142857" id="nD0-hG-KTU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="512" height="512"/>
+        <image name="logo" width="689" height="218"/>
     </resources>
 </document>

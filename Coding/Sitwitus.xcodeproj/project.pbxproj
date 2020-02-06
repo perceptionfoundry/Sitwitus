@@ -11,6 +11,8 @@
 		F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C1A4723E3293400F058F8 /* MapMarkerView.swift */; };
 		F20C1A4A23E3295100F058F8 /* MapMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20C1A4923E3295100F058F8 /* MapMarkerView.xib */; };
 		F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */; };
+		F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */; };
+		F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */; };
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
 		F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267623E41DA80066A027 /* SitterInboxVC.swift */; };
@@ -67,6 +69,8 @@
 		F20C1A4723E3293400F058F8 /* MapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerView.swift; sourceTree = "<group>"; };
 		F20C1A4923E3295100F058F8 /* MapMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerView.xib; sourceTree = "<group>"; };
 		F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSignUpVC.swift; sourceTree = "<group>"; };
+		F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterProfileVC.swift; sourceTree = "<group>"; };
+		F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterAddSKillVC.swift; sourceTree = "<group>"; };
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
 		F240267623E41DA80066A027 /* SitterInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterInboxVC.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				F240267423E418860066A027 /* SitterSideMenuVC.swift */,
 				F240267623E41DA80066A027 /* SitterInboxVC.swift */,
 				F2ED97B823E802810048C782 /* SitterMessageVC.swift */,
+				F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */,
+				F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */,
 			);
 			path = Sitter;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
+				F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */,
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
@@ -474,6 +481,7 @@
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
+				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
 			);
