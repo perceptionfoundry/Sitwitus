@@ -25,6 +25,7 @@
 		F291145123F150D700D16BB1 /* ParentMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145023F150D700D16BB1 /* ParentMainVC.swift */; };
 		F291145323F1524500D16BB1 /* ParentInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145223F1524500D16BB1 /* ParentInboxVC.swift */; };
 		F291145523F1528000D16BB1 /* ParentMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145423F1528000D16BB1 /* ParentMessageVC.swift */; };
+		F291145723F16CC500D16BB1 /* ParentFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145623F16CC500D16BB1 /* ParentFaqVC.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -94,6 +95,7 @@
 		F291145023F150D700D16BB1 /* ParentMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMainVC.swift; sourceTree = "<group>"; };
 		F291145223F1524500D16BB1 /* ParentInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentInboxVC.swift; sourceTree = "<group>"; };
 		F291145423F1528000D16BB1 /* ParentMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMessageVC.swift; sourceTree = "<group>"; };
+		F291145623F16CC500D16BB1 /* ParentFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFaqVC.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				F291145023F150D700D16BB1 /* ParentMainVC.swift */,
 				F291145223F1524500D16BB1 /* ParentInboxVC.swift */,
 				F291145423F1528000D16BB1 /* ParentMessageVC.swift */,
+				F291145623F16CC500D16BB1 /* ParentFaqVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */,
 				F2EC5F8A23F144F2007F62DA /* ParentSignUpVC.swift in Sources */,
 				F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */,
+				F291145723F16CC500D16BB1 /* ParentFaqVC.swift in Sources */,
 				F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */,
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F291145323F1524500D16BB1 /* ParentInboxVC.swift in Sources */,

@@ -1,14 +1,14 @@
 //
-//  SitterFaqVC.swift
+//  ParentFaqVC.swift
 //  Sitwitus
 //
-//  Created by Syed ShahRukh Haider on 06/02/2020.
+//  Created by Syed ShahRukh Haider on 10/02/2020.
 //  Copyright © 2020 Syed ShahRukh Haider. All rights reserved.
 //
 
 import UIKit
 
-class SitterFaqVC: UIViewController {
+class ParentFaqVC: UIViewController {
 
 
                                     //******** OUTLETS ***************
@@ -59,10 +59,8 @@ class SitterFaqVC: UIViewController {
                                     //*************** OUTLET ACTION ******************
 
          @IBAction func backButton(){
-          
-          self.navigationController?.popViewController(animated: true)
-          
-     }
+               self.navigationController?.popViewController(animated: true)
+          }
 
 }
 
@@ -71,7 +69,7 @@ class SitterFaqVC: UIViewController {
 
                                       //*************** EXTENSION ******************
 
-extension SitterFaqVC: UITableViewDelegate, UITableViewDataSource{
+extension ParentFaqVC: UITableViewDelegate, UITableViewDataSource{
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           return 3
      }
