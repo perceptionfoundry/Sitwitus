@@ -38,7 +38,10 @@ class SignInVC: UIViewController {
 
 
                                     //*************** OUTLET ACTION ******************
-
+     @IBAction func backButtonAction(){
+          
+          self.navigationController?.popViewController(animated: true)
+     }
 
 }
 

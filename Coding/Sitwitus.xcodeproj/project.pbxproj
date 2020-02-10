@@ -37,6 +37,7 @@
 		F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F523DFF588009B385E /* InitialController.swift */; };
 		F2CCE2F923DFF588009B385E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2F723DFF588009B385E /* Main.storyboard */; };
 		F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */; };
+		F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */; };
 		F2EBBE1D23E0607700E931D1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */; };
 		F2EBBE1E23E0607700E931D1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0B23E0607500E931D1 /* OFL.txt */; };
 		F2EBBE1F23E0607700E931D1 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0C23E0607500E931D1 /* Poppins-ExtraBoldItalic.ttf */; };
@@ -56,6 +57,8 @@
 		F2EBBE2D23E0607700E931D1 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */; };
 		F2EBBE2E23E0607700E931D1 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */; };
 		F2EBBE2F23E0607700E931D1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */; };
+		F2EC5F8A23F144F2007F62DA /* ParentSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC5F8923F144F2007F62DA /* ParentSignUpVC.swift */; };
+		F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC5F8B23F14658007F62DA /* ParentSignUpReasonVC.swift */; };
 		F2ED97AB23E7FAEE0048C782 /* SenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97A923E7FAEE0048C782 /* SenderTableViewCell.swift */; };
 		F2ED97AC23E7FAEE0048C782 /* SenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ED97AA23E7FAEE0048C782 /* SenderTableViewCell.xib */; };
 		F2ED97B123E7FF0D0048C782 /* RecieverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97AF23E7FF0D0048C782 /* RecieverTableViewCell.swift */; };
@@ -101,6 +104,7 @@
 		F2CCE2F823DFF588009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2CCE2FD23DFF589009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2CCE2FF23DFF589009B385E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignInVC.swift; sourceTree = "<group>"; };
 		F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		F2EBBE0B23E0607500E931D1 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		F2EBBE0C23E0607500E931D1 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		F2EC5F8923F144F2007F62DA /* ParentSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignUpVC.swift; sourceTree = "<group>"; };
+		F2EC5F8B23F14658007F62DA /* ParentSignUpReasonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignUpReasonVC.swift; sourceTree = "<group>"; };
 		F2ED97A923E7FAEE0048C782 /* SenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderTableViewCell.swift; sourceTree = "<group>"; };
 		F2ED97AA23E7FAEE0048C782 /* SenderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderTableViewCell.xib; sourceTree = "<group>"; };
 		F2ED97AF23E7FF0D0048C782 /* RecieverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieverTableViewCell.swift; sourceTree = "<group>"; };
@@ -162,8 +168,8 @@
 		F20C1A4423E328A200F058F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F20C1A4723E3293400F058F8 /* MapMarkerView.swift */,
-				F20C1A4923E3295100F058F8 /* MapMarkerView.xib */,
+				F2E1A21B23F12C81007AED5C /* FAQ */,
+				F2E1A21C23F12CB3007AED5C /* MapMarker */,
 				F2ED97B323E800900048C782 /* Message */,
 			);
 			path = View;
@@ -173,8 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */,
-				F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */,
-				F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -269,6 +273,9 @@
 		F2C0D5EA23E015D300DCF976 /* Parent */ = {
 			isa = PBXGroup;
 			children = (
+				F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */,
+				F2EC5F8923F144F2007F62DA /* ParentSignUpVC.swift */,
+				F2EC5F8B23F14658007F62DA /* ParentSignUpReasonVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -307,6 +314,24 @@
 				F2CCE2FF23DFF589009B385E /* Info.plist */,
 			);
 			path = Sitwitus;
+			sourceTree = "<group>";
+		};
+		F2E1A21B23F12C81007AED5C /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */,
+				F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
+		F2E1A21C23F12CB3007AED5C /* MapMarker */ = {
+			isa = PBXGroup;
+			children = (
+				F20C1A4723E3293400F058F8 /* MapMarkerView.swift */,
+				F20C1A4923E3295100F058F8 /* MapMarkerView.xib */,
+			);
+			path = MapMarker;
 			sourceTree = "<group>";
 		};
 		F2ED97B323E800900048C782 /* Message */ = {
@@ -487,6 +512,8 @@
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
 				F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */,
+				F2EC5F8A23F144F2007F62DA /* ParentSignUpVC.swift in Sources */,
+				F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */,
 				F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */,
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
@@ -495,6 +522,7 @@
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2206D6C23EBF75200CCE6D4 /* PendingTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
+				F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
 				F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */,
 				F240267323E415050066A027 /* SitterPendingVC.swift in Sources */,

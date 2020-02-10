@@ -10,17 +10,64 @@ import UIKit
 
 class UserSelectorVC: UIViewController {
 
+   
+                                     //******** OUTLETS ***************
+
+
+
+                                 //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
-         return .lightContent
+            return .lightContent
+        }
+               
+     var mode = "Sitter_Segue"
+                                 //********* FUNCTIONS ***************
+         
+         
+     //******* VIEW FUNCTIONS
+
+      override func viewDidLoad() {
+             super.viewDidLoad()
+
+             
+         }
+
+       override func viewWillAppear(_ animated: Bool) {
+             super.viewWillAppear(animated)
+         }
+
+
+
+                                  //*************** OUTLET ACTION ******************
+     @IBAction func selectorSwitchAction(_ segment_Switch: Custom_Segment){
+          
+          let index = segment_Switch.selectedSegmentIndex
+          
+          
+          if index == 0{
+             
+               self.mode = "Sitter_Segue"
+          }
+          else{
+               self.mode = "Parent_Segue"
+
+
+          }
+          
+          print(self.mode)
+          
+     }
+
+     
+     
+     @IBAction func continueButtonAction(){
+          self.performSegue(withIdentifier: self.mode, sender: nil)
      }
      
-    override func viewDidLoad() {
-        super.viewDidLoad()
+     
+     }
 
-        // Do any additional setup after loading the view.
-    }
-    
 
-   
 
-}
+
+                                 //*************** EXTENSION ******************

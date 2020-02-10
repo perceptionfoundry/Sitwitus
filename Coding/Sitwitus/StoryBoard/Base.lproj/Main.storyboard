@@ -141,6 +141,9 @@
                                                 <real key="value" value="28"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectorSwitchAction:" destination="Ew3-UG-XdL" eventType="valueChanged" id="eHR-W8-0K8"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -185,7 +188,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="8jR-SE-WG5" kind="show" id="b7N-bc-pqK"/>
+                                    <action selector="continueButtonAction" destination="Ew3-UG-XdL" eventType="touchUpInside" id="asc-gF-MtE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -207,6 +210,10 @@
                         <viewLayoutGuide key="safeArea" id="frz-5X-Uj6"/>
                     </view>
                     <navigationItem key="navigationItem" id="EIT-JG-2TJ"/>
+                    <connections>
+                        <segue destination="8jR-SE-WG5" kind="show" identifier="Sitter_Segue" id="yrm-ja-Suj"/>
+                        <segue destination="mPz-I4-qqQ" kind="show" identifier="Parent_Segue" id="5Z3-og-uVs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7a-py-0sX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,7 +227,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow9-hp-A0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="201"/>
+            <point key="canvasLocation" x="2739" y="10"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ESG-BU-6xy">
@@ -239,6 +246,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kqb-Zk-vy9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--Parent-->
+        <scene sceneID="yoW-XY-BNF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Parent" id="mPz-I4-qqQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hbJ-TH-BNV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ok-5y-fFr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="211"/>
         </scene>
     </scenes>
     <resources>
