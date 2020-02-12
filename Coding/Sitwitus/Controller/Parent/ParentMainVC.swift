@@ -72,6 +72,10 @@ class ParentMainVC: UIViewController {
           
      }
 
+     
+     @objc func BookingAction(){
+          performSegue(withIdentifier: "Booking_Segue", sender: nil)
+     }
                                     //*************** OUTLET ACTION ******************
 
 
@@ -97,7 +101,7 @@ extension ParentMainVC: GMSMapViewDelegate{
           infoWindow = SitterMainVC.instanceFromNib()
           infoWindow.personName.text = "shahrukh"
           infoWindow.personAddress.text = "Karachi"
-//          infoWindow.bookButton.addTarget(Any?, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+          infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
           infoWindow.center = mapView.projection.point(for: location)
           infoWindow.center.y = infoWindow.center.y + 360
           infoWindow.center.x = infoWindow.center.x + 10

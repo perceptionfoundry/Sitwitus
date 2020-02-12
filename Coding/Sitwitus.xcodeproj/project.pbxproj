@@ -17,10 +17,13 @@
 		F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */; };
 		F2206D7023EC019800CCE6D4 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */; };
 		F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */; };
+		F235B56023F3D331000BB61D /* ParentBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B55F23F3D331000BB61D /* ParentBookingVC.swift */; };
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
 		F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267623E41DA80066A027 /* SitterInboxVC.swift */; };
 		F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */; };
+		F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32C923F3DC0800431708 /* ParentPendingVC.swift */; };
+		F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */; };
 		F291144F23F1507200D16BB1 /* ParentSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291144E23F1507200D16BB1 /* ParentSideMenuVC.swift */; };
 		F291145123F150D700D16BB1 /* ParentMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145023F150D700D16BB1 /* ParentMainVC.swift */; };
 		F291145323F1524500D16BB1 /* ParentInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145223F1524500D16BB1 /* ParentInboxVC.swift */; };
@@ -87,10 +90,13 @@
 		F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterFaqVC.swift; sourceTree = "<group>"; };
+		F235B55F23F3D331000BB61D /* ParentBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingVC.swift; sourceTree = "<group>"; };
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
 		F240267623E41DA80066A027 /* SitterInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterInboxVC.swift; sourceTree = "<group>"; };
 		F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMainVC.swift; sourceTree = "<group>"; };
+		F27A32C923F3DC0800431708 /* ParentPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingVC.swift; sourceTree = "<group>"; };
+		F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingTableViewCell.swift; sourceTree = "<group>"; };
 		F291144E23F1507200D16BB1 /* ParentSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSideMenuVC.swift; sourceTree = "<group>"; };
 		F291145023F150D700D16BB1 /* ParentMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMainVC.swift; sourceTree = "<group>"; };
 		F291145223F1524500D16BB1 /* ParentInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentInboxVC.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */,
+				F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -291,6 +298,8 @@
 				F291145223F1524500D16BB1 /* ParentInboxVC.swift */,
 				F291145423F1528000D16BB1 /* ParentMessageVC.swift */,
 				F291145623F16CC500D16BB1 /* ParentFaqVC.swift */,
+				F235B55F23F3D331000BB61D /* ParentBookingVC.swift */,
+				F27A32C923F3DC0800431708 /* ParentPendingVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -534,6 +543,7 @@
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F291145323F1524500D16BB1 /* ParentInboxVC.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
+				F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
 				F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */,
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
@@ -541,6 +551,7 @@
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
+				F235B56023F3D331000BB61D /* ParentBookingVC.swift in Sources */,
 				F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */,
 				F240267323E415050066A027 /* SitterPendingVC.swift in Sources */,
 				F2ED97AB23E7FAEE0048C782 /* SenderTableViewCell.swift in Sources */,
@@ -549,6 +560,7 @@
 				F2ED97B123E7FF0D0048C782 /* RecieverTableViewCell.swift in Sources */,
 				F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */,
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
+				F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
