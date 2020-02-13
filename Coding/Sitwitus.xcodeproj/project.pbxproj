@@ -30,6 +30,7 @@
 		F291145523F1528000D16BB1 /* ParentMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145423F1528000D16BB1 /* ParentMessageVC.swift */; };
 		F291145723F16CC500D16BB1 /* ParentFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F291145623F16CC500D16BB1 /* ParentFaqVC.swift */; };
 		F293869C23F5168000710155 /* ParentPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869B23F5168000710155 /* ParentPaymentVC.swift */; };
+		F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869D23F52F6100710155 /* ParentProfileVC.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -104,6 +105,7 @@
 		F291145423F1528000D16BB1 /* ParentMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMessageVC.swift; sourceTree = "<group>"; };
 		F291145623F16CC500D16BB1 /* ParentFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentFaqVC.swift; sourceTree = "<group>"; };
 		F293869B23F5168000710155 /* ParentPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPaymentVC.swift; sourceTree = "<group>"; };
+		F293869D23F52F6100710155 /* ParentProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentProfileVC.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				F235B55F23F3D331000BB61D /* ParentBookingVC.swift */,
 				F27A32C923F3DC0800431708 /* ParentPendingVC.swift */,
 				F293869B23F5168000710155 /* ParentPaymentVC.swift */,
+				F293869D23F52F6100710155 /* ParentProfileVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
+				F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */,
 				F291144F23F1507200D16BB1 /* ParentSideMenuVC.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
