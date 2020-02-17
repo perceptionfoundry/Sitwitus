@@ -61,7 +61,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_image" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-Ig-6OL" customClass="Custom_ImageView" customModule="Sitwitus" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_image" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-Ig-6OL" customClass="Custom_ImageView" customModule="Sitwitus" customModuleProvider="target">
                                         <rect key="frame" x="157" y="56" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="eRe-qz-Aez"/>
@@ -149,7 +149,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ar-Q5-Ezd">
                                                         <rect key="frame" x="30" y="130" width="354" height="21"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvi-VX-PaM">
                                                         <rect key="frame" x="30" y="161" width="354" height="1"/>
@@ -203,7 +203,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ddo-du-1DJ">
                                                         <rect key="frame" x="30" y="395.5" width="354" height="21"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOF-L4-EKJ">
                                                         <rect key="frame" x="30" y="457.5" width="54.5" height="16.5"/>
@@ -247,6 +247,9 @@
                                                                 <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="addVideoButtonAction:" destination="V3d-5O-Xxd" eventType="touchUpInside" id="f0P-5M-Ys3"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No longer than a minute and 30 seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-N7-qkJ">
                                                         <rect key="frame" x="107" y="707.5" width="200" height="13"/>
@@ -266,6 +269,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="signUpButtonAction:" destination="V3d-5O-Xxd" eventType="touchUpInside" id="3Hw-St-aec"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-q0-xo4">
                                                         <rect key="frame" x="30" y="546" width="29.5" height="16.5"/>
@@ -276,7 +282,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$20 - $30 /hr" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJT-LX-sE6">
                                                         <rect key="frame" x="30" y="572.5" width="354" height="21"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-R7-pab">
                                                         <rect key="frame" x="30" y="603.5" width="354" height="1"/>
@@ -292,6 +298,10 @@
                                                             <constraint firstAttribute="width" secondItem="VTC-OJ-FHg" secondAttribute="height" multiplier="1:1" id="w0p-cK-LJr"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uGf-O7-GGT">
+                                                        <rect key="frame" x="280" y="755.5" width="20" height="20"/>
+                                                        <color key="color" red="0.89029580350000004" green="0.89403325320000004" blue="0.89804166559999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.97279661890000002" green="0.98422712089999997" blue="0.98823839430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -322,6 +332,7 @@
                                                     <constraint firstItem="opa-nd-ktm" firstAttribute="top" secondItem="Zvi-VX-PaM" secondAttribute="bottom" constant="30" id="Kk6-Dg-UjA"/>
                                                     <constraint firstItem="zav-pG-MRh" firstAttribute="leading" secondItem="7lj-gl-5X8" secondAttribute="leading" id="Lgf-Ak-wId"/>
                                                     <constraint firstItem="HaG-bD-Vzk" firstAttribute="width" secondItem="0ar-Q5-Ezd" secondAttribute="width" id="N3k-gX-cK6"/>
+                                                    <constraint firstItem="uGf-O7-GGT" firstAttribute="centerY" secondItem="ee4-jM-fhU" secondAttribute="centerY" id="Or2-cT-oaN"/>
                                                     <constraint firstItem="5An-Bk-gH4" firstAttribute="width" secondItem="HaG-bD-Vzk" secondAttribute="width" id="Pog-og-SrR"/>
                                                     <constraint firstItem="Dm5-Xo-ifz" firstAttribute="width" secondItem="q8k-a4-bDg" secondAttribute="width" id="QTy-mK-N27"/>
                                                     <constraint firstItem="wnj-QV-aXe" firstAttribute="leading" secondItem="jOF-L4-EKJ" secondAttribute="leading" id="Qdb-4d-7oo"/>
@@ -352,6 +363,7 @@
                                                     <constraint firstItem="0ar-Q5-Ezd" firstAttribute="top" secondItem="Tsu-Vi-ZbG" secondAttribute="bottom" constant="10" id="lW6-ZJ-8s5"/>
                                                     <constraint firstItem="Dm5-Xo-ifz" firstAttribute="centerX" secondItem="q8k-a4-bDg" secondAttribute="centerX" id="oCM-Ym-UUl"/>
                                                     <constraint firstItem="7lj-gl-5X8" firstAttribute="width" secondItem="HaG-bD-Vzk" secondAttribute="width" id="ouL-co-8u6"/>
+                                                    <constraint firstItem="uGf-O7-GGT" firstAttribute="centerX" secondItem="ee4-jM-fhU" secondAttribute="centerX" multiplier="1.4" id="qWn-5z-ffd"/>
                                                     <constraint firstItem="0ar-Q5-Ezd" firstAttribute="leading" secondItem="Tsu-Vi-ZbG" secondAttribute="leading" id="sh6-Ab-ofa"/>
                                                     <constraint firstItem="Zvi-VX-PaM" firstAttribute="top" secondItem="0ar-Q5-Ezd" secondAttribute="bottom" constant="10" id="t4Q-ot-NAL"/>
                                                     <constraint firstItem="EQD-R7-pab" firstAttribute="leading" secondItem="WJT-LX-sE6" secondAttribute="leading" id="u7A-vk-kBc"/>
@@ -401,6 +413,15 @@
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="LocationTF" destination="wnj-QV-aXe" id="zTo-gR-hqL"/>
+                        <outlet property="activity" destination="uGf-O7-GGT" id="W7r-2y-ac9"/>
+                        <outlet property="emailTF" destination="0ar-Q5-Ezd" id="H2O-va-NTX"/>
+                        <outlet property="genderTF" destination="7lj-gl-5X8" id="xqq-bQ-SDi"/>
+                        <outlet property="mobileTF" destination="ddo-du-1DJ" id="Pb5-CG-6pR"/>
+                        <outlet property="nameTF" destination="q8k-a4-bDg" id="S9T-2A-mzG"/>
+                        <outlet property="passwordTF" destination="HaG-bD-Vzk" id="fCb-Bp-OeZ"/>
+                        <outlet property="rateTF" destination="WJT-LX-sE6" id="VsY-GO-Wrm"/>
+                        <outlet property="signUpButton" destination="ee4-jM-fhU" id="9fG-lI-LcS"/>
+                        <outlet property="sitterImage" destination="MSR-Ig-6OL" id="qGy-Ev-rbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hp-Ki-TOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

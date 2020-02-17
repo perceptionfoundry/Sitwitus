@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import GoogleMaps
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      
      GMSServices.provideAPIKey(googleAPIkey)
+     
+     FirebaseApp.configure()
      
         return true
     }
