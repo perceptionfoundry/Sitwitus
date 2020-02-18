@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+
 
 class SignInVC: UIViewController {
 
 
                                     //******** OUTLETS ***************
-
+     @IBOutlet weak var emailTF: UITextField!
+     @IBOutlet weak var passwordTF: UITextField!
 
 
                                    //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
            return .lightContent
        }
-                                   
+         
+     var alert = AlertWindow()
                                    //********* FUNCTIONS ***************
     
     
@@ -38,9 +43,61 @@ class SignInVC: UIViewController {
 
 
                                     //*************** OUTLET ACTION ******************
+     
+     //****** BACK
      @IBAction func backButtonAction(){
           
           self.navigationController?.popViewController(animated: true)
+     }
+     
+     //******  LOGIN
+     @IBAction func loginButtonAction(){
+          
+          
+
+//
+//
+          //******* CHECK TEXTFIELD
+          if emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false{
+
+               Auth.auth().signIn(withEmail: emailTF.text!, password: passwordTF.text!) { (authResult, authErr) in
+                    
+                    if authErr == nil{
+                         
+                        
+                         
+                         let dbRef = Firestore.firestore()
+                         
+                         dbRef.collection("Users").document((authResult?.user.uid)!).getDocument { (docSnap, docErr) in
+                              
+                              guard let fetchData = docSnap?.data() else{return}
+                        
+                              UserDefaults.standard.set(fetchData, forKey: "SIGN_DETAIL")
+                              UserDefaults.standard.set(true, forKey: "SIGNIN")
+                              self.performSegue(withIdentifier: "Login_Segue", sender: nil)
+                         }
+                         
+                     
+                         
+                         
+//
+                    }
+                    else{
+                         self.alert.simple_Window(Title: "Auth Error", Message: (authErr?.localizedDescription)!, View: self)
+                    }
+               }
+
+
+          }else{
+
+               alert.simple_Window(Title: "TEXTFIELD EMPTY!", Message: "Please assure all required textfield is filled", View: self)
+
+          }
+          
+          
+          
+          
+          
      }
 
 }

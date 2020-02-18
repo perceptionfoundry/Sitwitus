@@ -536,7 +536,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="GID-iE-VhZ" kind="show" id="GGe-fx-b6y"/>
+                                    <action selector="loginButtonAction" destination="pwB-2w-PaU" eventType="touchUpInside" id="FkP-hB-ahi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhn-el-83z" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
@@ -623,6 +623,11 @@
                         <viewLayoutGuide key="safeArea" id="yxS-zI-KNn"/>
                     </view>
                     <navigationItem key="navigationItem" id="cj9-vv-2sr"/>
+                    <connections>
+                        <outlet property="emailTF" destination="dWw-xP-4r7" id="HNe-DC-nHK"/>
+                        <outlet property="passwordTF" destination="fQd-k0-n0G" id="hLL-fv-rPd"/>
+                        <segue destination="GID-iE-VhZ" kind="show" identifier="Login_Segue" id="Sjh-sj-dA1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0P-ZA-cIV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,7 +636,7 @@
         <!--Sitter MainVC-->
         <scene sceneID="2Ps-e3-Sgj">
             <objects>
-                <viewController id="GID-iE-VhZ" customClass="SitterMainVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SITTER_MAIN" id="GID-iE-VhZ" customClass="SitterMainVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZwK-aG-7wl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1106,6 +1111,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-XD-FgG">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="42"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="logoutButton" destination="jd9-fH-mfc" eventType="touchUpInside" id="0lO-OD-YqS"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yv-Re-N75">
                                                 <rect key="frame" x="98.5" y="19" width="47.5" height="17.5"/>
