@@ -24,4 +24,6 @@ pod 'Firebase/Storage'
 
 pod 'CodableFirebase'
 
+pod 'SDWebImage'
+
 end

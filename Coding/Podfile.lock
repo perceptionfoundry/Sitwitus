@@ -261,6 +261,9 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - SDWebImage (5.4.1):
+    - SDWebImage/Core (= 5.4.1)
+  - SDWebImage/Core (5.4.1)
   - TagListView (1.4.0)
 
 DEPENDENCIES:
@@ -272,6 +275,7 @@ DEPENDENCIES:
   - HCSStarRatingView
   - IQKeyboardManagerSwift
   - LocationPickerViewController
+  - SDWebImage
   - TagListView
 
 SPEC REPOS:
@@ -299,6 +303,7 @@ SPEC REPOS:
     - leveldb-library
     - LocationPickerViewController
     - nanopb
+    - SDWebImage
     - TagListView
 
 SPEC CHECKSUMS:
@@ -325,8 +330,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 968f12044120b0c179c59852efef7b233fb0d76f
+PODFILE CHECKSUM: c755685d2b773c47269d755b8efa497962df4a95
 
 COCOAPODS: 1.8.3
