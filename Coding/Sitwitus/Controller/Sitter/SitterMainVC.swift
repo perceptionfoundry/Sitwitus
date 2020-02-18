@@ -36,7 +36,8 @@ class SitterMainVC: UIViewController {
  override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+     print(sharedVariable.signInUser?.Email)
+     
     }
 
   override func viewWillAppear(_ animated: Bool) {

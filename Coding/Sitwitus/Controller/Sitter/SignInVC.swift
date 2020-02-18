@@ -9,7 +9,10 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import CodableFirebase
 
+
+var sharedVariable = UIApplication.shared.delegate as! AppDelegate
 
 class SignInVC: UIViewController {
 
@@ -25,6 +28,7 @@ class SignInVC: UIViewController {
        }
          
      var alert = AlertWindow()
+     
                                    //********* FUNCTIONS ***************
     
     
@@ -71,7 +75,24 @@ class SignInVC: UIViewController {
                          dbRef.collection("Users").document((authResult?.user.uid)!).getDocument { (docSnap, docErr) in
                               
                               guard let fetchData = docSnap?.data() else{return}
-                        
+                              
+                              
+                              //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
+                              
+                              let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)
+                              
+                              
+                              
+                              var userInfo = Users.userDetail
+                              
+                              userInfo = value
+                              
+                              sharedVariable.signInUser = userInfo
+                              
+                              
+                              
+                              
+                        //************ USER DEFAULT TO MANAGE AUTO SIGN IN
                               UserDefaults.standard.set(fetchData, forKey: "SIGN_DETAIL")
                               UserDefaults.standard.set(true, forKey: "SIGNIN")
                               self.performSegue(withIdentifier: "Login_Segue", sender: nil)

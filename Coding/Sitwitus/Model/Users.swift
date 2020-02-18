@@ -23,6 +23,6 @@ class Users: Codable{
      var userId : String!
      var ImageUrl : String!
      
-     static var userDetail : Users!
+     static var userDetail = Users()
      
 }

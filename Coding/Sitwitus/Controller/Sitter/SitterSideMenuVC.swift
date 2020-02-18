@@ -16,7 +16,7 @@ class SitterSideMenuVC: UIViewController {
 
 
                                    //******** VARIABLES *************
-
+     
                                    
                                    //********* FUNCTIONS ***************
     

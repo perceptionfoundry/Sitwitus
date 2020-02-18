@@ -12,28 +12,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-     var signInUser : Users?
-       var isSignIn = false
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+       
      
      let status  = UserDefaults.standard.bool(forKey: "SIGNIN")
-     
-     print(status)
-     
-     
+  
      if status {
-          let userInfo = UserDefaults.standard.dictionary(forKey: "SIGN_DETAIL")
+               let userDetail = UserDefaults.standard.dictionary(forKey: "SIGN_DETAIL")
+               
+               let usr = Users.userDetail
           
-          let sitter = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "SITTER_MAIN")
-          
-          self.window?.rootViewController?.addChild(sitter)
-          
+               // ********* MAPPING
+               usr.FullName = (userDetail!["FullName"] as! String)
+               usr.Email = (userDetail!["Email"] as! String)
+               usr.Gender = (userDetail!["Gender"] as! String)
+               usr.Mobile = (userDetail!["Mobile"] as! String)
+              usr.Location = (userDetail!["Location"] as! String)
+               usr.Lat = (userDetail!["Lat"] as! Double)
+               usr.Long = (userDetail!["Long"] as! Double)
+               usr.Rate = (userDetail!["Rate"] as! Double)
+               usr.userId = (userDetail!["userId"] as! String)
+               usr.ImageUrl = (userDetail!["ImageUrl"] as! String)
+ 
+               sharedVariable.signInUser = usr
+               
+               
+               let sitter = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "SITTER_MAIN")
+     
+               self.window?.rootViewController?.addChild(sitter)
+               
 
-     }
+          }
      
      
      
