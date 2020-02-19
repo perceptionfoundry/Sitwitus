@@ -15,13 +15,22 @@ class SitterMessageVC: UIViewController
                                     //******** OUTLETS ***************
 
      @IBOutlet weak var messageTable: UITableView!
-      @IBOutlet weak var messageTF: UITextField!
+      @IBOutlet weak var messageTF: UITextView!
+     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
 
                                    //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
          return .lightContent
      }
-                                   
+           
+     
+     var maxheight:CGFloat = 80
+     var bubbleHeight = [CGFloat]()
+     
+     var chatRoomTitle = ""
+     var senderDetail = sharedVariable.signInUser!
+     var recieverDetail : Users?
+
                                    //********* FUNCTIONS ***************
     
     
@@ -35,6 +44,9 @@ class SitterMessageVC: UIViewController
 
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+     
+     
+     messageTF.delegate = self
      
      let sender_Nib = UINib(nibName: "SenderTableViewCell", bundle: nil)
      messageTable.register(sender_Nib, forCellReuseIdentifier: "SENDER")
@@ -79,7 +91,9 @@ extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
           }
           
           else if indexPath.row == 1 || indexPath.row == 3{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath) as! SenderTableViewCell
+               
+               cell.messsage.text = "dnfjksdfj sdlfjlksdfiljsdjf sdujfkjsdfjsdkhfkdsfdshkjfhsdkjhfjksdhfjhsdjfhsdjhfkjsdhfjshfjkhsj"
                
                return cell
           }
@@ -96,6 +110,64 @@ extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 80
+           return UITableView.automaticDimension
      }
+}
+
+
+
+//********************************* TEXTFIELD DELEGATE *********************************
+
+extension SitterMessageVC: UITextViewDelegate{
+    
+    
+    
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        
+        if textView.text == "Say Something..." {
+            textView.text = ""
+            messageTF.textColor = UIColor.black
+            
+        }
+        
+        return true
+    }
+    
+    
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        
+     if messageTF.contentSize.height < maxheight && messageTF.contentSize.height > 44{
+            textViewHeight.constant = messageTF.contentSize.height
+        }
+        
+        if (text == "\n") {
+            
+            
+            
+//            self.returnAction()
+            textView.resignFirstResponder()
+            
+            
+        }
+        
+        return true
+        
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        
+        if textView.text == "" {
+            textView.text = "Say Something..."
+            messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
+            
+        }
+        
+        
+        return true
+    }
+    
 }

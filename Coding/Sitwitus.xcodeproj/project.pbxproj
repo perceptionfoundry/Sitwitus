@@ -23,6 +23,7 @@
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
 		F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267623E41DA80066A027 /* SitterInboxVC.swift */; };
+		F2444F9E23FD0B30009257FD /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */; };
 		F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */; };
 		F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32C923F3DC0800431708 /* ParentPendingVC.swift */; };
 		F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869D23F52F6100710155 /* ParentProfileVC.swift */; };
 		F29386A023F53F8F00710155 /* ParentBookingReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */; };
 		F2A6BF9823FBC58A00819D38 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A6BF9723FBC58A00819D38 /* Users.swift */; };
+		F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -103,6 +105,7 @@
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
 		F240267623E41DA80066A027 /* SitterInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterInboxVC.swift; sourceTree = "<group>"; };
+		F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMainVC.swift; sourceTree = "<group>"; };
 		F27A32C923F3DC0800431708 /* ParentPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingVC.swift; sourceTree = "<group>"; };
 		F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 		F293869D23F52F6100710155 /* ParentProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentProfileVC.swift; sourceTree = "<group>"; };
 		F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingReviewVC.swift; sourceTree = "<group>"; };
 		F2A6BF9723FBC58A00819D38 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -223,6 +227,15 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		F2444F9F23FD0C5C009257FD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */,
+				F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		F2A6BF9923FBC59300819D38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +297,7 @@
 		F2C0D5E523E014DC00DCF976 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F2444F9F23FD0C5C009257FD /* Common */,
 				F2C0D5EA23E015D300DCF976 /* Parent */,
 				F2C0D5E923E015C800DCF976 /* Sitter */,
 				F2C0D5E823E015B600DCF976 /* Main */,
@@ -587,10 +601,12 @@
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
 				F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */,
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
+				F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */,
 				F21A53B723FADAB900AB1C00 /* AlertWindow.swift in Sources */,
 				F2206D6C23EBF75200CCE6D4 /* PendingTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */,
+				F2444F9E23FD0B30009257FD /* InboxTableViewCell.swift in Sources */,
 				F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */,
 				F235B56023F3D331000BB61D /* ParentBookingVC.swift in Sources */,
 				F2C0D5CE23DFFD3B00DCF976 /* UnderlinedTextField.swift in Sources */,

@@ -10,5 +10,8 @@ import UIKit
 
 class SenderTableViewCell: UITableViewCell {
 
+     
+     @IBOutlet weak var userImage: UIImageView!
+         @IBOutlet weak var messsage: UILabel!
     
 }
