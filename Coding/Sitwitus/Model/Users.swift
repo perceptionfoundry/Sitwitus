@@ -17,11 +17,13 @@ class Users: Codable{
      var Gender : String!
      var Mobile : String!
      var Location : String!
-     var Rate : Double!
-     var Lat : Double!
-     var Long : Double!
-     var userId : String!
+     var Rate : Double?
+     var Lat : Double?
+     var Long : Double?
+     var UserId : String!
      var ImageUrl : String!
+     var UserType : String!
+     var ZipCode : String!
      
      static var userDetail = Users()
      

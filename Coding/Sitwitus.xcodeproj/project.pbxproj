@@ -37,6 +37,7 @@
 		F29386A023F53F8F00710155 /* ParentBookingReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */; };
 		F2A6BF9823FBC58A00819D38 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A6BF9723FBC58A00819D38 /* Users.swift */; };
 		F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */; };
+		F2B4E19123FD23BE002C11D3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E19023FD23BE002C11D3 /* Message.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -119,6 +120,7 @@
 		F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingReviewVC.swift; sourceTree = "<group>"; };
 		F2A6BF9723FBC58A00819D38 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		F2B4E19023FD23BE002C11D3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				F2A6BF9723FBC58A00819D38 /* Users.swift */,
+				F2B4E19023FD23BE002C11D3 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
 				F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */,
 				F291144F23F1507200D16BB1 /* ParentSideMenuVC.swift in Sources */,
+				F2B4E19123FD23BE002C11D3 /* Message.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
 			);

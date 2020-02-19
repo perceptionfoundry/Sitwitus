@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                usr.Lat = (userDetail!["Lat"] as! Double)
                usr.Long = (userDetail!["Long"] as! Double)
                usr.Rate = (userDetail!["Rate"] as! Double)
-               usr.userId = (userDetail!["userId"] as! String)
+               usr.UserId = (userDetail!["UserId"] as! String)
                usr.ImageUrl = (userDetail!["ImageUrl"] as! String)
  
                sharedVariable.signInUser = usr

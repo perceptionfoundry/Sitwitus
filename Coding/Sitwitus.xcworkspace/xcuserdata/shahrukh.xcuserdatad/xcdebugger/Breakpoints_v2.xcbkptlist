@@ -3,4 +3,70 @@
    uuid = "A48331FF-8A03-4EE3-B2F8-B9B1CBB06AEA"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4ADD4E7-5EDB-46A1-8EDF-9C5CDCF330AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentSignUpReasonVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "signUpButtonAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A4ADD4E7-5EDB-46A1-8EDF-9C5CDCF330AB - decf7850e2b2f22e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Sitwitus.ParentSignUpReasonVC.signUpButtonAction(Any) -&gt; ()"
+                  moduleName = "Sitwitus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Documents/GitHub/Sitwitus/Coding/Sitwitus/Controller/Parent/ParentSignUpReasonVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "1509">
+               </Location>
+               <Location
+                  uuid = "A4ADD4E7-5EDB-46A1-8EDF-9C5CDCF330AB - decf7850e2b2f22e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Sitwitus.ParentSignUpReasonVC.signUpButtonAction(Any) -&gt; ()"
+                  moduleName = "Sitwitus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Documents/GitHub/Sitwitus/Coding/Sitwitus/Controller/Parent/ParentSignUpReasonVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "1690">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "863BA6F1-B83B-455F-A4FD-1FFEA04CF2B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentSignUpReasonVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "signUpButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

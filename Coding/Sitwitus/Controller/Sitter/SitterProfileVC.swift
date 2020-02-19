@@ -11,7 +11,24 @@ import TagListView
 import SDWebImage
 import Firebase
 
-class SitterProfileVC: UIViewController {
+
+protocol Refresh {
+     
+     func refreshScreen()
+}
+
+class SitterProfileVC: UIViewController, Refresh {
+    
+     func refreshScreen() {
+          
+          sitterSkillTag.removeAllTags()
+          sitterSpecialistTag.removeAllTags()
+          
+          self.fetchSkill()
+          self.fetchSpecialist()
+
+     }
+     
 
 
                                     //******** OUTLETS ***************
@@ -63,18 +80,18 @@ class SitterProfileVC: UIViewController {
           
           sitterName.text = user?.FullName
           
-          sitterProfileImage.sd_setImage(with: URL(string: (user?.ImageUrl)!), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
+          sitterProfileImage.sd_setImage(with: URL(string: (user?.ImageUrl)!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
      }
      
 //********* FETCH PROFILE
      
      func fetchSkill(){
           
-          dbRef.collection("Users").document((sharedVariable.signInUser?.userId)!).collection("Profile").document("Skill").getDocument { (docSnap, docErr) in
+          dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).collection("Profile").document("Skill").getDocument { (docSnap, docErr) in
                
-               let fetchValue = docSnap?.data() as! [String:[String]]
-               
-               self.skills = fetchValue["Value"]!
+               guard  let fetchValue = docSnap?.data() else{return}
+
+               self.skills = fetchValue["Value"] as! [String]
                
                self.sitterSkillTag.addTags(self.skills)
           }
@@ -85,11 +102,11 @@ class SitterProfileVC: UIViewController {
      
      func fetchSpecialist(){
           
-          dbRef.collection("Users").document((sharedVariable.signInUser?.userId)!).collection("Profile").document("Specialist").getDocument { (docSnap, docErr) in
+          dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).collection("Profile").document("Specialist").getDocument { (docSnap, docErr) in
                
-               let fetchValue = docSnap?.data() as! [String:[String]]
+               guard  let fetchValue = docSnap?.data()  else{return}
                
-               self.specialists = fetchValue["Value"]!
+               self.specialists = fetchValue["Value"] as! [String]
                
                self.sitterSpecialistTag.addTags(self.specialists)
           }
@@ -106,7 +123,7 @@ class SitterProfileVC: UIViewController {
                
                
                
-               
+               dest.refreshProtocol = self
                if (sender as! String) == "SKILL"{
                     
                     dest.newList = self.skills

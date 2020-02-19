@@ -21,7 +21,7 @@ class SitterAddSKillVC: UIViewController {
 
 
                                    //******** VARIABLES *************
-
+     var refreshProtocol : Refresh!
      var placeHolderTitle = ""
      var newList = [String]()
                                    
@@ -78,17 +78,18 @@ class SitterAddSKillVC: UIViewController {
           
           if placeHolderTitle == "SKILL"{
            
-          dbRef.collection("Users").document((sharedVariable.signInUser?.userId)!).collection("Profile").document("Skill").setData(["Value": self.newList])
+          dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).collection("Profile").document("Skill").setData(["Value": self.newList])
                
              self.dismiss(animated: true, completion: nil)
           }
           else{
-               dbRef.collection("Users").document((sharedVariable.signInUser?.userId)!).collection("Profile").document("Specialist").setData(["Value": self.newList])
+               dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).collection("Profile").document("Specialist").setData(["Value": self.newList])
               
                self.dismiss(animated: true, completion: nil)
   
           }
           
+          refreshProtocol.refreshScreen()
      }
 }
 

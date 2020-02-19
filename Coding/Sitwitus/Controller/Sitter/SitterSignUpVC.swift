@@ -24,6 +24,7 @@ class SitterSignUpVC: UIViewController {
      @IBOutlet weak var genderTF: UITextField!
      @IBOutlet weak var mobileTF: UITextField!
      @IBOutlet weak var LocationTF : UITextField!
+     @IBOutlet weak var zipcodeTF: UITextField!
      @IBOutlet weak var rateTF: UITextField!
       @IBOutlet weak var signUpButton: UIButton!
       @IBOutlet weak var activity: UIActivityIndicatorView!
@@ -140,7 +141,7 @@ class SitterSignUpVC: UIViewController {
                
          
           
-          if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && genderTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false && rateTF.text?.isEmpty == false{
+          if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && genderTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false && rateTF.text?.isEmpty == false && zipcodeTF.text?.isEmpty == false{
            
                          
                       //************** Create User
@@ -162,7 +163,9 @@ class SitterSignUpVC: UIViewController {
                                                                         "Rate":self.setRate,
                                                                         "Lat":self.selectedLat,
                                                                         "Long":self.selectedLong,
-                                                                        "userId":(authResult?.user.uid)!,
+                                                                        "UserId":(authResult?.user.uid)!,
+                                                                        "UserType":"Sitter",
+                                                                        "ZipCode": self.zipcodeTF.text!,
                                                                         "ImageUrl":imageURL!] as [String : Any]
 
 

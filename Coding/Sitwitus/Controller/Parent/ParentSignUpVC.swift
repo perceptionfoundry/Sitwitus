@@ -8,19 +8,41 @@
 
 import UIKit
 import LocationPickerViewController
+import FirebaseAuth
+import Firebase
+import IQKeyboardManagerSwift
 
 class ParentSignUpVC: UIViewController {
 
 
                                     //******** OUTLETS ***************
-     
+     @IBOutlet weak var parentImage: UIImageView!
+     @IBOutlet weak var nameTF: UITextField!
+     @IBOutlet weak var emailTF: UITextField!
+     @IBOutlet weak var passwordTF: UITextField!
+     @IBOutlet weak var parentalTypeTF: UITextField!
+     @IBOutlet weak var mobileTF: UITextField!
      @IBOutlet weak var LocationTF : UITextField!
+     @IBOutlet weak var zipcodeTF: UITextField!
+      @IBOutlet weak var activity: UIActivityIndicatorView!
 
 
                                    //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
          return .lightContent
      }
+     
+     var genderCatergory = ["","Father", "Mother", "Guardian"]
+     var selectedGender = ""
+     var textfieldPickerView = UIPickerView()
+     
+     let alert = AlertWindow()
+     let saveImageVM = SaveImageViewModel()
+     var isImageAdded = false
+     
+     var selectedLat:Double = 0.0
+     var selectedLong:Double = 0.0
+     var setRate = 0.0
                                    
                                    //********* FUNCTIONS ***************
     
@@ -36,10 +58,62 @@ class ParentSignUpVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      
+     activity.isHidden = true
      
-     LocationTF.delegate = self
-    }
+     
+     parentalTypeTF.delegate = self
+     textfieldPickerView.delegate = self
+     
+     let imageTap = UITapGestureRecognizer(target: self, action: #selector(addImageAction))
+     parentImage.addGestureRecognizer(imageTap)
 
+     
+
+     
+     }
+
+     
+     
+     //********** ADD IMAGE ON TAP ACTION
+     
+     @objc func addImageAction(){
+          
+          let imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+          
+          //------ GALLERY
+          
+          let selectionVC = UIAlertController(title: "CHOOSE SOURCE", message: "Please desire source to get image", preferredStyle: .actionSheet)
+          
+          let gallery = UIAlertAction(title: "Gallery", style: .default) { (action) in
+               
+               imagePicker.sourceType = .photoLibrary
+               
+               self.present(imagePicker, animated: true, completion: nil)
+               
+          }
+          
+          let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+               
+               imagePicker.sourceType = .camera
+               self.present(imagePicker, animated: true, completion: nil)
+
+          }
+          
+          let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+          
+          selectionVC.addAction(gallery)
+          selectionVC.addAction(camera)
+          selectionVC.addAction(cancel)
+          
+          self.present(selectionVC, animated: true, completion: nil)
+          
+     
+     }
+     
+     
+     
+    
 
 
                                     //*************** OUTLET ACTION ******************
@@ -48,73 +122,149 @@ class ParentSignUpVC: UIViewController {
      @IBAction func backButton(){
           self.navigationController?.popViewController(animated: true)
      }
-
+     
+  
+     
+//*********** SIGN UP
+     @IBAction func continueButtonAction(_ sender: Any) {
+          
+        
+     
+          if isImageAdded{
+               
+               
+         
+          
+               if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && parentalTypeTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false &&  zipcodeTF.text?.isEmpty == false{
+                    
+                    
+                    let personalDict = ["FullName":self.nameTF.text!,
+                    "Email":self.emailTF.text!,
+                    "Gender":self.parentalTypeTF.text!,
+                    "Mobile":self.mobileTF.text!,
+                    "Location":self.LocationTF.text!,
+                    "Lat":self.selectedLat,
+                    "Long":self.selectedLong,
+                    "UserType":"Parent",
+                    "ZipCode": self.zipcodeTF.text!] as [String : Any]
+                    
+                    performSegue(withIdentifier: "NEXT", sender: personalDict)
+               }
+         
+          
+          else{
+               alert.simple_Window(Title: "TEXTFIELD EMPTY!", Message: "Please assure all required textfield is filled", View: self)
+               activity.isHidden = true
+                        
+          }
+               
+          
+          }
+                       
+          
+          
+          else{
+               alert.simple_Window(Title: "ADD IMAGE", Message: "Please add some image as your profile image", View: self)
+            
+                        }
+          
+     }
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          let dest = segue.destination as! ParentSignUpReasonVC
+          
+          
+          dest.uploadDict = sender as! [String : Any]
+          dest.parentDP = self.parentImage.image!
+          dest.signUpName = self.nameTF.text!
+          dest.signUpEmail = self.emailTF.text!
+          dest.signUpPassword = self.passwordTF.text!
+     }
 }
 
 
 
 
                                       //*************** EXTENSION ******************
+
+
+//******** TEXTFIELD
+
 extension ParentSignUpVC: UITextFieldDelegate{
      
+     
+     
+     //--------------  BEGIN EDIT
      func textFieldDidBeginEditing(_ textField: UITextField) {
           
-          if textField == LocationTF{
+//  
+          
+           if textField == parentalTypeTF{
                
-               LocationTF.resignFirstResponder()
-               
-               let locationPicker = LocationPicker()
-               locationPicker.delegate = self
+               parentalTypeTF.inputView = textfieldPickerView
                
                
-              let done = locationPicker.barButtonItems?.doneButtonItem
-              let cancel = locationPicker.barButtonItems?.cancelButtonItem
-               
-               locationPicker.addBarButtons(doneButtonItem: done, cancelButtonItem: cancel, doneButtonOrientation: .right)
-               
-//               locationPicker.addBarButtons()
-              
-               locationPicker.pickCompletion = { (pickedLocationItem) in
-                   
-                    print(pickedLocationItem.addressDictionary)
-               }
-               navigationController!.pushViewController(locationPicker, animated: true)
           }
+          else{
+               textField.inputView = nil
+          }
+     }
+     
+     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+          
+          
+          
+       
+          
+          return true
      }
      
 }
 
-extension ParentSignUpVC: LocationPickerDelegate{
+
+
+//******** PICKER VIEW
+extension ParentSignUpVC : UIPickerViewDelegate, UIPickerViewDataSource{
     
+     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+          return 1
+     }
      
-     func locationDidPick(locationItem: LocationItem) {
-          print("PICK")
+     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+          
+          return genderCatergory.count
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+          
+          return genderCatergory[row]
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+          
+          self.parentalTypeTF.text = genderCatergory[row]
+          self.selectedGender = genderCatergory[row]
      }
      
      
-     func locationDidSelect(locationItem: LocationItem) {
+}
 
-          LocationTF.text = locationItem.name
-          print(locationItem.coordinate)
-          
-          
-          let alertVC = UIAlertController(title: "Pin Drop", message: "Do you want to pin drop to exact location", preferredStyle: .alert)
-          
-          let Pin = UIAlertAction(title: "Pin Drop", style: .default, handler: nil)
-          let Select = UIAlertAction(title: "Done", style: .default) { (action) in
-               
-               self.LocationTF.text = locationItem.name
-                    print(locationItem.coordinate)
-               self.navigationController?.popViewController(animated: true)
 
-          }
+
+//********** IMAGEPICKER
+
+extension ParentSignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+     
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
           
-          alertVC.addAction(Pin)
-          alertVC.addAction(Select)
+          let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
           
-          self.present(alertVC, animated: true, completion: nil)
+          parentImage.image = selectedImage
+          
+          self.isImageAdded = true
+          
+          dismiss(animated: true, completion: nil)
      }
      
-     
-  
 }
