@@ -8,6 +8,11 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
+import CodableFirebase
+import SDWebImage
+
+
 
 class ParentMainVC: UIViewController {
 
@@ -23,10 +28,15 @@ class ParentMainVC: UIViewController {
     }
      var mapView : GMSMapView?
      var tappedMarker = GMSMarker()
+     var locationManager = CLLocationManager()
+     var currentLocation : CLLocation!
      
      
 //     var infoWindow = MapMarkerView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
      var infoWindow = MapMarkerView()
+     
+     var dbStore = Firestore.firestore()
+     var sitters = [Users]()
                                    
                                    //********* FUNCTIONS ***************
     
@@ -43,37 +53,97 @@ class ParentMainVC: UIViewController {
         super.viewWillAppear(animated)
      
      
+
+     
+     mapView?.clear()
+     
      mapCameraAction()
-     mapMarkerAction()
+//     mapMarkerAction()
+     
+     fetchSitter()
      
      
     }
+     
+     //********** FETCH SITTER LIST
+     
+     func fetchSitter(){
+          
+          
+          dbStore.collection("Users").getDocuments { (sitterSnap, sitterErr) in
+               
+               guard  let fetchData = sitterSnap?.documents else{return}
+               
+               var count = 0
+               
+               fetchData.forEach { (value) in
+                    
+                    let dict = value.data()
+                    
+                    let sitterInfo = try! FirebaseDecoder().decode(Users.self, from: dict)
+                    
+                    
+                    
+                    if sitterInfo.UserType == "Sitter"{
+                    self.sitters.append(sitterInfo)
+                    self.mapMarkerAction(lat: sitterInfo.Lat!, long: sitterInfo.Long!, ImageString: sitterInfo.ImageUrl, indexNumber: count)
+                    count += 1
+                    }
+               }
+          }
+          
+     }
 
+     
+     func addToMaker(lat: Double, long: Double){
+          
+          
+     
+          
+     }
+     
      
 //*************** GOOGLE MAP CAMERA
      
      func mapCameraAction(){
           
+          locationManager.delegate = self
+          locationManager.requestAlwaysAuthorization()
+          locationManager.desiredAccuracy = kCLLocationAccuracyBest
+          
+          locationManager.startUpdatingLocation()
+          
+          
           let camera = GMSCameraPosition.camera(withLatitude: 34.0522, longitude: -118.2437, zoom: 10.0)
           self.mapView = GMSMapView.map(withFrame: localMapView.bounds, camera: camera)
           self.mapView?.delegate = self
-            self.localMapView.addSubview(mapView!)
+          self.localMapView.addSubview(mapView!)
 //          view = mapView
      }
 //*************** GOOGLE MARKER
      
-     func mapMarkerAction(){
+     func mapMarkerAction(lat: Double, long: Double, ImageString: String,indexNumber: Int){
          
           let marker = GMSMarker()
-          marker.position = CLLocationCoordinate2D(latitude: 34.0522, longitude: -118.2437)
-          marker.title = "Los Angeles"
-          marker.snippet = "USA"
+          
+//          marker.position = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
+          
+           marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+          marker.title = "\(indexNumber)"
+          
+          let markerInnerImage =  (UINib.init(nibName: "MapMarkup", bundle: nil).instantiate(withOwner: self, options: nil).first as! MapMarkup)
+          
+          markerInnerImage.personIamge.sd_setImage(with: URL(string: ImageString), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
+          
+           marker.iconView = markerInnerImage
           marker.map = self.mapView!
           
      }
 
      
-     @objc func BookingAction(){
+     @objc func BookingAction(button: UIButton){
+          
+          print(button.tag)
           performSegue(withIdentifier: "Booking_Segue", sender: nil)
      }
                                     //*************** OUTLET ACTION ******************
@@ -86,21 +156,67 @@ class ParentMainVC: UIViewController {
 
                                       //*************** EXTENSION ******************
 
+//****** CORE LOCATION
+
+extension ParentMainVC: CLLocationManagerDelegate{
+     
+     
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+          
+          guard let location = locations.first else {return}
+          
+          self.currentLocation = location
+          self.locationManager.stopUpdatingLocation()
+          
+          
+          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 10)
+
+          
+          // *********************** Creating Map View ***********************
+          mapView!.animate(to: camera)
+          
+          // *********************** Define user current location with Marker: ***********************
+          
+//          let marker = GMSMarker(position: location.coordinate)
+
+//          marker.tracksViewChanges = true
+   
+//          mapMarkerAction()
+     }
+   
+     
+}
+
+//******** GOOGLE MAP
 extension ParentMainVC: GMSMapViewDelegate{
      
      
      class func instanceFromNib() -> MapMarkerView {
-     return UINib(nibName: "MapMarkerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! MapMarkerView    }
+     return UINib(nibName: "MapMarkerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! MapMarkerView
+          
+     }
+     
+     
      
      func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
           
           let location = CLLocationCoordinate2D(latitude: marker.position.latitude, longitude: marker.position.longitude)
           tappedMarker = marker
+          
+          
+          let index = Int(tappedMarker.title!)!
+          print(index)
+          
           infoWindow.removeFromSuperview()
           
           infoWindow = SitterMainVC.instanceFromNib()
-          infoWindow.personName.text = "shahrukh"
-          infoWindow.personAddress.text = "Karachi"
+          
+          
+          infoWindow.personName.text = sitters[index].FullName
+          infoWindow.personAddress.text = sitters[index].Location
+          
+          infoWindow.bookButton.tag = index
           infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
           infoWindow.center = mapView.projection.point(for: location)
           infoWindow.center.y = infoWindow.center.y + 360
@@ -117,17 +233,21 @@ extension ParentMainVC: GMSMapViewDelegate{
      
      
      
-      func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-             return UIView()
+     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+          return UIView()
      }
-
-         func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-          self.view.bringSubviewToFront(localMapView)
-                 let location = CLLocationCoordinate2D(latitude: tappedMarker.position.latitude, longitude: tappedMarker.position.longitude)
-                 infoWindow.center = mapView.projection.point(for: location)
-         }
+     
+     
+     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
          
-         func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-             infoWindow.removeFromSuperview()    }
+          self.view.bringSubviewToFront(localMapView)
+          let location = CLLocationCoordinate2D(latitude: tappedMarker.position.latitude, longitude: tappedMarker.position.longitude)
+          infoWindow.center = mapView.projection.point(for: location)
+     }
+     
+     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+          infoWindow.removeFromSuperview()
+          
+     }
      
 }

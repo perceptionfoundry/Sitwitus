@@ -54,6 +54,8 @@
 		F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F523DFF588009B385E /* InitialController.swift */; };
 		F2CCE2F923DFF588009B385E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2F723DFF588009B385E /* Main.storyboard */; };
 		F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */; };
+		F2CE10332400254600805B90 /* MapMarkup.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CE10322400254600805B90 /* MapMarkup.xib */; };
+		F2CE10352400276300805B90 /* MapMarkup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE10342400276300805B90 /* MapMarkup.swift */; };
 		F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */; };
 		F2EBBE1D23E0607700E931D1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */; };
 		F2EBBE1E23E0607700E931D1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0B23E0607500E931D1 /* OFL.txt */; };
@@ -139,6 +141,8 @@
 		F2CCE2F823DFF588009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2CCE2FD23DFF589009B385E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2CCE2FF23DFF589009B385E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2CE10322400254600805B90 /* MapMarkup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkup.xib; sourceTree = "<group>"; };
+		F2CE10342400276300805B90 /* MapMarkup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkup.swift; sourceTree = "<group>"; };
 		F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignInVC.swift; sourceTree = "<group>"; };
 		F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		F2EBBE0B23E0607500E931D1 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -408,6 +412,8 @@
 			children = (
 				F20C1A4723E3293400F058F8 /* MapMarkerView.swift */,
 				F20C1A4923E3295100F058F8 /* MapMarkerView.xib */,
+				F2CE10322400254600805B90 /* MapMarkup.xib */,
+				F2CE10342400276300805B90 /* MapMarkup.swift */,
 			);
 			path = MapMarker;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				F2EBBE2D23E0607700E931D1 /* Poppins-ExtraLight.ttf in Resources */,
 				F2EBBE2223E0607700E931D1 /* Poppins-LightItalic.ttf in Resources */,
 				F2EBBE2B23E0607700E931D1 /* Poppins-Italic.ttf in Resources */,
+				F2CE10332400254600805B90 /* MapMarkup.xib in Resources */,
 				F2EBBE2423E0607700E931D1 /* Poppins-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +632,7 @@
 				F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
+				F2CE10352400276300805B90 /* MapMarkup.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
 				F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */,
