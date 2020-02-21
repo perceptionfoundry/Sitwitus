@@ -1769,7 +1769,7 @@
                                 <rect key="frame" x="0.0" y="91.5" width="375" height="575.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="INBOX" rowHeight="120" id="Cha-sn-4Xk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="INBOX" rowHeight="120" id="Cha-sn-4Xk" customClass="InboxTableViewCell" customModule="Sitwitus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cha-sn-4Xk" id="KUa-vy-1Ge">
@@ -1858,6 +1858,12 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.81502872709999996" green="0.53648221490000003" blue="0.2390182018" alpha="0.88441780820000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="duration" destination="t1y-Is-h9r" id="Bng-jC-2DW"/>
+                                            <outlet property="messsage" destination="UWX-p7-hg2" id="pYP-WR-Y05"/>
+                                            <outlet property="userImage" destination="BZf-6O-A92" id="agP-ng-z9H"/>
+                                            <outlet property="userName" destination="iH7-kV-LkQ" id="rZb-Pz-qOS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1883,7 +1889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBU-qc-Kfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="2245"/>
+            <point key="canvasLocation" x="2348" y="2244.8275862068967"/>
         </scene>
         <!--Parent MessageVC-->
         <scene sceneID="y1m-Rt-74M">
@@ -2026,7 +2032,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pIu-WK-vNV"/>
                     <connections>
+                        <outlet property="messageTF" destination="1QY-co-fGq" id="rws-lO-BoE"/>
                         <outlet property="messageTable" destination="vmO-3U-pce" id="4Mz-lq-hUa"/>
+                        <outlet property="textViewHeight" destination="NyC-sM-Xky" id="uak-QB-FbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIY-8O-WQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

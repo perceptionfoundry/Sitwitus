@@ -61,8 +61,17 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           
-          let cell = tableView.dequeueReusableCell(withIdentifier: "INBOX", for: indexPath)
           
+          
+          let cell = tableView.dequeueReusableCell(withIdentifier: "INBOX", for: indexPath) as! InboxTableViewCell
+          
+          cell.userName.text = "shahrukh"
+          cell.messsage.text = "dsnfkshdkjfnlskvbsd vsfkjsdjlkfhsdjfksdjfbsjkfjjkshflsjfl ksfjlsj f"
+          cell.duration.text = "10min"
+          cell.userImage.image = UIImage(named: "me")
+
+
+
           return cell
      }
      
