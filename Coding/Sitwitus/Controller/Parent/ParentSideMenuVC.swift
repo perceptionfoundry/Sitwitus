@@ -48,6 +48,15 @@ class ParentSideMenuVC: UIViewController {
           @IBAction func sitterButton(){
                self.dismiss(animated: true, completion: nil)
           }
+     
+     @IBAction func logoutButton(){
+              
+     let firstVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FIRST")
+     UserDefaults.standard.set(false, forKey: "SIGNIN")
+     UserDefaults.standard.set(nil, forKey: "SIGN_DETAIL")
+     
+     self.navigationController?.pushViewController(firstVC, animated: true)
+         }
 
 }
 

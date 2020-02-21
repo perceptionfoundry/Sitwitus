@@ -18,8 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
      
      let status  = UserDefaults.standard.bool(forKey: "SIGNIN")
+     let whoIsIt = UserDefaults.standard.bool(forKey: "isParent")
   
-     if status {
+     if status == true && whoIsIt == false {
                let userDetail = UserDefaults.standard.dictionary(forKey: "SIGN_DETAIL")
                
                let usr = Users.userDetail
@@ -35,6 +36,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                usr.Rate = (userDetail!["Rate"] as! Double)
                usr.UserId = (userDetail!["UserId"] as! String)
                usr.ImageUrl = (userDetail!["ImageUrl"] as! String)
+          usr.ZipCode = (userDetail!["ZipCode"] as! String)
+
  
                sharedVariable.signInUser = usr
                
@@ -45,6 +48,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                
 
           }
+     
+     
+     if status == true && whoIsIt == true {
+                   let userDetail = UserDefaults.standard.dictionary(forKey: "SIGN_DETAIL")
+                   
+                   let usr = Users.userDetail
+              
+                   // ********* MAPPING
+                   usr.FullName = (userDetail!["FullName"] as! String)
+                   usr.Email = (userDetail!["Email"] as! String)
+                   usr.Gender = (userDetail!["Gender"] as! String)
+                   usr.Mobile = (userDetail!["Mobile"] as! String)
+                  usr.Location = (userDetail!["Location"] as! String)
+                   usr.Lat = (userDetail!["Lat"] as! Double)
+                   usr.Long = (userDetail!["Long"] as! Double)
+                   usr.ZipCode = (userDetail!["ZipCode"] as! String)
+                   usr.UserId = (userDetail!["UserId"] as! String)
+                   usr.ImageUrl = (userDetail!["ImageUrl"] as! String)
+     
+                   sharedVariable.signInUser = usr
+                   
+                   
+                   let parent = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "MAIN")
+         
+                   self.window?.rootViewController?.addChild(parent)
+                   
+
+              }
      
      
      

@@ -72,6 +72,7 @@ class ParentSignUpReasonVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      
+     activity.isHidden = true
      bankTickImage.isHidden = true
      parentImage.image = parentDP
     }
@@ -166,7 +167,7 @@ class ParentSignUpReasonVC: UIViewController {
                                                           "Duty":self.dutyTF.text!,
                                                           "Duration":self.durationTF.text!] as [String : Any]
                                    
-                                   dbRef.collection("Users").document((authResult?.user.uid)!).collection("Requirement").addDocument(data: requirementDict)
+                                   dbRef.collection("Users").document((authResult?.user.uid)!).collection("Requirement").document("Value").setData(requirementDict)
                                    
                                    //****** CREDIT /  BANK
                                    //                                                            let AccountDict = ["Title":self.needTF.text!,
