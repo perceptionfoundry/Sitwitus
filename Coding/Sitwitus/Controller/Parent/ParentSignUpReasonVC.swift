@@ -154,7 +154,7 @@ class ParentSignUpReasonVC: UIViewController {
                                    //**** USERS INFO
                                    
                                    self.uploadDict["ImageUrl"] = imageURL!
-                                   self.uploadDict["UserId"] = imageURL!
+                                   self.uploadDict["UserId"] = (authResult?.user.uid)!
                                    
                                    print(self.uploadDict)
                                    

@@ -14,10 +14,10 @@
             filePath = "Sitwitus/Controller/Parent/ParentMainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "mapView(_:didTap:)"
-            landmarkType = "7">
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "ParentMainVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +30,10 @@
             filePath = "Sitwitus/Controller/Parent/ParentMainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "mapView(_:didTap:)"
-            landmarkType = "7">
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "ParentMainVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +46,8 @@
             filePath = "Sitwitus/Controller/Parent/ParentLocationVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "ParentLocationVC"
-            landmarkType = "21">
+            startingLineNumber = "208"
+            endingLineNumber = "208">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,9 +60,23 @@
             filePath = "Sitwitus/Controller/Parent/ParentLocationVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "mapView(_:didDrag:)"
+            startingLineNumber = "208"
+            endingLineNumber = "208">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "202628B8-C2CB-48EC-B384-DF43DC562171"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentLocationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "updateButtonAction()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

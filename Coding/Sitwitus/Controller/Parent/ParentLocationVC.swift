@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import SDWebImage
+import Firebase
 
 
 class ParentLocationVC: UIViewController {
@@ -17,6 +18,8 @@ class ParentLocationVC: UIViewController {
                                     //******** OUTLETS ***************
 
  @IBOutlet weak var localMapView : GMSMapView!
+@IBOutlet weak var userAddress : UILabel!
+     @IBOutlet weak var userImage : UIImageView!
 
                                    //******** VARIABLES *************
 
@@ -26,7 +29,7 @@ class ParentLocationVC: UIViewController {
      var currentLocation : CLLocation!
      
      var signinUser = sharedVariable.signInUser!
-                                   
+     let userMarker = GMSMarker()
                                    //********* FUNCTIONS ***************
     
     
@@ -42,7 +45,8 @@ class ParentLocationVC: UIViewController {
         super.viewWillAppear(animated)
      
      self.currentLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-     
+     self.userAddress.text = signinUser.Location
+     self.userImage.sd_setImage(with: URL(string: signinUser.ImageUrl), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
      self.mapCameraAction()
     }
 
@@ -60,10 +64,7 @@ class ParentLocationVC: UIViewController {
           localMapView.delegate = self
           
           
-//          let camera = GMSCameraPosition.camera(withLatitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, zoom: 10.0)
-//          self.mapView = GMSMapView.map(withFrame: localMapView.frame, camera: camera)
-//          self.mapView?.delegate = self
-//          self.localMapView.addSubview(mapView!)
+
           
           
      }
@@ -73,20 +74,20 @@ class ParentLocationVC: UIViewController {
           
      func mapMarkerAction(){
           
-          let marker = GMSMarker()
+          
           
           //          marker.position = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
           
-          marker.position = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+          userMarker.position = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
           
           let markerInnerImage =  (UINib.init(nibName: "MapMarkup", bundle: nil).instantiate(withOwner: self, options: nil).first as! MapMarkup)
           
           markerInnerImage.personIamge.sd_setImage(with: URL(string: signinUser.ImageUrl), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
           
-          marker.iconView = markerInnerImage
-          marker.isDraggable = true
+          userMarker.iconView = markerInnerImage
+          userMarker.isDraggable = true
           
-          marker.map = self.localMapView!
+          userMarker.map = self.localMapView!
           
           
      }
@@ -100,6 +101,34 @@ class ParentLocationVC: UIViewController {
          
      @IBAction func updateButtonAction(){
           
+          
+          print("final coordinate: \(currentLocation.coordinate.latitude) + \(currentLocation.coordinate.longitude)")
+          
+          let dbStore = Firestore.firestore()
+          
+          let updateDict = ["Lat":currentLocation.coordinate.latitude,
+                            "Long":currentLocation.coordinate.longitude]
+          
+          
+          
+          var userDetail = UserDefaults.standard.dictionary(forKey: "SIGN_DETAIL")!
+          
+          userDetail["Lat"] = currentLocation.coordinate.latitude
+          userDetail["Long"] = currentLocation.coordinate.latitude
+          
+          
+          UserDefaults.standard.set(userDetail, forKey: "SIGN_DETAIL")
+          
+           let usr = Users.userDetail
+          
+          
+          usr.Lat = currentLocation.coordinate.latitude
+          usr.Long = currentLocation.coordinate.longitude
+          
+          
+          dbStore.collection("Users").document(signinUser.UserId).updateData(updateDict)
+          
+          self.navigationController?.popViewController(animated: true)
      }
 
 }
@@ -124,7 +153,7 @@ extension ParentLocationVC: CLLocationManagerDelegate{
           self.locationManager.stopUpdatingLocation()
           
           
-          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 10)
+          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
 
           
           // *********************** Creating Map View ***********************
@@ -132,10 +161,6 @@ extension ParentLocationVC: CLLocationManagerDelegate{
           
           
           // *********************** Define user current location with Marker: ***********************
-          
-//          let marker = GMSMarker(position: location.coordinate)
-
-//          marker.tracksViewChanges = true
    
           mapMarkerAction()
      }
@@ -153,48 +178,22 @@ extension ParentLocationVC: GMSMapViewDelegate{
           
      }
      
-     
-     
-//     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-//
-//          let location = CLLocationCoordinate2D(latitude: marker.position.latitude, longitude: marker.position.longitude)
-//          tappedMarker = marker
-//
-//
-//          let index = Int(tappedMarker.title!)!
-//          print(index)
-//
-//          infoWindow.removeFromSuperview()
-//
-//          infoWindow = SitterMainVC.instanceFromNib()
-//
-//
-//          infoWindow.personName.text = sitters[index].FullName
-//          infoWindow.personAddress.text = sitters[index].Location
-//
-//          infoWindow.bookButton.tag = index
-//          infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
-//          infoWindow.center = mapView.projection.point(for: location)
-//          infoWindow.center.y = infoWindow.center.y + 360
-//          infoWindow.center.x = infoWindow.center.x + 10
-//
-//          infoWindow.frame.size.width = 225
-//          infoWindow.frame.size.height = 150
-////
-//
-//          self.view.addSubview(infoWindow)
-//          return false
-//
-//     }
+
      
      
      func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-         print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
-     print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
+
+          
+          print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
+          
+          self.currentLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
      }
      
      func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
          print("didBeginDragging")
+          
+
+          
           
      
      }
@@ -202,48 +201,7 @@ extension ParentLocationVC: GMSMapViewDelegate{
          print("didDrag")
           
      }
-     
-     
-     
-     //Mark: Reverse GeoCoding
-     
-     func reverseGeocoding(marker: GMSMarker) {
-         let geocoder = GMSGeocoder()
-         let coordinate = CLLocationCoordinate2DMake(Double(marker.position.latitude),Double(marker.position.longitude))
-         
-         var currentAddress = String()
-         
-         geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
-             if let address = response?.firstResult() {
-                 let lines = address.lines! as [String]
-                 
-                 print("Response is = \(address)")
-                 print("Response is = \(lines)")
-                 
-                 currentAddress = lines.joined(separator: "\n")
-                 
-             }
-             marker.title = currentAddress
-             marker.map = self.mapView
-         }
-     }
-//
-//     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-//          return UIView()
-//     }
-     
-     
-//     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-//
-//          self.view.bringSubviewToFront(localMapView)
-//          let location = CLLocationCoordinate2D(latitude: tappedMarker.position.latitude, longitude: tappedMarker.position.longitude)
-////          infoWindow.center = mapView.projection.point(for: location)
-//     }
-     
-//     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-////          infoWindow.removeFromSuperview()
-//
-//     }
+
      
 }
 

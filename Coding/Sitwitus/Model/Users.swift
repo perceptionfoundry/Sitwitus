@@ -24,6 +24,8 @@ class Users: Codable{
      var ImageUrl : String!
      var UserType : String!
      var ZipCode : String!
+     var Star : Double?
+     
      
      static var userDetail = Users()
      

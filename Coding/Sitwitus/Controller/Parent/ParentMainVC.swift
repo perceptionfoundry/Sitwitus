@@ -26,7 +26,7 @@ class ParentMainVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-     var mapView : GMSMapView?
+     var mainMapView : GMSMapView?
      var tappedMarker = GMSMarker()
      var locationManager = CLLocationManager()
      var currentLocation : CLLocation!
@@ -37,6 +37,9 @@ class ParentMainVC: UIViewController {
      
      var dbStore = Firestore.firestore()
      var sitters = [Users]()
+     var selectedIndex = -1
+     var signInUser = sharedVariable.signInUser!
+     
                                    
                                    //********* FUNCTIONS ***************
     
@@ -53,9 +56,27 @@ class ParentMainVC: UIViewController {
         super.viewWillAppear(animated)
      
      
+ 
+     if signInUser.Lat! == 0.0 && signInUser.Long! == 0.0{
+
+          let alert = UIAlertController(title: "COORDINATE", message: "Please update your exact coordinate", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "UPDATE", style: .destructive, handler: { (action) in
+
+               let storyBoard = UIStoryboard(name: "Parent", bundle: nil)
+               let vc = storyBoard.instantiateViewController(identifier: "MAP")
+
+               self.navigationController?.pushViewController(vc, animated: true)
+
+          }))
+
+          self.present(alert, animated: true, completion: nil)
+     }
+     else{
+
+     }
 
      
-     mapView?.clear()
+     mainMapView?.clear()
      
      mapCameraAction()
 //     mapMarkerAction()
@@ -115,9 +136,9 @@ class ParentMainVC: UIViewController {
           
           
           let camera = GMSCameraPosition.camera(withLatitude: 34.0522, longitude: -118.2437, zoom: 10.0)
-          self.mapView = GMSMapView.map(withFrame: localMapView.bounds, camera: camera)
-          self.mapView?.delegate = self
-          self.localMapView.addSubview(mapView!)
+          self.mainMapView = GMSMapView.map(withFrame: localMapView.bounds, camera: camera)
+          self.mainMapView?.delegate = self
+          self.localMapView.addSubview(mainMapView!)
 //          view = mapView
      }
 //*************** GOOGLE MARKER
@@ -136,7 +157,7 @@ class ParentMainVC: UIViewController {
           markerInnerImage.personIamge.sd_setImage(with: URL(string: ImageString), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
           
            marker.iconView = markerInnerImage
-          marker.map = self.mapView!
+          marker.map = self.mainMapView!
           
      }
 
@@ -144,7 +165,17 @@ class ParentMainVC: UIViewController {
      @objc func BookingAction(button: UIButton){
           
           print(button.tag)
+          
+          self.selectedIndex = button.tag
           performSegue(withIdentifier: "Booking_Segue", sender: nil)
+     }
+     
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          let dest = segue.destination  as! ParentBookingVC
+          
+          dest.sitter = sitters[self.selectedIndex]
      }
                                     //*************** OUTLET ACTION ******************
 
@@ -174,7 +205,7 @@ extension ParentMainVC: CLLocationManagerDelegate{
 
           
           // *********************** Creating Map View ***********************
-          mapView!.animate(to: camera)
+          mainMapView!.animate(to: camera)
           
           // *********************** Define user current location with Marker: ***********************
           
@@ -218,7 +249,7 @@ extension ParentMainVC: GMSMapViewDelegate{
           
           infoWindow.bookButton.tag = index
           infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
-          infoWindow.center = mapView.projection.point(for: location)
+          infoWindow.center = self.mainMapView!.projection.point(for: location)
           infoWindow.center.y = infoWindow.center.y + 360
           infoWindow.center.x = infoWindow.center.x + 10
 
