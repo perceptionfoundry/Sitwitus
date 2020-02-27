@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      var signInUser : Users?
      var isSignIn = false
+     
+     var tempDict = [String:Any]()
   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

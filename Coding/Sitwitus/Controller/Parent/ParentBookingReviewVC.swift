@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ParentBookingReviewVC: UIViewController {
 
@@ -14,10 +16,11 @@ class ParentBookingReviewVC: UIViewController {
                                     //******** OUTLETS ***************
 
 
-
+     @IBOutlet weak var container_View: UIView!
+     
+     
                                    //******** VARIABLES *************
-
-                                   
+     var bookingDict = [String:Any]()
                                    //********* FUNCTIONS ***************
     
     
@@ -26,11 +29,12 @@ class ParentBookingReviewVC: UIViewController {
  override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+     
+
     }
 
 
@@ -42,6 +46,19 @@ class ParentBookingReviewVC: UIViewController {
      }
      
      @IBAction func confirmButton(){
+          
+          
+          
+          let dbStore = Firestore.firestore()
+          
+          let colletionRef = dbStore.collection("Requests").document()
+          
+          self.bookingDict["Time"] = FieldValue.serverTimestamp()
+          self.bookingDict["requestUid"] = colletionRef.documentID
+          
+          colletionRef.setData(self.bookingDict)
+          
+          
           
           let story = UIStoryboard(name: "Parent", bundle: nil)
           let vc = story.instantiateViewController(withIdentifier: "MAIN")

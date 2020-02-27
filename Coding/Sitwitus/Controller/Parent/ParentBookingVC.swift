@@ -24,6 +24,7 @@ class ParentBookingVC: UIViewController {
      @IBOutlet weak var rateStars: HCSStarRatingView!
      @IBOutlet weak var tipLabel: UILabel!
      @IBOutlet weak var tipAmount: UILabel!
+     @IBOutlet weak var hours: UITextField!
      @IBOutlet var tipButton: [UIButton]!
      
      
@@ -43,6 +44,7 @@ class ParentBookingVC: UIViewController {
                                    //******** VARIABLES *************
      var sitter : Users!
      var dbStore = Firestore.firestore()
+     var tipPercent = 10
                                    //********* FUNCTIONS ***************
     
     
@@ -144,6 +146,7 @@ class ParentBookingVC: UIViewController {
                ButtonView0.backgroundColor = .white
                ButtonView0.border_color = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
                ButtonLabel0.textColor = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
+               self.tipPercent = 5
 
           }
           
@@ -151,6 +154,7 @@ class ParentBookingVC: UIViewController {
                ButtonView1.backgroundColor = .white
                ButtonView1.border_color = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
                ButtonLabel1.textColor = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
+               self.tipPercent = 10
                
           }
           
@@ -158,6 +162,7 @@ class ParentBookingVC: UIViewController {
                ButtonView2.backgroundColor = .white
                ButtonView2.border_color = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
                ButtonLabel2.textColor = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
+               self.tipPercent = 15
 
           }
           
@@ -165,6 +170,7 @@ class ParentBookingVC: UIViewController {
                ButtonView3.backgroundColor = .white
                ButtonView3.border_color = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
                ButtonLabel3.textColor = (UIColor(red: 0.369, green: 0.737, blue: 0.753, alpha: 1))
+               self.tipPercent = 20
 
           }
 
@@ -172,6 +178,43 @@ class ParentBookingVC: UIViewController {
          }
      
      @IBAction func bookingButton(){
+          
+
+          if hours.text?.isEmpty == false{
+          let dict = [
+                      "ParentName": (sharedVariable.signInUser?.FullName)!,
+                      "ParentUid":(sharedVariable.signInUser?.UserId)!,
+                      "ParentImage":(sharedVariable.signInUser?.ImageUrl)!,
+                      "SitterName":(sitter.FullName)!,
+                      "SitterUid":(sitter.UserId)!,
+                      "SitterReview": Double(rateStars.value),
+                      "SitterImage":(sitter.ImageUrl)!,
+                      "Rate":sitter.Rate!,
+                      "Tip": self.tipPercent,
+                      "Hours": (self.hours.text)!,
+                      "Status": "Requested"] as [String : Any]
+               
+               
+               sharedVariable.tempDict = dict
+               
+               
+               performSegue(withIdentifier: "FINAL", sender: dict)
+          
+          
+         
+          }else{
+               let alert = AlertWindow()
+               
+               alert.simple_Window(Title: "HOURS REQUIRED", Message: "Please tell number of required", View: self)
+          }
+     }
+     
+   
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          let dest = segue.destination  as! ParentBookingReviewVC
+          
+          dest.bookingDict = sender as! [String:Any]
      }
 
 
