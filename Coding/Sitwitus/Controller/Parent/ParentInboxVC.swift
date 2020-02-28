@@ -23,7 +23,7 @@ class ParentInboxVC: UIViewController {
      }
          
      let dbStore = Firestore.firestore()
-     let inboxList = [Message]()
+     let inboxList = [[String:Any]]()
                                    //********* FUNCTIONS ***************
     
     
@@ -41,12 +41,46 @@ class ParentInboxVC: UIViewController {
      inboxTable.delegate = self
      inboxTable.dataSource = self
      inboxTable.reloadData()
+     
+     self.getData()
     }
 
      func getData(){
           
           //******* CONVERSATION
           dbStore.collection("Conversation").document((sharedVariable.signInUser?.UserId)!).addSnapshotListener { (inboxSnap, inboxErr) in
+               
+               guard let fetchData = inboxSnap?.data() else{return}
+               
+               print(fetchData["chatRoom"] as! [String])
+               
+               
+               
+               let conversationList = fetchData["chatRoom"] as! [String]
+               
+               conversationList.forEach { (chatID) in
+                    
+                    let count = 0
+                    
+                    if count <= conversationList.count{
+                         
+                         self.dbStore.collection("ChatRoom").document(chatID).collection("Messages").getDocuments { (msgSnap, msgErr) in
+                              
+                              guard let fetchMsgs = msgSnap?.documents else{return}
+                              
+                              
+                              fetchMsgs.forEach { (msg) in
+                                   
+                                   print(msg.data())
+                              }
+
+                         }
+                    }
+                    
+               }
+               
+               
+               
                
                
           }
@@ -69,7 +103,7 @@ class ParentInboxVC: UIViewController {
 extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return inboxList.count
+          return 2
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

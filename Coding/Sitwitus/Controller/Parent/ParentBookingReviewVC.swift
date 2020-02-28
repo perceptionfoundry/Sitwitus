@@ -118,7 +118,7 @@ class ParentBookingReviewVC: UIViewController {
           print("chatroom: \(chatRoom)")
           
           
-          let collectionRef = dbStore.collection("ChatRoom").document()
+          let collectionRef = dbStore.collection("ChatRoom").document(chatRoom).collection("Messages").document()
                    
                    // ****** CREATE MESSAGE INFO *****
                    
@@ -141,7 +141,7 @@ class ParentBookingReviewVC: UIViewController {
                    collectionRef.setData(basisDict)
           
           
-          dbStore.collection("Conversation").document(senderID).setData(["chatRoom":chatRoom])
+          dbStore.collection("Conversation").document(chatRoom).setData(["chatRoom":chatRoom])
           
           
           //************ CONVERSATION **********
