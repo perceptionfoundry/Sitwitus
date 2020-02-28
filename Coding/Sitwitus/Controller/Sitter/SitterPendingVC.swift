@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SitterPendingVC: UIViewController {
 
@@ -23,6 +24,9 @@ class SitterPendingVC: UIViewController {
      var selectedIndex = -1
      var rejectRequest = [Int]()
      var acceptedRequest = [Int]()
+     
+     var dbStore = Firestore.firestore()
+     var pendingList = [Pending]()
                                    //********* FUNCTIONS ***************
     
     
@@ -42,6 +46,11 @@ class SitterPendingVC: UIViewController {
      pendingTable.reloadData()
     }
 
+     
+     func getdata(){
+          
+          
+     }
      
      @objc func requestButtonAction (button : UIButton){
           

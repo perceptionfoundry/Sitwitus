@@ -135,7 +135,7 @@ class ParentMainVC: UIViewController {
           locationManager.startUpdatingLocation()
           
           
-          let camera = GMSCameraPosition.camera(withLatitude: 34.0522, longitude: -118.2437, zoom: 10.0)
+          let camera = GMSCameraPosition.camera(withLatitude: 34.0522, longitude: -118.2437, zoom: 15.0)
           self.mainMapView = GMSMapView.map(withFrame: localMapView.bounds, camera: camera)
           self.mainMapView?.delegate = self
           self.localMapView.addSubview(mainMapView!)
@@ -173,9 +173,12 @@ class ParentMainVC: UIViewController {
      
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           
+          
+          if segue.identifier == "Booking_Segue"{
           let dest = segue.destination  as! ParentBookingVC
           
           dest.sitter = sitters[self.selectedIndex]
+          }
      }
                                     //*************** OUTLET ACTION ******************
 
@@ -201,7 +204,7 @@ extension ParentMainVC: CLLocationManagerDelegate{
           self.locationManager.stopUpdatingLocation()
           
           
-          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 10)
+          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
 
           
           // *********************** Creating Map View ***********************

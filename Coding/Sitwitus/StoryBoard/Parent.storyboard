@@ -2623,8 +2623,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitter Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5v-ew-bTd">
-                                <rect key="frame" x="216" y="424.5" width="61" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Required?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5v-ew-bTd">
+                                <rect key="frame" x="216" y="424.5" width="106" height="17"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2687,7 +2687,7 @@
                         <outlet property="sitterSkill" destination="oVb-ie-G4D" id="vsF-iN-J3c"/>
                         <outlet property="sitterSpecialist" destination="LWC-Qc-Sw0" id="gAZ-ci-i2u"/>
                         <outlet property="tipAmount" destination="ySq-tA-EMs" id="o70-uG-p3Y"/>
-                        <outlet property="tipLabel" destination="kdq-dp-99e" id="bWs-tD-fnQ"/>
+                        <outlet property="tipLabel" destination="p5O-rt-tyb" id="rld-bR-EM4"/>
                         <outletCollection property="tipButton" destination="w7v-xN-HV5" collectionClass="NSMutableArray" id="0zg-lT-fgq"/>
                         <outletCollection property="tipButton" destination="waT-Bu-ynG" collectionClass="NSMutableArray" id="V3S-lo-GVr"/>
                         <outletCollection property="tipButton" destination="MKb-ZP-1DV" collectionClass="NSMutableArray" id="K2b-b1-2r1"/>

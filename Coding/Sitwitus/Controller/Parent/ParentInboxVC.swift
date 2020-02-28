@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
 
 class ParentInboxVC: UIViewController {
 
@@ -19,7 +21,9 @@ class ParentInboxVC: UIViewController {
      override var preferredStatusBarStyle: UIStatusBarStyle {
          return .lightContent
      }
-                                   
+         
+     let dbStore = Firestore.firestore()
+     let inboxList = [Message]()
                                    //********* FUNCTIONS ***************
     
     
@@ -39,6 +43,15 @@ class ParentInboxVC: UIViewController {
      inboxTable.reloadData()
     }
 
+     func getData(){
+          
+          //******* CONVERSATION
+          dbStore.collection("Conversation").document((sharedVariable.signInUser?.UserId)!).addSnapshotListener { (inboxSnap, inboxErr) in
+               
+               
+          }
+          
+     }
 
 
                                     //*************** OUTLET ACTION ******************
@@ -56,7 +69,7 @@ class ParentInboxVC: UIViewController {
 extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 3
+          return inboxList.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
