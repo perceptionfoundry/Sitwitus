@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CodableFirebase
+import SDWebImage
 
 class ParentInboxVC: UIViewController {
 
@@ -23,7 +24,7 @@ class ParentInboxVC: UIViewController {
      }
          
      let dbStore = Firestore.firestore()
-     let inboxList = [[String:Any]]()
+     var inboxList = [[String:Any]]()
                                    //********* FUNCTIONS ***************
     
     
@@ -69,10 +70,27 @@ class ParentInboxVC: UIViewController {
                               guard let fetchMsgs = msgSnap?.documents else{return}
                               
                               
-                              fetchMsgs.forEach { (msg) in
-                                   
-                                   print(msg.data())
-                              }
+                              let lastValue  = fetchMsgs.last?.data() as! [String:Any]
+                              
+                              let msgCodable = try! FirestoreDecoder().decode(Message.self, from: lastValue)
+                              
+                              print(lastValue)
+                              
+                              let listData = ["ChatRoom": chatID, "Data": msgCodable] as [String : Any]
+                              
+                              self.inboxList.append(listData)
+                              
+                              
+                              print(self.inboxList)
+                              
+                              self.inboxTable.reloadData()
+                              
+//                              fetchMsgs.forEach { (msg) in
+//
+//                                   print(msg.data())
+//
+//                                   let value = msg.data()
+//                              }
 
                          }
                     }
@@ -103,7 +121,7 @@ class ParentInboxVC: UIViewController {
 extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 2
+          return inboxList.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,11 +130,16 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
           
           let cell = tableView.dequeueReusableCell(withIdentifier: "INBOX", for: indexPath) as! InboxTableViewCell
           
-          cell.userName.text = "shahrukh"
-          cell.messsage.text = "dsnfkshdkjfnlskvbsd vsfkjsdjlkfhsdjfksdjfbsjkfjjkshflsjfl ksfjlsj f"
+          
+          let displayValue = self.inboxList[indexPath.row]
+          let dataValue = displayValue["Data"] as! Message
+          cell.userName.text = dataValue.recieverName
+          cell.messsage.text = dataValue.context
           cell.duration.text = "10min"
-          cell.userImage.image = UIImage(named: "me")
-
+          
+          let image = dataValue.recieverImageURL
+          
+          cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
 
 
           return cell

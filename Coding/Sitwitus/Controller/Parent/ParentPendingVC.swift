@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
 
 class ParentPendingVC:  UIViewController {
 
@@ -20,6 +22,8 @@ class ParentPendingVC:  UIViewController {
          return .lightContent
      }
         
+     
+     let dbStore = Firestore.firestore()
   
                                    //********* FUNCTIONS ***************
     
@@ -38,8 +42,26 @@ class ParentPendingVC:  UIViewController {
      pendingTable.delegate = self
      pendingTable.dataSource = self
      pendingTable.reloadData()
+     
+     self.getData()
     }
 
+     
+     
+     func getData(){
+          
+          let currentUser = sharedVariable.signInUser
+          
+          self.dbStore.collection("Requests").whereField("ParentUid", isEqualTo: (currentUser?.UserId)!).order(by: "Timestamp").getDocuments { (requestSnap, requestErr) in
+               
+//               guard let fetchData = requestSnap?.documents else{return}
+               
+//               print(fetchData.first?.data())
+          }
+          
+          
+          
+     }
      
      @objc func acceptButtonAction (button : UIButton){
               
