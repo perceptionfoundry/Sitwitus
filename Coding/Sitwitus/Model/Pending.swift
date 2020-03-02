@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import Firebase
 
 
 class Pending: Codable {
      
      var CreatedBy : String!
+     var Address: String
+     var Lat : Double
+     var Long : Double
      var ParentName : String!
      var ParentUid : String!
      var ParentImage : String!
@@ -19,10 +23,10 @@ class Pending: Codable {
      var SitterUid : String!
      var SitterImage : String!
      var SitterReview : Double!
-     var Rate : String!
-     var Tip : String!
+     var Rate : Double!
+     var Tip : Int!
      var Hours : String!
      var Status : String!
-     var Timestamp : String!
-     var RequestUid: String!
+     var Timestamp : Timestamp!
+     var requestUid: String!
 }

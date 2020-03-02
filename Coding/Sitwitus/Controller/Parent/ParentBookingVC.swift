@@ -183,17 +183,20 @@ class ParentBookingVC: UIViewController {
           if hours.text?.isEmpty == false{
           let dict = [
                "CreatedBy": (sharedVariable.signInUser?.UserId)!,
-                      "ParentName": (sharedVariable.signInUser?.FullName)!,
-                      "ParentUid":(sharedVariable.signInUser?.UserId)!,
-                      "ParentImage":(sharedVariable.signInUser?.ImageUrl)!,
-                      "SitterName":(sitter.FullName)!,
-                      "SitterUid":(sitter.UserId)!,
-                      "SitterReview": Double(rateStars.value),
-                      "SitterImage":(sitter.ImageUrl)!,
-                      "Rate":sitter.Rate!,
-                      "Tip": self.tipPercent,
-                      "Hours": (self.hours.text)!,
-                      "Status": "Requested"] as [String : Any]
+               "Address": (sharedVariable.signInUser?.Location)!,
+               "Lat":(sharedVariable.signInUser?.Lat)!,
+               "Long": (sharedVariable.signInUser?.Long)!,
+               "ParentName": (sharedVariable.signInUser?.FullName)!,
+               "ParentUid":(sharedVariable.signInUser?.UserId)!,
+               "ParentImage":(sharedVariable.signInUser?.ImageUrl)!,
+               "SitterName":(sitter.FullName)!,
+               "SitterUid":(sitter.UserId)!,
+               "SitterReview": Double(rateStars.value),
+               "SitterImage":(sitter.ImageUrl)!,
+               "Rate":sitter.Rate!,
+               "Tip": self.tipPercent,
+               "Hours": (self.hours.text)!,
+               "Status": "Requested"] as [String : Any]
                
                
                sharedVariable.tempDict = dict

@@ -17,6 +17,7 @@ class PendingTableViewCell: UITableViewCell {
      @IBOutlet weak var ratingStar: HCSStarRatingView!
      @IBOutlet weak var messageButton: UIButton!
      @IBOutlet weak var pendingButton: UIButton!
+     @IBOutlet weak var pendingHours: UILabel!
 
 
 }

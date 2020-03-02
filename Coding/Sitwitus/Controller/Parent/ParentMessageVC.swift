@@ -61,6 +61,10 @@ class ParentMessageVC: UIViewController
           super.viewWillAppear(animated)
           
           
+          print("SENDER: \(senderId)")
+          print("RECEIVER: \(recieverId)")
+          
+          
           messageTF.delegate = self
           
           messageTF.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneAction))

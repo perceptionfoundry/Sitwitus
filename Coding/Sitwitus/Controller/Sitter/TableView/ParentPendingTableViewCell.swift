@@ -19,6 +19,8 @@ class ParentPendingTableViewCell: UITableViewCell {
      @IBOutlet weak var messageButton: UIButton!
      @IBOutlet weak var acceptButton: UIButton!
      @IBOutlet weak var pendingButton: UIButton!
+     @IBOutlet weak var pendingHours: UILabel!
+
 
 
 }

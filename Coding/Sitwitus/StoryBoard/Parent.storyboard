@@ -1894,7 +1894,7 @@
         <!--Parent MessageVC-->
         <scene sceneID="y1m-Rt-74M">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="57C-f6-U0S" customClass="ParentMessageVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CHAT" modalPresentationStyle="fullScreen" id="57C-f6-U0S" customClass="ParentMessageVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7bd-Rk-1gq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2942,6 +2942,7 @@
                                             <outlet property="acceptButton" destination="ZfW-YA-iKP" id="oeS-NP-vdR"/>
                                             <outlet property="messageButton" destination="oIf-3M-n6H" id="aL7-LP-cWg"/>
                                             <outlet property="pendingButton" destination="CSw-Jn-Oqt" id="sNS-5B-Oql"/>
+                                            <outlet property="pendingHours" destination="e9Y-8f-zC1" id="3gz-S5-erR"/>
                                             <outlet property="ratingStar" destination="NKV-SO-NzA" id="ZrD-lv-kB5"/>
                                             <outlet property="sitterAddress" destination="Dej-qo-mpK" id="D0H-Zg-jHT"/>
                                             <outlet property="sitterImage" destination="ocv-1C-Ov3" id="1NU-O0-KG4"/>
