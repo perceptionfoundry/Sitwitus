@@ -92,12 +92,12 @@ class ParentBookingReviewVC: UIViewController {
           
           
 //
-//          let colletionRef = dbStore.collection("Requests").document()
-//
-//          self.bookingDict["Timestamp"] = FieldValue.serverTimestamp()
-//          self.bookingDict["requestUid"] = colletionRef.documentID
-//
-//          colletionRef.setData(self.bookingDict)
+          let colletionRef = dbStore.collection("Requests").document()
+
+          self.bookingDict["Timestamp"] = FieldValue.serverTimestamp()
+          self.bookingDict["requestUid"] = colletionRef.documentID
+
+          colletionRef.setData(self.bookingDict)
           
           
           //******* CHATROOM *****

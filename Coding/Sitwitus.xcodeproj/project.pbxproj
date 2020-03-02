@@ -90,6 +90,7 @@
 		F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97B823E802810048C782 /* SitterMessageVC.swift */; };
 		F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED97BA23E809C10048C782 /* SignInVC.swift */; };
 		F2F75D5324041E670038BD58 /* ParentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F75D5224041E670038BD58 /* ParentLocationVC.swift */; };
+		F2FC9937240CF1FE00A44F8A /* SitterBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FC9936240CF1FE00A44F8A /* SitterBookingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +181,7 @@
 		F2ED97B823E802810048C782 /* SitterMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMessageVC.swift; sourceTree = "<group>"; };
 		F2ED97BA23E809C10048C782 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		F2F75D5224041E670038BD58 /* ParentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentLocationVC.swift; sourceTree = "<group>"; };
+		F2FC9936240CF1FE00A44F8A /* SitterBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterBookingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 				F2ED97BA23E809C10048C782 /* SignInVC.swift */,
 				F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */,
 				F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */,
+				F2FC9936240CF1FE00A44F8A /* SitterBookingVC.swift */,
 				F240267223E415050066A027 /* SitterPendingVC.swift */,
 				F240267423E418860066A027 /* SitterSideMenuVC.swift */,
 				F240267623E41DA80066A027 /* SitterInboxVC.swift */,
@@ -642,6 +645,7 @@
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
 				F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
+				F2FC9937240CF1FE00A44F8A /* SitterBookingVC.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
 				F2CE10352400276300805B90 /* MapMarkup.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,

@@ -24,7 +24,7 @@ class Pending: Codable {
      var SitterImage : String!
      var SitterReview : Double!
      var Rate : Double!
-     var Tip : Int!
+     var Tip : Int?
      var Hours : String!
      var Status : String!
      var Timestamp : Timestamp!

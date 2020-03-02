@@ -81,6 +81,8 @@ class ParentPendingVC:  UIViewController {
               
               
               print("ACCEPT")
+          dbStore.collection("Requests").document((pendingList[button.tag].requestUid)!).updateData(["Status":"Accepted"])
+
               
          }
      
@@ -89,7 +91,7 @@ class ParentPendingVC:  UIViewController {
           print("DECLINE")
           
 
-          dbStore.collection("Requests").document((pendingList[button.tag].requestUid)!).updateData(["Status":"Decline"])
+          dbStore.collection("Requests").document((pendingList[button.tag].requestUid)!).updateData(["Status":"Declined"])
           
      }
      
