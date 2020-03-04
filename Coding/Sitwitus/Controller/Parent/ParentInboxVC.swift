@@ -25,6 +25,9 @@ class ParentInboxVC: UIViewController {
          
      let dbStore = Firestore.firestore()
      var inboxList = [[String:Any]]()
+     
+     var senderID = (sharedVariable.signInUser?.UserId)!
+     var receiverID = ""
                                    //********* FUNCTIONS ***************
     
     
@@ -48,15 +51,15 @@ class ParentInboxVC: UIViewController {
 
      func getData(){
           
+          
           inboxList.removeAll()
-          inboxTable.reloadData()
+                 inboxTable.reloadData()
           
           //******* CONVERSATION
           dbStore.collection("Conversation").document((sharedVariable.signInUser?.UserId)!).addSnapshotListener { (inboxSnap, inboxErr) in
                
                guard let fetchData = inboxSnap?.data() else{return}
                
-               print(fetchData["chatRoom"] as! [String])
                
                
                
@@ -73,27 +76,18 @@ class ParentInboxVC: UIViewController {
                               guard let fetchMsgs = msgSnap?.documents else{return}
                               
                               
-                              let lastValue  = fetchMsgs.last?.data() as! [String:Any]
+                              let lastValue  = fetchMsgs.last?.data()
                               
-                              let msgCodable = try! FirestoreDecoder().decode(Message.self, from: lastValue)
+                              let msgCodable = try! FirestoreDecoder().decode(Message.self, from: lastValue!)
                               
-                              print(lastValue)
                               
                               let listData = ["ChatRoom": chatID, "Data": msgCodable] as [String : Any]
                               
                               self.inboxList.append(listData)
                               
-                              
-                              print(self.inboxList)
-                              
                               self.inboxTable.reloadData()
                               
-//                              fetchMsgs.forEach { (msg) in
 //
-//                                   print(msg.data())
-//
-//                                   let value = msg.data()
-//                              }
 
                          }
                     }
@@ -136,13 +130,27 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
           
           let displayValue = self.inboxList[indexPath.row]
           let dataValue = displayValue["Data"] as! Message
-          cell.userName.text = dataValue.recieverName
-          cell.messsage.text = dataValue.context
+          
+     
+          
+          
+          if (sharedVariable.signInUser?.FullName)! == dataValue.senderName{
+               cell.userName.text = dataValue.recieverName
+               let image = dataValue.recieverImageURL
+                        
+               cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+          }
+          else{
+               cell.userName.text = dataValue.senderName
+               let image = dataValue.senderImageURL
+                        
+               cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+          }
+         cell.messsage.text = dataValue.context
+
           cell.duration.text = "10min"
           
-          let image = dataValue.recieverImageURL
-          
-          cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+         
 
 
           return cell
@@ -155,7 +163,28 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           
           
-           let indexNumber = indexPath.row
+          let indexNumber = indexPath.row
+          
+          
+          
+          let displayValue = self.inboxList[indexPath.row]
+               let dataValue = displayValue["Data"] as! Message
+               
+          
+               
+               
+               if (sharedVariable.signInUser?.UserId)! == dataValue.senderId{
+                
+                    self.receiverID = dataValue.receiverId
+               }
+               else{
+                  
+                    self.receiverID = dataValue.senderId
+
+               }
+          
+          
+
           
           performSegue(withIdentifier: "Message_Segue", sender: indexNumber)
      }
@@ -169,8 +198,11 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
               let value = self.inboxList[sender as! Int]
                let dataValue = value["Data"] as! Message
                
-               dest.senderId = dataValue.senderId
-               dest.recieverId = dataValue.receiverId
+               
+       
+               
+               dest.senderId = self.senderID
+               dest.recieverId = self.receiverID
                dest.chatRoomTitle = dataValue.roomId
                
               

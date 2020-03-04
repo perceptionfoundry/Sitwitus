@@ -63,7 +63,8 @@ class ParentMessageVC: UIViewController
      override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
           
-          
+          self.messageTF.text = "Say Something..."
+          self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           messageTF.delegate = self
           
           messageTF.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneAction))
@@ -207,7 +208,7 @@ class ParentMessageVC: UIViewController
      
      func sendText(){
           
-          
+          if messageTF.text.isEmpty == false {
           
           let collectionRef = dbRef.collection("ChatRoom").document(chatRoomTitle).collection("Messages").document()
           
@@ -242,13 +243,13 @@ class ParentMessageVC: UIViewController
                dbRef.collection("Conversation").document(self.recieverId).setData(["chatRoom":self.receiverConversationId])
           }
           
-          
+               self.messageTF.text = nil
           
           
           self.allMessage.removeAll()
           self.messageTable.reloadData()
      }
-     
+     }
      
      
      @objc func doneAction(){
@@ -262,10 +263,11 @@ class ParentMessageVC: UIViewController
      func returnAction(){
           
           
-          
+          textViewHeight.constant = 44
           //
           self.sendMessage = self.messageTF.text!
-          self.messageTF.text = "Say Something..."
+          self.messageTF.resignFirstResponder()
+         
           self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           
           self.messageTable.reloadData()
@@ -332,7 +334,7 @@ extension ParentMessageVC: UITableViewDataSource, UITableViewDelegate{
 
                cell.messsage.text = (self.allMessage[indexPath.row - 1].context!)
 
-                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].recieverImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
                return cell
 
           }
@@ -341,7 +343,7 @@ extension ParentMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return UITableView.automaticDimension
+          return UITableView.automaticDimension + 75
      }
 }
 
@@ -392,7 +394,7 @@ extension ParentMessageVC: UITextViewDelegate{
      func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
           
           if textView.text == "" {
-               textView.text = "Say Something..."
+               textView.text = ""
                messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
                
           }

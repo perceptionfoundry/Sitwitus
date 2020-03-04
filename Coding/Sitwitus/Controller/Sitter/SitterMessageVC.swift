@@ -243,7 +243,7 @@ class SitterMessageVC: UIViewController
                dbRef.collection("Conversation").document(self.recieverId).setData(["chatRoom":self.receiverConversationId])
           }
           
-          
+               self.messageTF.text = nil
           
           
           self.allMessage.removeAll()
@@ -266,7 +266,8 @@ class SitterMessageVC: UIViewController
           textViewHeight.constant = 44
           //
           self.sendMessage = self.messageTF.text!
-          self.messageTF.text = ""
+          self.messageTF.resignFirstResponder()
+         
           self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           
           self.messageTable.reloadData()
@@ -333,7 +334,7 @@ extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
 
                cell.messsage.text = (self.allMessage[indexPath.row - 1].context!)
 
-                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].recieverImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
                return cell
 
           }
@@ -342,7 +343,7 @@ extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return UITableView.automaticDimension 
+          return UITableView.automaticDimension  + 75
      }
 }
 
