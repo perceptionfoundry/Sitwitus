@@ -55,14 +55,13 @@ class ParentMessageVC: UIViewController
           super.viewDidLoad()
           
           
+          
+         
+          
      }
      
      override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
-          
-          
-          print("SENDER: \(senderId)")
-          print("RECEIVER: \(recieverId)")
           
           
           messageTF.delegate = self
@@ -79,8 +78,41 @@ class ParentMessageVC: UIViewController
           messageTable.register(time_Nib, forCellReuseIdentifier: "TIME")
           
           
+          print(senderId)
+          print(recieverId)
+          print(chatRoomTitle)
+          
+          
+          self.pastConversation()
+          
+          self.fetchMessage()
+          
+          self.recieverInfo()
+          
+        
+          
      }
      
+     
+     //*********** Fetch Reciever Detail
+     
+     func recieverInfo(){
+          
+          dbRef.collection("Users").document(recieverId).getDocument { (docSnap, docErr) in
+                                  
+                                  guard let fetchData = docSnap?.data() else{return}
+                                  
+                                  
+                                  //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
+                                  
+                                  let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)
+                                  
+                                   self.recieverDetail = value
+                                  
+                        
+                          
+                             }
+     }
      
      //****** MARK READ
      func makeRead(chatID : String){
@@ -130,17 +162,21 @@ class ParentMessageVC: UIViewController
           
           
           
-          self.dbRef.collection("ChatRoom").whereField("roomId", isEqualTo: self.chatRoomTitle).order(by: "addedOn", descending: false).addSnapshotListener { (chatSnap, chatError) in
+          self.dbRef.collection("ChatRoom").document(chatRoomTitle).collection("Messages").order(by: "addedOn", descending: false).addSnapshotListener { (chatSnap, chatError) in
                
                guard let fetchValue = chatSnap?.documents else{return}
                
+               
+               
+               print(fetchValue.count)
                self.allMessage.removeAll()
+               
+               var count = 0
                
                fetchValue.forEach { (value) in
                     
                     let getData = value.data()
-                    
-                    
+               
                     
                     let msg = try! FirestoreDecoder().decode(Message.self, from: getData)
                     
@@ -149,14 +185,18 @@ class ParentMessageVC: UIViewController
                     }
                     
                     self.allMessage.append(msg)
+                    
+                   count += 1
+                    
+                    if fetchValue.count == count{
                     self.messageTable.delegate = self
                     self.messageTable.dataSource = self
                     self.messageTable.reloadData()
                     
                     let indexPath = NSIndexPath(item: self.allMessage.count - 1, section: 0)
                     self.messageTable.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
-                    
-                    
+                    }
+                   
                     
                }
           }
@@ -169,7 +209,7 @@ class ParentMessageVC: UIViewController
           
           
           
-          let collectionRef = self.dbRef.collection("ChatRoom").document()
+          let collectionRef = dbRef.collection("ChatRoom").document(chatRoomTitle).collection("Messages").document()
           
           // ****** CREATE MESSAGE INFO *****
           
@@ -255,10 +295,13 @@ class ParentMessageVC: UIViewController
 extension ParentMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 5
+          return allMessage.count + 1
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          
+     
+          
           
           if indexPath.row == 0{
                let cell = tableView.dequeueReusableCell(withIdentifier: "TIME", for: indexPath)
@@ -266,26 +309,34 @@ extension ParentMessageVC: UITableViewDataSource, UITableViewDelegate{
                return cell
           }
                
-          else if self.senderId == self.allMessage[indexPath.row].composerId!{
+               
+          else{
+          
+          if self.senderId == self.allMessage[indexPath.row - 1].composerId!{
                
                let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath) as! SenderTableViewCell
                
-               cell.messsage.text = (self.allMessage[indexPath.row].context!)
+               cell.messsage.text = (self.allMessage[indexPath.row - 1 ].context!)
+               cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+               
                
                return cell
                
                
                
           }
-               
-               
+//
+//
           else{
-               let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath)
-               
+               let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath) as! RecieverTableViewCell
+
+               cell.messsage.text = (self.allMessage[indexPath.row - 1].context!)
+
+                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].recieverImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
                return cell
-               
+
           }
-          
+          }
      }
      
      

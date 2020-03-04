@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
+import SDWebImage
+
 
 class SitterInboxVC: UIViewController {
 
@@ -19,7 +23,12 @@ class SitterInboxVC: UIViewController {
      override var preferredStatusBarStyle: UIStatusBarStyle {
          return .lightContent
      }
-                                   
+         
+     let dbStore = Firestore.firestore()
+     var inboxList = [[String:Any]]()
+     
+     var senderID = (sharedVariable.signInUser?.UserId)!
+     var receiverID = ""
                                    //********* FUNCTIONS ***************
     
     
@@ -37,8 +46,62 @@ class SitterInboxVC: UIViewController {
      inboxTable.delegate = self
      inboxTable.dataSource = self
      inboxTable.reloadData()
+     
+     self.getData()
     }
 
+     func getData(){
+          
+          
+          inboxList.removeAll()
+                 inboxTable.reloadData()
+          
+          //******* CONVERSATION
+          dbStore.collection("Conversation").document((sharedVariable.signInUser?.UserId)!).addSnapshotListener { (inboxSnap, inboxErr) in
+               
+               guard let fetchData = inboxSnap?.data() else{return}
+               
+               
+               
+               
+               let conversationList = fetchData["chatRoom"] as! [String]
+               
+               conversationList.forEach { (chatID) in
+                    
+                    let count = 0
+                    
+                    if count <= conversationList.count{
+                         
+                         self.dbStore.collection("ChatRoom").document(chatID).collection("Messages").getDocuments { (msgSnap, msgErr) in
+                              
+                              guard let fetchMsgs = msgSnap?.documents else{return}
+                              
+                              
+                              let lastValue  = fetchMsgs.last?.data()
+                              
+                              let msgCodable = try! FirestoreDecoder().decode(Message.self, from: lastValue!)
+                              
+                              
+                              let listData = ["ChatRoom": chatID, "Data": msgCodable] as [String : Any]
+                              
+                              self.inboxList.append(listData)
+                              
+                              self.inboxTable.reloadData()
+                              
+//
+
+                         }
+                    }
+                    
+               }
+               
+               
+               
+               
+               
+          }
+          
+     }
 
 
                                     //*************** OUTLET ACTION ******************
@@ -56,7 +119,7 @@ class SitterInboxVC: UIViewController {
 extension SitterInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 3
+          return inboxList.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,11 +128,30 @@ extension SitterInboxVC: UITableViewDelegate, UITableViewDataSource{
           
           let cell = tableView.dequeueReusableCell(withIdentifier: "INBOX", for: indexPath) as! InboxTableViewCell
           
-          cell.userName.text = "shahrukh"
-          cell.messsage.text = "dsnfkshdkjfnlskvbsd vsfkjsdjlkfhsdjfksdjfbsjkfjjkshflsjfl ksfjlsj f"
-          cell.duration.text = "10min"
-          cell.userImage.image = UIImage(named: "me")
+          
+          let displayValue = self.inboxList[indexPath.row]
+          let dataValue = displayValue["Data"] as! Message
+          
+     
+          
+          
+          if (sharedVariable.signInUser?.FullName)! == dataValue.senderName{
+               cell.userName.text = dataValue.recieverName
+               let image = dataValue.recieverImageURL
+                        
+               cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+          }
+          else{
+               cell.userName.text = dataValue.senderName
+               let image = dataValue.senderImageURL
+                        
+               cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+          }
+         cell.messsage.text = dataValue.context
 
+          cell.duration.text = "10min"
+          
+         
 
 
           return cell
@@ -81,6 +163,51 @@ extension SitterInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           
-          performSegue(withIdentifier: "Message_Segue", sender: nil)
+          
+          let indexNumber = indexPath.row
+          
+          
+          
+          let displayValue = self.inboxList[indexPath.row]
+               let dataValue = displayValue["Data"] as! Message
+               
+          
+               
+               
+               if (sharedVariable.signInUser?.UserId)! == dataValue.senderId{
+                
+                    self.receiverID = dataValue.receiverId
+               }
+               else{
+                  
+                    self.receiverID = dataValue.senderId
+
+               }
+          
+          
+
+          
+          performSegue(withIdentifier: "Message_Segue", sender: indexNumber)
+     }
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          if segue.identifier == "Message_Segue"{
+          
+               let dest = segue.destination as! SitterMessageVC
+               
+              let value = self.inboxList[sender as! Int]
+               let dataValue = value["Data"] as! Message
+               
+               
+       
+               
+               dest.senderId = self.senderID
+               dest.recieverId = self.receiverID
+               dest.chatRoomTitle = dataValue.roomId
+               
+              
+          }
      }
 }
+

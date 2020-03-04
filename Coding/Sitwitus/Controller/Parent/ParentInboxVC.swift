@@ -48,6 +48,9 @@ class ParentInboxVC: UIViewController {
 
      func getData(){
           
+          inboxList.removeAll()
+          inboxTable.reloadData()
+          
           //******* CONVERSATION
           dbStore.collection("Conversation").document((sharedVariable.signInUser?.UserId)!).addSnapshotListener { (inboxSnap, inboxErr) in
                
@@ -151,6 +154,26 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
      
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           
-          performSegue(withIdentifier: "Message_Segue", sender: nil)
+          
+           let indexNumber = indexPath.row
+          
+          performSegue(withIdentifier: "Message_Segue", sender: indexNumber)
+     }
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          if segue.identifier == "Message_Segue"{
+          
+               let dest = segue.destination as! ParentMessageVC
+               
+              let value = self.inboxList[sender as! Int]
+               let dataValue = value["Data"] as! Message
+               
+               dest.senderId = dataValue.senderId
+               dest.recieverId = dataValue.receiverId
+               dest.chatRoomTitle = dataValue.roomId
+               
+              
+          }
      }
 }

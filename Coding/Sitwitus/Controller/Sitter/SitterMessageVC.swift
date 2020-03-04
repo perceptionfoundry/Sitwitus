@@ -55,12 +55,16 @@ class SitterMessageVC: UIViewController
           super.viewDidLoad()
           
           
+          
+         
+          
      }
      
      override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
           
-          
+          self.messageTF.text = "Say Something..."
+          self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           messageTF.delegate = self
           
           messageTF.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneAction))
@@ -75,8 +79,41 @@ class SitterMessageVC: UIViewController
           messageTable.register(time_Nib, forCellReuseIdentifier: "TIME")
           
           
+          print(senderId)
+          print(recieverId)
+          print(chatRoomTitle)
+          
+          
+          self.pastConversation()
+          
+          self.fetchMessage()
+          
+          self.recieverInfo()
+          
+        
+          
      }
      
+     
+     //*********** Fetch Reciever Detail
+     
+     func recieverInfo(){
+          
+          dbRef.collection("Users").document(recieverId).getDocument { (docSnap, docErr) in
+                                  
+                                  guard let fetchData = docSnap?.data() else{return}
+                                  
+                                  
+                                  //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
+                                  
+                                  let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)
+                                  
+                                   self.recieverDetail = value
+                                  
+                        
+                          
+                             }
+     }
      
      //****** MARK READ
      func makeRead(chatID : String){
@@ -126,17 +163,21 @@ class SitterMessageVC: UIViewController
           
           
           
-          self.dbRef.collection("ChatRoom").whereField("roomId", isEqualTo: self.chatRoomTitle).order(by: "addedOn", descending: false).addSnapshotListener { (chatSnap, chatError) in
+          self.dbRef.collection("ChatRoom").document(chatRoomTitle).collection("Messages").order(by: "addedOn", descending: false).addSnapshotListener { (chatSnap, chatError) in
                
                guard let fetchValue = chatSnap?.documents else{return}
                
+               
+               
+               print(fetchValue.count)
                self.allMessage.removeAll()
+               
+               var count = 0
                
                fetchValue.forEach { (value) in
                     
                     let getData = value.data()
-                    
-                    
+               
                     
                     let msg = try! FirestoreDecoder().decode(Message.self, from: getData)
                     
@@ -145,14 +186,18 @@ class SitterMessageVC: UIViewController
                     }
                     
                     self.allMessage.append(msg)
+                    
+                   count += 1
+                    
+                    if fetchValue.count == count{
                     self.messageTable.delegate = self
                     self.messageTable.dataSource = self
                     self.messageTable.reloadData()
                     
                     let indexPath = NSIndexPath(item: self.allMessage.count - 1, section: 0)
                     self.messageTable.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
-                    
-                    
+                    }
+                   
                     
                }
           }
@@ -163,9 +208,9 @@ class SitterMessageVC: UIViewController
      
      func sendText(){
           
+          if messageTF.text.isEmpty == false {
           
-          
-          let collectionRef = self.dbRef.collection("ChatRoom").document()
+          let collectionRef = dbRef.collection("ChatRoom").document(chatRoomTitle).collection("Messages").document()
           
           // ****** CREATE MESSAGE INFO *****
           
@@ -204,7 +249,7 @@ class SitterMessageVC: UIViewController
           self.allMessage.removeAll()
           self.messageTable.reloadData()
      }
-     
+     }
      
      
      @objc func doneAction(){
@@ -218,10 +263,10 @@ class SitterMessageVC: UIViewController
      func returnAction(){
           
           
-          
+          textViewHeight.constant = 44
           //
           self.sendMessage = self.messageTF.text!
-          self.messageTF.text = "Say Something..."
+          self.messageTF.text = ""
           self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           
           self.messageTable.reloadData()
@@ -251,10 +296,13 @@ class SitterMessageVC: UIViewController
 extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 5
+          return allMessage.count + 1
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          
+     
+          
           
           if indexPath.row == 0{
                let cell = tableView.dequeueReusableCell(withIdentifier: "TIME", for: indexPath)
@@ -262,31 +310,39 @@ extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
                return cell
           }
                
-          else if self.senderId == self.allMessage[indexPath.row].composerId!{
+               
+          else{
+          
+          if self.senderId == self.allMessage[indexPath.row - 1].composerId!{
                
                let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath) as! SenderTableViewCell
                
-               cell.messsage.text = (self.allMessage[indexPath.row].context!)
+               cell.messsage.text = (self.allMessage[indexPath.row - 1 ].context!)
+               cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+               
                
                return cell
                
                
                
           }
-               
-               
+//
+//
           else{
-               let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath)
-               
+               let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath) as! RecieverTableViewCell
+
+               cell.messsage.text = (self.allMessage[indexPath.row - 1].context!)
+
+                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].recieverImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
                return cell
-               
+
           }
-          
+          }
      }
      
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return UITableView.automaticDimension
+          return UITableView.automaticDimension 
      }
 }
 
@@ -337,7 +393,7 @@ extension SitterMessageVC: UITextViewDelegate{
      func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
           
           if textView.text == "" {
-               textView.text = "Say Something..."
+               textView.text = ""
                messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
                
           }
