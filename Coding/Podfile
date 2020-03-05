@@ -26,4 +26,6 @@ pod 'CodableFirebase'
 
 pod 'SDWebImage'
 
+pod 'Stripe' 
+
 end
