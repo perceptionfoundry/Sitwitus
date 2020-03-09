@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleMaps
 import Firebase
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      FirebaseApp.configure()
      
+     
+     
+             Stripe.setDefaultPublishableKey("pk_test_o8kIqRmXgSKq19OFCVOSc7rH00Bc0LCfgJ")
+
 
         return true
     }

@@ -60,7 +60,7 @@ class ParentSignUpVC: UIViewController {
      
      activity.isHidden = true
      
-     
+     emailTF.delegate = self
      parentalTypeTF.delegate = self
      textfieldPickerView.delegate = self
      
@@ -195,6 +195,15 @@ extension ParentSignUpVC: UITextFieldDelegate{
      
      
      
+     //************** PERSONALIZE FUNCTION ****************
+          
+          func validate(YourEMailAddress: String) -> Bool {
+                 let REGEX: String
+                 REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+                 return NSPredicate(format: "SELF MATCHES %@", REGEX).evaluate(with: YourEMailAddress)
+             }
+     
+     
      //--------------  BEGIN EDIT
      func textFieldDidBeginEditing(_ textField: UITextField) {
           
@@ -212,13 +221,35 @@ extension ParentSignUpVC: UITextFieldDelegate{
      }
      
      func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-          
-          
-          
-       
-          
+ 
           return true
      }
+     
+ 
+          
+          
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+      
+      
+      
+      if textField == emailTF{
+                  
+                  if self.validate(YourEMailAddress: emailTF.text!){
+                      
+                      emailTF.textColor = .black
+                  }
+                  else{
+                      emailTF.textColor = .red
+
+                  }
+              }
+
+              return true
+     }
+     
+     
+     
      
 }
 
@@ -251,7 +282,6 @@ extension ParentSignUpVC : UIPickerViewDelegate, UIPickerViewDataSource{
 }
 
 
-
 //********** IMAGEPICKER
 
 extension ParentSignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -268,3 +298,7 @@ extension ParentSignUpVC: UIImagePickerControllerDelegate, UINavigationControlle
      }
      
 }
+
+
+
+

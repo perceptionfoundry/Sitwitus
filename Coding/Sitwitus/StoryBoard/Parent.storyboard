@@ -1458,7 +1458,7 @@
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXXXXXXXXXXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9gm-aq-MbH">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXXXXXXXXXXXX" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9gm-aq-MbH">
                                                         <rect key="frame" x="30" y="598.5" width="354" height="26"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -1553,7 +1553,7 @@
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3W-0H-JHI">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3W-0H-JHI">
                                                         <rect key="frame" x="224.5" y="695.5" width="159.5" height="26"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -3103,11 +3103,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K62-x8-bYm">
-                                <rect key="frame" x="345" y="116.5" width="375" height="550.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K62-x8-bYm">
+                                <rect key="frame" x="0.0" y="116.5" width="375" height="550.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CARD" rowHeight="100" id="faN-Ci-lmy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CARD" rowHeight="100" id="faN-Ci-lmy" customClass="CardTableViewCell" customModule="Sitwitus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="faN-Ci-lmy" id="yTI-8V-6ee">
@@ -3177,11 +3177,16 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.81502872709999996" green="0.53648221490000003" blue="0.2390182018" alpha="0.88441780820000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="cardImage" destination="BP4-co-6Yb" id="NTj-KY-mzv"/>
+                                            <outlet property="cardName" destination="Sg3-s5-Qgp" id="fLc-qJ-SKl"/>
+                                            <outlet property="cardNumber" destination="QjN-mQ-076" id="3FT-Kd-Kti"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-f9-f2A">
-                                <rect key="frame" x="0.0" y="124.5" width="375" height="542.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-f9-f2A">
+                                <rect key="frame" x="200" y="124.5" width="375" height="542.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1l-Tb-vQd">
                                         <rect key="frame" x="48" y="30" width="129" height="38"/>
@@ -3234,7 +3239,7 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXXXXXXXXXXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-LL-Iwc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXXXXXXXXXXXX" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-LL-Iwc">
                                         <rect key="frame" x="48" y="225" width="298" height="26"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3277,7 +3282,7 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-ID-j4e">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-ID-j4e">
                                         <rect key="frame" x="212" y="322" width="134" height="26"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3304,6 +3309,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addButtonAction:" destination="THZ-8u-WbJ" eventType="touchUpInside" id="qND-9p-Rgc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -3388,10 +3396,12 @@
                         <outlet property="cardTable" destination="K62-x8-bYm" id="mPf-9P-suy"/>
                         <outlet property="cardTickImage" destination="4A6-TO-rab" id="GZa-28-f3R"/>
                         <outlet property="card_Bank_Label" destination="nSn-Ns-21W" id="rxA-gQ-ma2"/>
+                        <outlet property="card_Bank_TF" destination="yyy-LL-Iwc" id="kSv-LF-pIX"/>
                         <outlet property="left_Label" destination="Naq-JS-liT" id="4hC-2Q-2i8"/>
                         <outlet property="left_TF" destination="btb-J0-iwx" id="rmG-P7-M4M"/>
                         <outlet property="right_Label" destination="1Ol-rB-CYS" id="Z6s-tZ-dqA"/>
                         <outlet property="right_TF" destination="N5v-ID-j4e" id="qf6-0d-r7M"/>
+                        <outlet property="titleTF" destination="EUX-ni-F2r" id="OSw-XQ-JIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqa-6z-KxK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

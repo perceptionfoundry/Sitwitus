@@ -3,4 +3,86 @@
    uuid = "A48331FF-8A03-4EE3-B2F8-B9B1CBB06AEA"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "470B5484-88F3-4FEE-B998-C47565FAC9DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentPaymentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "addButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4C4FA70-3685-465F-8730-CD490AEDF56F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentPaymentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "addCard()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C4C4FA70-3685-465F-8730-CD490AEDF56F - 8839cd6564672808"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sitwitus.ParentPaymentVC.addCard() -&gt; ()"
+                  moduleName = "Sitwitus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Documents/GitHub/Sitwitus/Coding/Sitwitus/Controller/Parent/ParentPaymentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "5019">
+               </Location>
+               <Location
+                  uuid = "C4C4FA70-3685-465F-8730-CD490AEDF56F - a881475883a9df6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Sitwitus.ParentPaymentVC.addCard() -&gt; ()"
+                  moduleName = "Sitwitus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Documents/GitHub/Sitwitus/Coding/Sitwitus/Controller/Parent/ParentPaymentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "139">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F51FE0B0-83A9-4965-83CF-B125AF1B7B7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sitwitus/Controller/Parent/ParentPaymentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "addCard()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
