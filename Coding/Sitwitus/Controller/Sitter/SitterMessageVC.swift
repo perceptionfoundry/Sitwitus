@@ -18,6 +18,8 @@ class SitterMessageVC: UIViewController
      
      @IBOutlet weak var messageTable: UITableView!
      @IBOutlet weak var messageTF: UITextView!
+     @IBOutlet weak var personNameTF: UILabel!
+
      @IBOutlet weak var textViewHeight: NSLayoutConstraint!
      
                                              
@@ -112,7 +114,8 @@ class SitterMessageVC: UIViewController
                                   
                                    self.recieverDetail = value
                                   
-                        
+                        self.personNameTF.text = value.FullName
+
                           
                              }
      }

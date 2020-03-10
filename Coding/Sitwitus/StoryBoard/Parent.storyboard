@@ -1966,6 +1966,9 @@
                                                             <constraint firstAttribute="width" secondItem="9ME-JF-iQM" secondAttribute="height" multiplier="96:82" id="e9a-ZS-Zi9"/>
                                                         </constraints>
                                                         <state key="normal" image="send_button"/>
+                                                        <connections>
+                                                            <action selector="sendButton" destination="57C-f6-U0S" eventType="touchUpInside" id="vNR-sh-5Ie"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2034,6 +2037,7 @@
                     <connections>
                         <outlet property="messageTF" destination="1QY-co-fGq" id="rws-lO-BoE"/>
                         <outlet property="messageTable" destination="vmO-3U-pce" id="4Mz-lq-hUa"/>
+                        <outlet property="personNameTF" destination="130-pD-GXS" id="aBM-dw-nQi"/>
                         <outlet property="textViewHeight" destination="NyC-sM-Xky" id="uak-QB-FbQ"/>
                     </connections>
                 </viewController>
@@ -4325,7 +4329,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="bgp-Kk-1bG" customClass="ParentSelectedCardVC" customModule="Sitwitus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S6c-K4-eqf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="495.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdX-ho-xum" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
