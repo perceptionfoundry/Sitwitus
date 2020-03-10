@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ParentFaqVC: UIViewController {
 
@@ -17,7 +18,9 @@ class ParentFaqVC: UIViewController {
 
                                    //******** VARIABLES *************
  var selectIndex = -1
-     var cellHeight: CGFloat = 80.0
+var cellHeight: CGFloat = 80.0
+     var faqList = [[String:String]]()
+     let dbStore = Firestore.firestore()
                                    
                                    //********* FUNCTIONS ***************
     
@@ -35,14 +38,33 @@ class ParentFaqVC: UIViewController {
      
      faqTable.delegate = self
      faqTable.dataSource = self
-     faqTable.reloadData()
+     
      
      
      let faqNib = UINib(nibName: "FAQTableViewCell", bundle: nil)
      faqTable.register(faqNib, forCellReuseIdentifier: "FAQ")
      
+     self.getFAQ()
+     
     }
 
+     
+     func getFAQ(){
+          
+          dbStore.collection("FAQ").document("Parents").collection("queries").getDocuments { (faqSnap, faqErr) in
+               
+               guard let fetchValue = faqSnap?.documents else{return}
+               
+               fetchValue.forEach { (value) in
+                    
+                    let query = value.data() as! [String:String]
+                    
+                    self.faqList.append(query)
+                    self.faqTable.reloadData()
+               }
+          }
+          
+     }
 
      
      
@@ -59,8 +81,10 @@ class ParentFaqVC: UIViewController {
                                     //*************** OUTLET ACTION ******************
 
          @IBAction func backButton(){
-               self.navigationController?.popViewController(animated: true)
-          }
+          
+          self.navigationController?.popViewController(animated: true)
+          
+     }
 
 }
 
@@ -71,7 +95,7 @@ class ParentFaqVC: UIViewController {
 
 extension ParentFaqVC: UITableViewDelegate, UITableViewDataSource{
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return 3
+          return faqList.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,15 +103,17 @@ extension ParentFaqVC: UITableViewDelegate, UITableViewDataSource{
           let cell = tableView.dequeueReusableCell(withIdentifier: "FAQ", for: indexPath) as! FAQTableViewCell
           
           
+          cell.questionaireText.text = "\(indexPath.row + 1) : \((faqList[indexPath.row]["Question"])!)"
+          
           cell.answerView.isHidden = true
           
           if self.selectIndex == indexPath.row {
                
                cell.answerView.isHidden = false
-
-               let test = cell.answerText.text!
-               
-               let checkHeight = heightForView(text: test, width: cell.answerView.frame.width)
+               cell.answerText.text = faqList[indexPath.row]["Answer"]
+              
+               let answer = cell.answerText.text!
+               let checkHeight = heightForView(text: answer, width: cell.answerView.frame.width)
                self.cellHeight = checkHeight
                
 //               cell.answerView.frame.size.height = checkHeight
