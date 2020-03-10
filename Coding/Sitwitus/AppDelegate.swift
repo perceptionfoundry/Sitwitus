@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
      var signInUser : Users?
      var isSignIn = false
+     var stripeCustomerID = ""
      
      var tempDict = [String:Any]()
   

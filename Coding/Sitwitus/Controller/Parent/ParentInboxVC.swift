@@ -93,15 +93,62 @@ class ParentInboxVC: UIViewController {
                     }
                     
                }
-               
-               
-               
-               
-               
+  
           }
           
      }
 
+     
+     //******** GET TIME DIFFERENCE
+     func getTimeDifferenceString(olderDate older: Date) -> (String?)  {
+          
+          let currentDate = Date()
+          
+         let formatter = DateComponentsFormatter()
+         formatter.unitsStyle = .short
+         
+         let componentsLeftTime = Calendar.current.dateComponents([.minute , .hour , .day,.month, .weekOfMonth,.year], from: older, to: currentDate)
+         
+         let year = componentsLeftTime.year ?? 0
+         if  year > 0 {
+             formatter.allowedUnits = [.year]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         
+         let month = componentsLeftTime.month ?? 0
+         if  month > 0 {
+             formatter.allowedUnits = [.month]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let weekOfMonth = componentsLeftTime.weekOfMonth ?? 0
+         if  weekOfMonth > 0 {
+             formatter.allowedUnits = [.weekOfMonth]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let day = componentsLeftTime.day ?? 0
+         if  day > 0 {
+             formatter.allowedUnits = [.day]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let hour = componentsLeftTime.hour ?? 0
+         if  hour > 0 {
+             formatter.allowedUnits = [.hour]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let minute = componentsLeftTime.minute ?? 0
+         if  minute > 0 {
+             formatter.allowedUnits = [.minute]
+             return formatter.string(from: older, to: currentDate) ?? ""
+         }
+         
+         
+         return nil
+     }
 
                                     //*************** OUTLET ACTION ******************
 
@@ -131,7 +178,13 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
           let displayValue = self.inboxList[indexPath.row]
           let dataValue = displayValue["Data"] as! Message
           
-     
+          let msgTime = (dataValue.addedOn.dateValue())
+          
+          let diff = getTimeDifferenceString(olderDate: msgTime)
+          
+          print(diff)
+          
+          cell.duration.text = diff ?? "now"
           
           
           if (sharedVariable.signInUser?.FullName)! == dataValue.senderName{
@@ -139,6 +192,8 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
                let image = dataValue.recieverImageURL
                         
                cell.userImage.sd_setImage(with: URL(string: image!), placeholderImage: UIImage(named: "profile_Image"), options: .progressiveLoad, completed: nil)
+               
+        
           }
           else{
                cell.userName.text = dataValue.senderName
@@ -148,7 +203,6 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
           }
          cell.messsage.text = dataValue.context
 
-          cell.duration.text = "10min"
           
          
 

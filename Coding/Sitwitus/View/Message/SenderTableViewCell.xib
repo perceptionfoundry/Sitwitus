@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3q-ox-XY8" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                        <rect key="frame" x="57" y="59.5" width="75" height="8"/>
+                        <rect key="frame" x="57" y="55" width="75" height="8"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="fJg-ct-PFW"/>
@@ -46,7 +46,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd4-tQ-RrV" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                        <rect key="frame" x="57" y="18.5" width="75" height="8"/>
+                        <rect key="frame" x="57" y="23" width="75" height="8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
@@ -67,24 +67,24 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TI7-Fu-GeD" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                        <rect key="frame" x="55" y="21.5" width="173.5" height="43"/>
+                        <rect key="frame" x="55" y="26" width="173.5" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-aV-4zd">
-                                <rect key="frame" x="10" y="0.0" width="59" height="43"/>
+                                <rect key="frame" x="10" y="0.0" width="59" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-Pr-SeU">
-                                <rect key="frame" x="2" y="0.0" width="8" height="43"/>
+                                <rect key="frame" x="2" y="0.0" width="8" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="CQg-gJ-px3"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMG-gI-UP0">
-                                <rect key="frame" x="69" y="0.0" width="8" height="43"/>
+                                <rect key="frame" x="69" y="0.0" width="8" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="xy3-j3-mox"/>
@@ -140,6 +140,37 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9I8-6t-wMQ" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
+                        <rect key="frame" x="125.5" y="2" width="96" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YN3-aD-oAk">
+                                <rect key="frame" x="29.5" y="1.5" width="37" height="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YN3-aD-oAk" firstAttribute="centerY" secondItem="9I8-6t-wMQ" secondAttribute="centerY" id="8Et-nQ-AGa"/>
+                            <constraint firstAttribute="height" constant="20" id="e5E-Le-Ege"/>
+                            <constraint firstItem="YN3-aD-oAk" firstAttribute="centerX" secondItem="9I8-6t-wMQ" secondAttribute="centerX" id="oYK-e9-l55"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="1" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.97279661890000002" green="0.98422712089999997" blue="0.98823839430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
@@ -153,16 +184,21 @@
                     <constraint firstItem="TI7-Fu-GeD" firstAttribute="top" secondItem="kd4-tQ-RrV" secondAttribute="bottom" constant="-5" id="SRW-Xy-zDG"/>
                     <constraint firstItem="C3q-ox-XY8" firstAttribute="top" secondItem="TI7-Fu-GeD" secondAttribute="bottom" constant="-5" id="TJb-2m-3vD"/>
                     <constraint firstItem="aaU-kj-Lfj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bGK-Kd-biP"/>
+                    <constraint firstItem="9I8-6t-wMQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.276657" id="em6-Sn-xpA"/>
                     <constraint firstItem="kd4-tQ-RrV" firstAttribute="trailing" secondItem="gMG-gI-UP0" secondAttribute="trailing" id="fiH-1L-3SI"/>
-                    <constraint firstItem="TI7-Fu-GeD" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.5" id="hDX-p0-etG"/>
+                    <constraint firstItem="TI7-Fu-GeD" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.4" id="hDX-p0-etG"/>
+                    <constraint firstItem="9I8-6t-wMQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="hmJ-qH-643"/>
                     <constraint firstItem="kd4-tQ-RrV" firstAttribute="centerX" secondItem="2tF-aV-4zd" secondAttribute="centerX" id="od7-nQ-E5M"/>
                     <constraint firstItem="C3q-ox-XY8" firstAttribute="leading" secondItem="wC8-Pr-SeU" secondAttribute="leading" id="odR-L0-iTc"/>
+                    <constraint firstItem="9I8-6t-wMQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vBu-ay-JFs"/>
                     <constraint firstItem="TI7-Fu-GeD" firstAttribute="centerY" secondItem="aaU-kj-Lfj" secondAttribute="centerY" id="zod-v2-EdM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="messsage" destination="2tF-aV-4zd" id="VjW-9u-D2c"/>
+                <outlet property="timeLabel" destination="YN3-aD-oAk" id="hCW-SU-YcG"/>
+                <outlet property="timeView" destination="9I8-6t-wMQ" id="ZN2-26-8mE"/>
                 <outlet property="userImage" destination="aaU-kj-Lfj" id="PEE-mh-FnY"/>
             </connections>
             <point key="canvasLocation" x="157.24637681159422" y="114.50892857142857"/>

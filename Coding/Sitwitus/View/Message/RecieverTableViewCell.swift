@@ -12,5 +12,7 @@ class RecieverTableViewCell: UITableViewCell {
 
  @IBOutlet weak var userImage: UIImageView!
      @IBOutlet weak var messsage: UILabel!
+     @IBOutlet weak var timeLabel: UILabel!
+     @IBOutlet weak var timeView: UIView!
     
 }

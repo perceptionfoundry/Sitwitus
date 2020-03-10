@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SitterFaqVC: UIViewController {
 
@@ -17,7 +18,7 @@ class SitterFaqVC: UIViewController {
 
                                    //******** VARIABLES *************
  var selectIndex = -1
-     var cellHeight: CGFloat = 80.0
+var cellHeight: CGFloat = 80.0
                                    
                                    //********* FUNCTIONS ***************
     

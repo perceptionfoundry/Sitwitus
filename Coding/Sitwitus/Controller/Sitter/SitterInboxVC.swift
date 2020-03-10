@@ -94,13 +94,62 @@ class SitterInboxVC: UIViewController {
                     }
                     
                }
-               
-               
-               
-               
+
                
           }
           
+     }
+     
+     
+     //******** GET TIME DIFFERENCE
+     func getTimeDifferenceString(olderDate older: Date) -> (String?)  {
+          
+          let currentDate = Date()
+          
+         let formatter = DateComponentsFormatter()
+         formatter.unitsStyle = .short
+         
+         let componentsLeftTime = Calendar.current.dateComponents([.minute , .hour , .day,.month, .weekOfMonth,.year], from: older, to: currentDate)
+         
+         let year = componentsLeftTime.year ?? 0
+         if  year > 0 {
+             formatter.allowedUnits = [.year]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         
+         let month = componentsLeftTime.month ?? 0
+         if  month > 0 {
+             formatter.allowedUnits = [.month]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let weekOfMonth = componentsLeftTime.weekOfMonth ?? 0
+         if  weekOfMonth > 0 {
+             formatter.allowedUnits = [.weekOfMonth]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let day = componentsLeftTime.day ?? 0
+         if  day > 0 {
+             formatter.allowedUnits = [.day]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let hour = componentsLeftTime.hour ?? 0
+         if  hour > 0 {
+             formatter.allowedUnits = [.hour]
+             return formatter.string(from: older, to: currentDate)
+         }
+         
+         let minute = componentsLeftTime.minute ?? 0
+         if  minute > 0 {
+             formatter.allowedUnits = [.minute]
+             return formatter.string(from: older, to: currentDate) ?? ""
+         }
+         
+         
+         return nil
      }
 
 
@@ -132,7 +181,15 @@ extension SitterInboxVC: UITableViewDelegate, UITableViewDataSource{
           let displayValue = self.inboxList[indexPath.row]
           let dataValue = displayValue["Data"] as! Message
           
-     
+
+            
+            let msgTime = (dataValue.addedOn.dateValue())
+            
+            let diff = getTimeDifferenceString(olderDate: msgTime)
+           
+          
+          
+          cell.duration.text = diff
           
           
           if (sharedVariable.signInUser?.FullName)! == dataValue.senderName{

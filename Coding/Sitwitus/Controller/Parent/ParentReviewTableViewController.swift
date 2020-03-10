@@ -10,7 +10,53 @@ import UIKit
 import HCSStarRatingView
 import SDWebImage
 
-class ParentReviewTableViewController: UITableViewController {
+
+protocol selectCard {
+     
+     func cardDetail(cardInfo : Card)
+     
+}
+
+class ParentReviewTableViewController: UITableViewController, selectCard {
+    
+     
+     func cardDetail(cardInfo: Card) {
+          
+          self.cardDetails = cardInfo
+         
+          let brand = cardInfo.brand!
+          let parentVC = ParentBookingReviewVC()
+          
+          parentVC.customerID = cardInfo.id!
+          
+          print(brand)
+          if brand == "Visa"{
+                      
+                         paymentSourceImage.image = UIImage(named: "visa")
+                      }
+                      
+                      else if brand == "MasterCard"{
+                      
+                         paymentSourceImage.image = UIImage(named: "master")
+                      }
+                      
+                      else if brand == "American Express"{
+                      
+                          paymentSourceImage.image = UIImage(named: "american")
+                      }
+                      
+                      else if brand == "Paypal"{
+                      
+                          paymentSourceImage.image = UIImage(named: "paypal")
+                      }
+          self.paymentSourceImage.isHidden = false
+          self.paymentSource.isHidden = true
+          
+          sharedVariable.stripeCustomerID = cardInfo.customer!
+          
+          
+     }
+     
 
 
                                     //******** OUTLETS ***************
@@ -20,6 +66,7 @@ class ParentReviewTableViewController: UITableViewController {
       @IBOutlet weak var sitterImage : UIImageView!
      
      @IBOutlet weak var parentAddress : UILabel!
+     @IBOutlet weak var paymentSource : UILabel!
      @IBOutlet weak var paymentSourceImage : UIImageView!
      @IBOutlet weak var sitterRate : UILabel!
      @IBOutlet weak var sitterHourDetail : UILabel!
@@ -31,6 +78,9 @@ class ParentReviewTableViewController: UITableViewController {
                                    //******** VARIABLES *************
      let finalDict = sharedVariable.tempDict
      var dateString = ""
+     var cardDetails : Card?
+     
+    
                                    //********* FUNCTIONS ***************
     
     
@@ -40,12 +90,15 @@ class ParentReviewTableViewController: UITableViewController {
         super.viewDidLoad()
 
       
+     paymentSourceImage.isHidden = true
 
      
     }
 
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+     
+     
      
      print("************ FINAL **************")
         print(finalDict)
@@ -77,6 +130,19 @@ class ParentReviewTableViewController: UITableViewController {
      
      
     }
+     
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          if segue.identifier == "CARDS_SEGUE"{
+               
+               let dest = segue.destination as! ParentSelectedCardVC
+               
+               dest.returnValue = self
+               
+          }
+     }
+
 
 
 
@@ -86,6 +152,13 @@ class ParentReviewTableViewController: UITableViewController {
           return 5
      }
 
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          print(indexPath.row)
+          
+          performSegue(withIdentifier: "CARDS_SEGUE", sender: nil)
+     }
+     
+     
 }
 
 

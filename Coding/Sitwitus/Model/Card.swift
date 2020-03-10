@@ -29,5 +29,6 @@ class Card : Codable{
         var transactionid :String?
         var type :String?
      var last4 : String?
+     var customer :String?
      
 }

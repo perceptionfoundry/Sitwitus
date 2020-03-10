@@ -10,7 +10,14 @@ import UIKit
 import Firebase
 
 
+
+
 class ParentBookingReviewVC: UIViewController {
+   
+     
+     
+  
+     
 
 
                                     //******** OUTLETS ***************
@@ -26,8 +33,14 @@ class ParentBookingReviewVC: UIViewController {
      var senderID = ""
      var recieverID = ""
      
+     var customerID = ""
+     
      var senderConversationId = [String]()
      var receiverConversationId = [String]()
+     
+     
+     var childVC : ParentReviewTableViewController?
+
                                    //********* FUNCTIONS ***************
     
     
@@ -41,8 +54,13 @@ class ParentBookingReviewVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      
+     
+     print(self.bookingDict)
+     
      senderID = (sharedVariable.signInUser?.UserId)!
      recieverID = self.bookingDict["SitterUid"] as! String
+     
+    
     }
      
      
@@ -90,6 +108,8 @@ class ParentBookingReviewVC: UIViewController {
      @IBAction func confirmButton(){
           
           
+          self.customerID = sharedVariable.stripeCustomerID
+          print(customerID)
           
 //
           let colletionRef = dbStore.collection("Requests").document()
@@ -99,6 +119,22 @@ class ParentBookingReviewVC: UIViewController {
 
           colletionRef.setData(self.bookingDict)
           
+          
+          print(self.bookingDict["Rate"])
+          
+          let rate = self.bookingDict["Rate"] as! Double
+          let hours = Double(self.bookingDict["Hours"] as! String)
+          let total = rate * hours!
+          
+          let dict = ["amount":total,
+                      "customerId": self.customerID
+                     ] as [String : Any]
+          
+          dbStore.collection("stripe_customers").document((sharedVariable.signInUser?.UserId)!).collection("charges").addDocument(data: dict) { (err) in
+              
+              if err == nil{
+              }
+          }
           
           //******* CHATROOM *****
           

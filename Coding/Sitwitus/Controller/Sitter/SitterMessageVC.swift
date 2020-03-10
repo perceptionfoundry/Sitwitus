@@ -46,6 +46,8 @@ class SitterMessageVC: UIViewController
      var senderConversationId = [String]()
      var receiverConversationId = [String]()
      
+     var displayDate = "01 / 01 / 1970"
+     
                                              //********* FUNCTIONS ***************
      
      
@@ -171,6 +173,7 @@ class SitterMessageVC: UIViewController
                
                print(fetchValue.count)
                self.allMessage.removeAll()
+               self.messageTable.reloadData()
                
                var count = 0
                
@@ -245,9 +248,11 @@ class SitterMessageVC: UIViewController
           
                self.messageTF.text = nil
           
+              
           
-          self.allMessage.removeAll()
-          self.messageTable.reloadData()
+//          self.allMessage.removeAll()
+//          self.messageTable.reloadData()
+          fetchMessage()
      }
      }
      
@@ -270,7 +275,7 @@ class SitterMessageVC: UIViewController
          
           self.messageTF.textColor = UIColor(red: 0.073, green: 0.624, blue: 0.616, alpha: 1)
           
-          self.messageTable.reloadData()
+//          self.messageTable.reloadData()
           
           //************
           self.sendText()
@@ -297,49 +302,112 @@ class SitterMessageVC: UIViewController
 extension SitterMessageVC: UITableViewDataSource, UITableViewDelegate{
      
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return allMessage.count + 1
+          return allMessage.count 
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          
-     
-          
-          
-          if indexPath.row == 0{
-               let cell = tableView.dequeueReusableCell(withIdentifier: "TIME", for: indexPath)
-               
-               return cell
-          }
                
                
-          else{
-          
-          if self.senderId == self.allMessage[indexPath.row - 1].composerId!{
-               
-               let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath) as! SenderTableViewCell
-               
-               cell.messsage.text = (self.allMessage[indexPath.row - 1 ].context!)
-               cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
-               
-               
-               return cell
-               
-               
-               
-          }
 //
+//               let msgDate = self.allMessage[indexPath.row].addedOn!.dateValue()
 //
-          else{
-               let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath) as! RecieverTableViewCell
+//               let formattor = DateFormatter()
+//
+//               formattor.dateFormat = "dd / MM / yyyy"
+//               let value = formattor.string(from: msgDate)
 
-               cell.messsage.text = (self.allMessage[indexPath.row - 1].context!)
+//               print(value)
+               
+               
+               
+               if self.senderId == self.allMessage[indexPath.row].composerId!{
+                    
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "SENDER", for: indexPath) as! SenderTableViewCell
+                    
+                    cell.messsage.text = (self.allMessage[indexPath.row].context!)
+                    
+     //               print(self.allMessage[indexPath.row].senderImageURL)
+                    
+                    cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+                    
+                    
+//                    if displayDate != value{
+//
+//                         self.displayDate = value
+//
+//                         let toDATE = Date()
+//
+//                         let formattor = DateFormatter()
+//
+//                         formattor.dateFormat = "dd / MM / yyyy"
+//                         let today = formattor.string(from: toDATE)
+//
+//                         if today == value{
+//                              cell.timeLabel.text = "TODAY"
+//
+//                         }
+//                         else{
+//                              cell.timeLabel.text = value
+//
+//                         }
+//
+//                         cell.timeView.isHidden = false
+//                         return cell
+//
+//                             }
+                    
+//                    else{
+                         cell.timeView.isHidden = true
+//                    }
+                    
+                    
+                    return cell
+                    
+                    
+                    
+               }
+     //
+     //
+               else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "RECEIVER", for: indexPath) as! RecieverTableViewCell
 
-                cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row - 1].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
-               return cell
+                    cell.messsage.text = (self.allMessage[indexPath.row].context!)
 
+                     cell.userImage.sd_setImage(with: URL(string: self.allMessage[indexPath.row].senderImageURL), placeholderImage: UIImage(named: "logo"), options: .progressiveLoad, completed: nil)
+                    
+//                    if displayDate != value{
+//
+//                                      self.displayDate = value
+//
+//                                      let toDATE = Date()
+//
+//                                      let formattor = DateFormatter()
+//
+//                                      formattor.dateFormat = "dd / MM / yyyy"
+//                                      let today = formattor.string(from: toDATE)
+//
+//                                      if today == value{
+//                                           cell.timeLabel.text = "TODAY"
+//
+//                                      }
+//                                      else{
+//                                           cell.timeLabel.text = value
+//
+//                                      }
+//
+//                                      cell.timeView.isHidden = false
+//                                      return cell
+//
+//                                          }
+                                 
+//                                 else{
+                                      cell.timeView.isHidden = true
+//                                 }
+                    
+                    return cell
+
+               }
           }
-          }
-     }
      
      
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

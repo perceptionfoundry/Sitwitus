@@ -21,6 +21,7 @@
 		F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */; };
 		F235914824163C040074BBAF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914724163C040074BBAF /* Card.swift */; };
 		F235914A24163FF60074BBAF /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914924163FF60074BBAF /* CardTableViewCell.swift */; };
+		F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914E241697080074BBAF /* ParentSelectedCardVC.swift */; };
 		F235B56023F3D331000BB61D /* ParentBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B55F23F3D331000BB61D /* ParentBookingVC.swift */; };
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
@@ -114,6 +115,7 @@
 		F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterFaqVC.swift; sourceTree = "<group>"; };
 		F235914724163C040074BBAF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F235914924163FF60074BBAF /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		F235914E241697080074BBAF /* ParentSelectedCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSelectedCardVC.swift; sourceTree = "<group>"; };
 		F235B55F23F3D331000BB61D /* ParentBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingVC.swift; sourceTree = "<group>"; };
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				F235B55F23F3D331000BB61D /* ParentBookingVC.swift */,
 				F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */,
 				F24C54CE240810B900906C2A /* ParentReviewTableViewController.swift */,
+				F235914E241697080074BBAF /* ParentSelectedCardVC.swift */,
 				F291145223F1524500D16BB1 /* ParentInboxVC.swift */,
 				F291145423F1528000D16BB1 /* ParentMessageVC.swift */,
 				F291145623F16CC500D16BB1 /* ParentFaqVC.swift */,
@@ -618,6 +621,7 @@
 			files = (
 				F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */,
 				F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */,
+				F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */,
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,

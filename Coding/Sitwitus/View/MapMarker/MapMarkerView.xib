@@ -33,8 +33,8 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Address " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoq-yd-JBb">
-                            <rect key="frame" x="69.5" y="31" width="86.5" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Address " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aoq-yd-JBb">
+                            <rect key="frame" x="19.5" y="31" width="186" height="20"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -68,6 +68,7 @@
                         <constraint firstItem="Aoq-yd-JBb" firstAttribute="top" secondItem="pWr-aQ-Zvb" secondAttribute="bottom" constant="5" id="lhD-tV-PVS"/>
                         <constraint firstItem="pWr-aQ-Zvb" firstAttribute="centerY" secondItem="f7Y-Ej-qpI" secondAttribute="centerY" multiplier="0.3" id="rxA-V0-GRH"/>
                         <constraint firstItem="4ie-Gs-DsK" firstAttribute="width" secondItem="f7Y-Ej-qpI" secondAttribute="width" multiplier="1.38" id="vn5-2C-JGr"/>
+                        <constraint firstItem="Aoq-yd-JBb" firstAttribute="width" secondItem="4ie-Gs-DsK" secondAttribute="width" multiplier="0.6" id="wuH-Mb-zsA"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
