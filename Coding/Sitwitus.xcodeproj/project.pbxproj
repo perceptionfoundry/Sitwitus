@@ -45,6 +45,7 @@
 		F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */; };
 		F2B4E19123FD23BE002C11D3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E19023FD23BE002C11D3 /* Message.swift */; };
 		F2B5290B24137C4D005E8142 /* StripeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B5290A24137C4D005E8142 /* StripeViewModel.swift */; };
+		F2B70F582417B4D300E56AFB /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B70F572417B4D300E56AFB /* ConfirmVC.swift */; };
 		F2C0D5B723DFF79D00DCF976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */; };
 		F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */; };
 		F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */; };
@@ -139,6 +140,7 @@
 		F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		F2B4E19023FD23BE002C11D3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F2B5290A24137C4D005E8142 /* StripeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViewModel.swift; sourceTree = "<group>"; };
+		F2B70F572417B4D300E56AFB /* ConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
 		F2C0D5B623DFF79D00DCF976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2C0D5C223DFFD3A00DCF976 /* Custom_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_View.swift; sourceTree = "<group>"; };
 		F2C0D5C323DFFD3B00DCF976 /* Custom_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom_Button.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				F293869D23F52F6100710155 /* ParentProfileVC.swift */,
 				F2F75D5224041E670038BD58 /* ParentLocationVC.swift */,
 				F235914924163FF60074BBAF /* CardTableViewCell.swift */,
+				F2B70F572417B4D300E56AFB /* ConfirmVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				F2C0D5CF23DFFD3B00DCF976 /* ConfigureUserInterface.swift in Sources */,
 				F291145323F1524500D16BB1 /* ParentInboxVC.swift in Sources */,
 				F2C0D5CD23DFFD3B00DCF976 /* Custom_ImageView.swift in Sources */,
+				F2B70F582417B4D300E56AFB /* ConfirmVC.swift in Sources */,
 				F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
 				F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */,
@@ -827,10 +831,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -846,10 +851,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

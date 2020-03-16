@@ -101,10 +101,10 @@ class ParentPendingVC:  UIViewController {
           let sender = (sharedVariable.signInUser?.UserId)!
           let reciever = (pendingList[button.tag].SitterUid)!
           
-          let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "CHAT") as! ParentMessageVC
+          let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "CHAT") as! ParentInboxVC
           
-          vc.senderId = sender
-          vc.recieverId = reciever
+         
+          vc.receiverID = reciever
           
           self.navigationController?.pushViewController(vc, animated: true)
          }

@@ -40,6 +40,7 @@ class ParentBookingReviewVC: UIViewController {
      
      
      var childVC : ParentReviewTableViewController?
+     var alert = AlertWindow()
 
                                    //********* FUNCTIONS ***************
     
@@ -108,93 +109,101 @@ class ParentBookingReviewVC: UIViewController {
      @IBAction func confirmButton(){
           
           
+          
           self.customerID = sharedVariable.stripeCustomerID
           print(customerID)
           
-//
-          let colletionRef = dbStore.collection("Requests").document()
-
-          self.bookingDict["Timestamp"] = FieldValue.serverTimestamp()
-          self.bookingDict["requestUid"] = colletionRef.documentID
-
-          colletionRef.setData(self.bookingDict)
-          
-          
-          print(self.bookingDict["Rate"])
-          
-          let rate = self.bookingDict["Rate"] as! Double
-          let hours = Double(self.bookingDict["Hours"] as! String)
-          let total = rate * hours!
-          
-          let dict = ["amount":total,
-                      "customerId": self.customerID
-                     ] as [String : Any]
-          
-          dbStore.collection("stripe_customers").document((sharedVariable.signInUser?.UserId)!).collection("charges").addDocument(data: dict) { (err) in
-              
-              if err == nil{
-              }
-          }
-          
-          //******* CHATROOM *****
-          
-          
-          var chatRoom = ""
-          
-          let senderID = (sharedVariable.signInUser?.UserId)!
-          let recieverID = self.bookingDict["SitterUid"] as! String
-          
-          if senderID < recieverID{
+          if self.customerID != ""{
                
-               chatRoom = senderID + recieverID
-          }else{
-               chatRoom = recieverID + senderID
+               let colletionRef = dbStore.collection("Requests").document()
+
+                       self.bookingDict["Timestamp"] = FieldValue.serverTimestamp()
+                       self.bookingDict["requestUid"] = colletionRef.documentID
+
+                       colletionRef.setData(self.bookingDict)
+                       
+                       
+                       print(self.bookingDict["Rate"])
+                       
+                       let rate = self.bookingDict["Rate"] as! Double
+                       let hours = Double(self.bookingDict["Hours"] as! String)
+                       let total = rate * hours!
+                       
+                       let dict = ["amount":total,
+                                   "customerId": self.customerID
+                                  ] as [String : Any]
+                       
+                       dbStore.collection("stripe_customers").document((sharedVariable.signInUser?.UserId)!).collection("charges").addDocument(data: dict) { (err) in
+                           
+                           if err == nil{
+                           }
+                       }
+                       
+                       //******* CHATROOM *****
+                       
+                       
+                       var chatRoom = ""
+                       
+                       let senderID = (sharedVariable.signInUser?.UserId)!
+                       let recieverID = self.bookingDict["SitterUid"] as! String
+                       
+                       if senderID < recieverID{
+                            
+                            chatRoom = senderID + recieverID
+                       }else{
+                            chatRoom = recieverID + senderID
+                       }
+                       
+                       print("chatroom: \(chatRoom)")
+                       
+                       
+                       let collectionRef = dbStore.collection("ChatRoom").document(chatRoom).collection("Messages").document()
+                                
+                                // ****** CREATE MESSAGE INFO *****
+                                
+                                let basisDict = ["addedOn": FieldValue.serverTimestamp(),
+                                                 "chatId": collectionRef.documentID,
+                                                 "roomId": chatRoom,
+                                                 "senderId" : senderID,
+                                                 "receiverId" : recieverID,
+                                                 "senderName": (sharedVariable.signInUser?.FullName)!,
+                                                 "recieverName" : self.bookingDict["SitterName"] as! String,
+                                                 "senderImageURL" : (sharedVariable.signInUser?.ImageUrl)!,
+                                                 "recieverImageURL" : self.bookingDict["SitterImage"] as! String,
+                                                 "readerID":recieverID,
+                                                 "context"  : "Hi there!!",
+                                                 "composerId" : senderID,
+                                                 "type": "TEXT",
+                                                 "isDeleted": false,
+                                                 "isRead" : false] as [String : Any]
+                                
+                                collectionRef.setData(basisDict)
+                       
+                       
+                       dbStore.collection("Conversation").document(chatRoom).setData(["chatRoom":chatRoom])
+                       
+                       
+                       //************ CONVERSATION **********
+                               
+                               if senderConversationId.contains(chatRoom) == false {
+                                    self.senderConversationId.append(chatRoom)
+                                    dbStore.collection("Conversation").document(self.senderID).setData(["chatRoom":self.senderConversationId])
+                               }
+                               if receiverConversationId.contains(chatRoom) == false{
+                                    self.receiverConversationId.append(chatRoom)
+                                    dbStore.collection("Conversation").document(self.recieverID).setData(["chatRoom":self.receiverConversationId])
+                               }
+               
+               performSegue(withIdentifier: "CONFIRM", sender: nil)
+               
+          }
+          else{
+               alert.simple_Window(Title: "SELECTED PAYMENT MODE", Message: "Please selected payment mode", View: self)
           }
           
-          print("chatroom: \(chatRoom)")
+//
+        
           
-          
-          let collectionRef = dbStore.collection("ChatRoom").document(chatRoom).collection("Messages").document()
-                   
-                   // ****** CREATE MESSAGE INFO *****
-                   
-                   let basisDict = ["addedOn": FieldValue.serverTimestamp(),
-                                    "chatId": collectionRef.documentID,
-                                    "roomId": chatRoom,
-                                    "senderId" : senderID,
-                                    "receiverId" : recieverID,
-                                    "senderName": (sharedVariable.signInUser?.FullName)!,
-                                    "recieverName" : self.bookingDict["SitterName"] as! String,
-                                    "senderImageURL" : (sharedVariable.signInUser?.ImageUrl)!,
-                                    "recieverImageURL" : self.bookingDict["SitterImage"] as! String,
-                                    "readerID":recieverID,
-                                    "context"  : "Hi there!!",
-                                    "composerId" : senderID,
-                                    "type": "TEXT",
-                                    "isDeleted": false,
-                                    "isRead" : false] as [String : Any]
-                   
-                   collectionRef.setData(basisDict)
-          
-          
-          dbStore.collection("Conversation").document(chatRoom).setData(["chatRoom":chatRoom])
-          
-          
-          //************ CONVERSATION **********
-                  
-                  if senderConversationId.contains(chatRoom) == false {
-                       self.senderConversationId.append(chatRoom)
-                       dbStore.collection("Conversation").document(self.senderID).setData(["chatRoom":self.senderConversationId])
-                  }
-                  if receiverConversationId.contains(chatRoom) == false{
-                       self.receiverConversationId.append(chatRoom)
-                       dbStore.collection("Conversation").document(self.recieverID).setData(["chatRoom":self.receiverConversationId])
-                  }
-          
-          let story = UIStoryboard(name: "Parent", bundle: nil)
-          let vc = story.instantiateViewController(withIdentifier: "MAIN")
-          
-          self.navigationController?.pushViewController(vc, animated: true)
      }
 
 }

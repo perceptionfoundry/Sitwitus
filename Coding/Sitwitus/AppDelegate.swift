@@ -15,7 +15,7 @@ import Stripe
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var googleAPIkey = "AIzaSyBQd6hWarolSx8M2P8v9gZoZaeMdBNYvz0"
+    var googleAPIkey = "AIzaSyDYOYFb1iz2WEpJ27uJ89Tfa311E_9t5VA"
      
      var signInUser : Users?
      var isSignIn = false

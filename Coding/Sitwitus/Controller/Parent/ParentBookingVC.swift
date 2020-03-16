@@ -105,7 +105,7 @@ class ParentBookingVC: UIViewController {
      
      rateStars.value = CGFloat(sitter.Star ?? 1.0)
      
-     tipAmount.text = "$ \(sitter.Rate!)"
+     tipAmount.text = "$ \(sitter.Rate!)0"
      
     }
 

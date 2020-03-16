@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Qt-KG-2c6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.142857" id="14T-W0-nDL"/>
                             <constraint firstItem="5XY-Vv-Q0k" firstAttribute="centerX" secondItem="3Qt-KG-2c6" secondAttribute="centerX" id="7HR-FU-ZSO"/>
@@ -119,6 +119,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-q2-RNW" customClass="Custom_Segment" customModule="Sitwitus" customModuleProvider="target">
                                         <rect key="frame" x="15.5" y="5" width="213" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitle" value=" Sitter,  Parent"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
