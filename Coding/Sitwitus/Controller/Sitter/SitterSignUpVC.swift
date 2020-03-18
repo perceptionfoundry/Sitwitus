@@ -46,6 +46,9 @@ class SitterSignUpVC: UIViewController {
      var selectedLat:Double = 0.0
      var selectedLong:Double = 0.0
      var setRate = 0.0
+     
+     
+     var uploadVdoUrl = ""
                                    
                                    //********* FUNCTIONS ***************
     
@@ -127,7 +130,22 @@ class SitterSignUpVC: UIViewController {
           self.navigationController?.popViewController(animated: true)
      }
      
+     
+     
+     
      @IBAction func addVideoButtonAction(_ sender: Any) {
+          
+          
+          rateTF.resignFirstResponder()
+          
+          let imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+          
+          imagePicker.sourceType = .photoLibrary
+          imagePicker.mediaTypes = ["public.movie"]
+          
+          self.present(imagePicker, animated: true, completion: nil)
+          
      }
      
 //*********** SIGN UP
@@ -165,6 +183,7 @@ class SitterSignUpVC: UIViewController {
                                                                         "Long":self.selectedLong,
                                                                         "UserId":(authResult?.user.uid)!,
                                                                         "UserType":"Sitter",
+                                                                        "VideoUrl":self.uploadVdoUrl,
                                                                         "ZipCode": self.zipcodeTF.text!,
                                                                         "ImageUrl":imageURL!] as [String : Any]
 
@@ -172,8 +191,17 @@ class SitterSignUpVC: UIViewController {
 
                                                        print(uploaDict)
 
-                                                       dbRef.collection("Users").document((authResult?.user.uid)!).setData(uploaDict)
+                                                       
+                                        dbRef.collection("Users").document((authResult?.user.uid)!).setData(uploaDict)
+                                                       
+                                   let successAlert = UIAlertController(title: "", message: "SUCCESS!", preferredStyle: .alert)
+                                   successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                                                 
                                                        self.navigationController?.popViewController(animated: true)
+                                                                            }))
+                                                       
+                                                       self.present(successAlert, animated: true, completion: nil)
+                                                       
                                                   }
 
                                                   else{
@@ -378,13 +406,57 @@ extension SitterSignUpVC: UIImagePickerControllerDelegate, UINavigationControlle
      
      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
           
-          let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
           
-          sitterImage.image = selectedImage
           
-          self.isImageAdded = true
+          if let  selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+               
+//               let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+                       
+                       sitterImage.image = selectedImage
+                       
+                       self.isImageAdded = true
+                       
+                       dismiss(animated: true, completion: nil)
+               
+               
+          }
           
-          dismiss(animated: true, completion: nil)
+          
+          if let selectedVideo = info[UIImagePickerController.InfoKey.mediaURL] as? URL{
+               
+               print(selectedVideo.absoluteString)
+               
+               let saveFB = SaveVideoViewModel()
+               
+               saveFB.SaveVideoViewModel(Title: "MyVideo", selectedVideoUrl: selectedVideo) { (videoURL, status, err) in
+                    
+                    if status{
+                         print(videoURL!)
+                         
+                         self.uploadVdoUrl = videoURL!
+                         self.dismiss(animated: true, completion: nil)
+                    }
+                    else{
+                         print(err!)
+                         
+                         let alert = UIAlertController(title: "Error", message: err!, preferredStyle: .alert)
+                         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                              
+                               self.dismiss(animated: true, completion: nil)
+                         }))
+                    }
+               }
+               
+
+               
+               
+               
+               
+          }
+          
+        
      }
      
 }
+
+

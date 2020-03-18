@@ -155,6 +155,14 @@ class SitterProfileVC: UIViewController, Refresh {
 
      @IBAction func appVideoButton(_ sender: UIButton){
           
+          let imagePicker = UIImagePickerController()
+          imagePicker.delegate = self
+          
+          imagePicker.sourceType = .photoLibrary
+          imagePicker.mediaTypes = ["public.movie"]
+          
+          self.present(imagePicker, animated: true, completion: nil)
+          
      }
      
      @IBAction func submitButton(_ sender: UIButton){
@@ -172,3 +180,61 @@ class SitterProfileVC: UIViewController, Refresh {
 
 
                                       //*************** EXTENSION ******************
+
+
+//********** IMAGEPICKER
+
+extension SitterProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+     
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+          
+          
+          
+          if let  selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+               
+//               let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+                       
+                       sitterProfileImage.image = selectedImage
+                       
+                       
+                       dismiss(animated: true, completion: nil)
+               
+               
+          }
+          
+          
+          if let selectedVideo = info[UIImagePickerController.InfoKey.mediaURL] as? URL{
+               
+               print(selectedVideo.absoluteString)
+               
+               let saveFB = SaveVideoViewModel()
+               
+               saveFB.SaveVideoViewModel(Title: "MyVideo", selectedVideoUrl: selectedVideo) { (videoURL, status, err) in
+                    
+                    if status{
+                         print(videoURL!)
+                         self.dismiss(animated: true, completion: nil)
+                    }
+                    else{
+                         print(err!)
+                         
+                         let alert = UIAlertController(title: "Error", message: err!, preferredStyle: .alert)
+                         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                              
+                               self.dismiss(animated: true, completion: nil)
+                         }))
+                    }
+               }
+               
+
+               
+               
+               
+               
+          }
+          
+        
+     }
+     
+}
+

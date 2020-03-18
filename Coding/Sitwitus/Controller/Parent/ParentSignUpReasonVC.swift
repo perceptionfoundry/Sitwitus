@@ -185,21 +185,21 @@ class ParentSignUpReasonVC: UIViewController {
                                              
                                              dbRef.collection("Users").document((authResult?.user.uid)!).collection("Requirement").document("Value").setData(requirementDict)
                                              
-                                             //****** CREDIT /  BANK
-                                             //                                                            let AccountDict = ["Title":self.needTF.text!,
-                                             //                                                                                   "Account":self.childTF.text!,
-                                             //                                                                                   "Expiry_Iban":self.dutyTF.text!,
-                                             //                                                                                   "Cvv_Swift":self.durationTF.text!] as [String : Any]
+                                             let successAlert = UIAlertController(title: "", message: "SUCCESS!", preferredStyle: .alert)
+                                             successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                                  
+                                                  let firstVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FIRST")
+                                                  UserDefaults.standard.set(false, forKey: "SIGNIN")
+                                                  UserDefaults.standard.set(nil, forKey: "SIGN_DETAIL")
+                                                  
+                                                  self.navigationController?.pushViewController(firstVC, animated: true)
+                                             }))
                                              
-                                             //                                                            dbRef.collection("Users").document((authResult?.user.uid)!).collection("Requirement").addDocument(data: requirementDict)
+                                             self.present(successAlert, animated: true, completion: nil)
+
                                              
-                                             //                                   self.navigationController?.popViewController(animated: true)
                                              
-                                             let firstVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FIRST")
-                                             UserDefaults.standard.set(false, forKey: "SIGNIN")
-                                             UserDefaults.standard.set(nil, forKey: "SIGN_DETAIL")
                                              
-                                             self.navigationController?.pushViewController(firstVC, animated: true)
                                         }
                                         else{
                                              

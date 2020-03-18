@@ -19,6 +19,7 @@
 		F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */; };
 		F2206D7023EC019800CCE6D4 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */; };
 		F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */; };
+		F224905C242238B200BCC3A3 /* SaveVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F224905B242238B200BCC3A3 /* SaveVideoViewModel.swift */; };
 		F235914824163C040074BBAF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914724163C040074BBAF /* Card.swift */; };
 		F235914A24163FF60074BBAF /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914924163FF60074BBAF /* CardTableViewCell.swift */; };
 		F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914E241697080074BBAF /* ParentSelectedCardVC.swift */; };
@@ -114,6 +115,7 @@
 		F2206D6D23EC019800CCE6D4 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterFaqVC.swift; sourceTree = "<group>"; };
+		F224905B242238B200BCC3A3 /* SaveVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVideoViewModel.swift; sourceTree = "<group>"; };
 		F235914724163C040074BBAF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F235914924163FF60074BBAF /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		F235914E241697080074BBAF /* ParentSelectedCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSelectedCardVC.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				F21A53B923FAE13D00AB1C00 /* SaveImageViewModel.swift */,
 				F2B5290A24137C4D005E8142 /* StripeViewModel.swift */,
 				F28E39092413980200EA5E6E /* MonthYearPickerView.swift */,
+				F224905B242238B200BCC3A3 /* SaveVideoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				F291145123F150D700D16BB1 /* ParentMainVC.swift in Sources */,
 				F2ED97B123E7FF0D0048C782 /* RecieverTableViewCell.swift in Sources */,
 				F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */,
+				F224905C242238B200BCC3A3 /* SaveVideoViewModel.swift in Sources */,
 				F2A6BF9823FBC58A00819D38 /* Users.swift in Sources */,
 				F26D6B0F2408EF220035E9F7 /* Pending.swift in Sources */,
 				F293869C23F5168000710155 /* ParentPaymentVC.swift in Sources */,
@@ -831,7 +835,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -851,7 +855,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

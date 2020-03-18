@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import MessageUI
 
 class SitterSideMenuVC: UIViewController {
 
@@ -36,6 +38,10 @@ class SitterSideMenuVC: UIViewController {
     }
 
      
+     
+     
+  
+     
 //***** BACK
      
      @objc func backAction(){
@@ -48,6 +54,19 @@ class SitterSideMenuVC: UIViewController {
           @IBAction func familyButton(){
                self.dismiss(animated: true, completion: nil)
           }
+     
+     
+     @IBAction func contactButtonAction(){
+               let mailComposerVC = configureMailComposerViewController()
+          
+          if MFMailComposeViewController.canSendMail(){
+               self.present(mailComposerVC, animated: true, completion: nil)
+          }
+          else{
+               self.showSendMailErrorAlert()
+          }
+     
+     }
      
      @IBAction func logoutButton(){
                    
@@ -67,3 +86,31 @@ class SitterSideMenuVC: UIViewController {
 
 
                                       //*************** EXTENSION ******************
+extension SitterSideMenuVC: MFMailComposeViewControllerDelegate{
+     
+     
+     func configureMailComposerViewController() -> MFMailComposeViewController{
+          
+          let mailcomposerVC = MFMailComposeViewController()
+          mailcomposerVC.mailComposeDelegate = self
+          mailcomposerVC.setToRecipients(["info@sitwitus.com"])
+          
+          mailcomposerVC.setSubject("")
+          mailcomposerVC.setMessageBody("", isHTML: false)
+          
+          return mailcomposerVC
+     }
+     
+     func showSendMailErrorAlert(){
+            
+          let errAlert = UIAlertController(title: "Could not send mail", message: "Your device must be have active mail account", preferredStyle: .alert)
+          
+          errAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+          self.present(errAlert, animated: true, completion: nil)
+       }
+     
+     
+     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+          controller.dismiss(animated: true, completion: nil)
+     }
+}

@@ -25,6 +25,7 @@ class Users: Codable{
      var UserType : String!
      var ZipCode : String!
      var Star : Double?
+     var VideoUrl : String?
      
      
      static var userDetail = Users()
