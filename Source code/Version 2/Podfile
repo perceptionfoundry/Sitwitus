@@ -7,25 +7,25 @@ target 'Sitwitus' do
 
   # Pods for Sitwitus
 
-#pod 'IQKeyboardManagerSwift'
-#
-#pod 'LocationPickerViewController'
-#
-#pod 'GoogleMaps'
-#
-#pod 'HCSStarRatingView'
-#
-#pod 'TagListView'
-#
-#
-#pod 'Firebase/Auth'
-#pod 'Firebase/Firestore'
-#pod 'Firebase/Storage'
-#
-#pod 'CodableFirebase'
-#
-#pod 'SDWebImage'
-#
-#pod 'Stripe' 
+pod 'IQKeyboardManagerSwift'
+
+pod 'LocationPickerViewController'
+
+pod 'GoogleMaps'
+
+pod 'HCSStarRatingView'
+
+pod 'TagListView'
+
+
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+
+pod 'CodableFirebase'
+
+pod 'SDWebImage'
+
+pod 'Stripe' 
 
 end
