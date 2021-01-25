@@ -73,6 +73,17 @@ import UIKit
             layer.borderColor = border_color.cgColor
         }
     }
+     
+     @IBInspectable var border_width : CGFloat = 0 {
+         
+         didSet{
+             layer.borderWidth = border_width
+             
+             
+         }
+     }
+     
+     
     
     
     

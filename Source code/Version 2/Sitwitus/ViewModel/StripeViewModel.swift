@@ -42,7 +42,7 @@ class StripeViewModel{
           
           
           
-           STPAPIClient.shared().createToken(withCard: cardParams) { (tokenResult, tokenErr) in
+           STPAPIClient.shared.createToken(withCard: cardParams) { (tokenResult, tokenErr) in
           //                print(tokenResult?.tokenId)
           
           

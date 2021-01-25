@@ -2366,7 +2366,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iE-RR-QBb" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
                                 <rect key="frame" x="44" y="362.5" width="287" height="39"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pE-WY-BjA" customClass="HCSStarRatingView">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pE-WY-BjA" customClass="HCSStarRatingView">
                                         <rect key="frame" x="14.5" y="8" width="258" height="23"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.81115138529999997" green="0.5364820361" blue="0.23901936409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

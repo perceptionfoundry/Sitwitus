@@ -12,6 +12,9 @@ import Firebase
 import CodableFirebase
 import SDWebImage
 
+
+
+
 class SitterMainVC: UIViewController {
 
 
@@ -59,6 +62,8 @@ class SitterMainVC: UIViewController {
           mapCameraAction()
           
           fetchParent()
+     
+    
      
      
     }

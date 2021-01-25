@@ -15,7 +15,7 @@ import Stripe
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var googleAPIkey = "AIzaSyDYOYFb1iz2WEpJ27uJ89Tfa311E_9t5VA"
+    var googleAPIkey = "AIzaSyDvFcxQjJfvYASX7uxovvCvRMKVpekVk7E"
      
      var signInUser : Users?
      var isSignIn = false
@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      FirebaseApp.configure()
      
      
-     
-             Stripe.setDefaultPublishableKey("pk_test_o8kIqRmXgSKq19OFCVOSc7rH00Bc0LCfgJ")
+     StripeAPI.defaultPublishableKey = "pk_test_o8kIqRmXgSKq19OFCVOSc7rH00Bc0LCfgJ"
+//             Stripe.setDefaultPublishableKey("pk_test_o8kIqRmXgSKq19OFCVOSc7rH00Bc0LCfgJ")
 
 
         return true

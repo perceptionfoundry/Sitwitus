@@ -20,6 +20,7 @@
 		F2206D7023EC019800CCE6D4 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */; };
 		F2206D7323EC2A6F00CCE6D4 /* SitterFaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */; };
 		F224905C242238B200BCC3A3 /* SaveVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F224905B242238B200BCC3A3 /* SaveVideoViewModel.swift */; };
+		F228F74225BEBA650091C2D4 /* SitterAttendancePopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */; };
 		F230FB7E25B96BE2005C7DC3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230FB7D25B96BE2005C7DC3 /* Card.swift */; };
 		F235914A24163FF60074BBAF /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914924163FF60074BBAF /* CardTableViewCell.swift */; };
 		F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914E241697080074BBAF /* ParentSelectedCardVC.swift */; };
@@ -116,6 +117,7 @@
 		F2206D6E23EC019800CCE6D4 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterFaqVC.swift; sourceTree = "<group>"; };
 		F224905B242238B200BCC3A3 /* SaveVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVideoViewModel.swift; sourceTree = "<group>"; };
+		F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterAttendancePopVC.swift; sourceTree = "<group>"; };
 		F230FB7D25B96BE2005C7DC3 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F235914924163FF60074BBAF /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		F235914E241697080074BBAF /* ParentSelectedCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSelectedCardVC.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */,
 				F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */,
 				F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */,
+				F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */,
 				F2206D7123EC01AB00CCE6D4 /* TableView */,
 			);
 			path = Sitter;
@@ -475,8 +478,6 @@
 				F2CCE2EA23DFF588009B385E /* Sources */,
 				F2CCE2EB23DFF588009B385E /* Frameworks */,
 				F2CCE2EC23DFF588009B385E /* Resources */,
-				B3DC61694E24B664232F9FD3 /* [CP] Embed Pods Frameworks */,
-				D7C55420343139AD7EEDF6F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -584,40 +585,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3DC61694E24B664232F9FD3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7C55420343139AD7EEDF6F5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sitwitus/Pods-Sitwitus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -649,6 +616,7 @@
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */,
 				F21A53B723FADAB900AB1C00 /* AlertWindow.swift in Sources */,
+				F228F74225BEBA650091C2D4 /* SitterAttendancePopVC.swift in Sources */,
 				F2206D6C23EBF75200CCE6D4 /* PendingTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,
 				F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */,
