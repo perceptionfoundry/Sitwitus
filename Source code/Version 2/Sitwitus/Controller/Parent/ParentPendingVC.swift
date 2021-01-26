@@ -25,7 +25,7 @@ class ParentPendingVC:  UIViewController {
         
      
      let dbStore = Firestore.firestore()
-     var pendingList = [Pending]()
+     var pendingList = [Request]()
   
                                    //********* FUNCTIONS ***************
     
@@ -65,7 +65,7 @@ class ParentPendingVC:  UIViewController {
                
                fetchData.forEach { (VALUE) in
                     
-                    let pendingValue = try! FirestoreDecoder().decode(Pending.self, from: VALUE.data())
+                    let pendingValue = try! FirestoreDecoder().decode(Request.self, from: VALUE.data())
                     
                     self.pendingList.append(pendingValue)
                     self.pendingTable.reloadData()

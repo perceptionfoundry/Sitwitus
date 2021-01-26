@@ -57,9 +57,9 @@ class SitterSideMenuVC: UIViewController {
           
           
 //          self.dismiss(animated: true, completion: nil)
-          let vc = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "attendance") as! SitterAttendancePopVC
-          
-          self.present(vc, animated: true, completion: nil)
+//          let vc = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "attendance") as! SitterAttendancePopVC
+//          
+//          self.present(vc, animated: true, completion: nil)
        
         
      }

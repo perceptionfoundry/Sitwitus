@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jI-vc-3N6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7jI-vc-3N6">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                                     <constraint firstAttribute="width" secondItem="3Qt-KG-2c6" secondAttribute="height" multiplier="20:9" id="Sef-Te-Tia"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-Vv-Q0k" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XY-Vv-Q0k" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
                                 <rect key="frame" x="104" y="401" width="167" height="33.5"/>
                                 <color key="backgroundColor" red="0.34211480620000001" green="0.73010283710000001" blue="0.68236076830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -49,6 +50,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Qt-KG-2c6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.142857" id="14T-W0-nDL"/>
@@ -58,7 +60,6 @@
                             <constraint firstItem="5XY-Vv-Q0k" firstAttribute="top" secondItem="3Qt-KG-2c6" secondAttribute="bottom" constant="120" id="LKk-8Q-65A"/>
                             <constraint firstItem="5XY-Vv-Q0k" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="rHB-1L-xbh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qeJ-xe-8aO"/>
                 </viewController>
@@ -109,13 +110,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHM-8t-xPQ">
-                                <rect key="frame" x="105" y="266.5" width="165.5" height="34"/>
+                                <rect key="frame" x="113.5" y="269.5" width="148.5" height="28"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLL-qx-cvG" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="65.5" y="340.5" width="244" height="50"/>
+                                <rect key="frame" x="65.5" y="337.5" width="244" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-q2-RNW" customClass="Custom_Segment" customModule="Sitwitus" customModuleProvider="target">
                                         <rect key="frame" x="15.5" y="5" width="213" height="40"/>
@@ -135,7 +136,7 @@
                                                 <real key="value" value="28"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="value" systemColor="darkTextColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -169,8 +170,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-Dy-n9L" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="104" y="510.5" width="167" height="33.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-Dy-n9L" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
+                                <rect key="frame" x="104" y="507.5" width="167" height="33.5"/>
                                 <color key="backgroundColor" red="0.34211480620000001" green="0.73010283710000001" blue="0.68236076830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nIw-Dy-n9L" secondAttribute="height" multiplier="20:4" id="jQU-BT-GjE"/>
@@ -189,6 +190,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="frz-5X-Uj6"/>
                         <color key="backgroundColor" red="0.97279661890000002" green="0.98422712089999997" blue="0.98823839430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FLL-qx-cvG" firstAttribute="width" secondItem="lge-Bd-ahg" secondAttribute="width" multiplier="0.65" id="35p-EE-Lu5"/>
@@ -204,7 +206,6 @@
                             <constraint firstItem="8kG-Sl-YMq" firstAttribute="leading" secondItem="frz-5X-Uj6" secondAttribute="leading" id="xBi-P2-vhe"/>
                             <constraint firstItem="FLL-qx-cvG" firstAttribute="centerX" secondItem="hHM-8t-xPQ" secondAttribute="centerX" id="zX3-Hw-0DH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="frz-5X-Uj6"/>
                     </view>
                     <navigationItem key="navigationItem" id="EIT-JG-2TJ"/>
                     <connections>
@@ -255,7 +256,18 @@
             <point key="canvasLocation" x="2735" y="211"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5XY-Vv-Q0k">
+            <size key="intrinsicContentSize" width="78" height="30"/>
+        </designable>
+        <designable name="nIw-Dy-n9L">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="logo" width="689" height="218"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

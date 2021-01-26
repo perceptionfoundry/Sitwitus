@@ -25,7 +25,7 @@ class SitterPendingVC: UIViewController {
         
      
      let dbStore = Firestore.firestore()
-     var pendingList = [Pending]()
+     var pendingList = [Request]()
   
                                    //********* FUNCTIONS ***************
     
@@ -65,7 +65,7 @@ class SitterPendingVC: UIViewController {
                
                fetchData.forEach { (VALUE) in
                     
-                    let pendingValue = try! FirestoreDecoder().decode(Pending.self, from: VALUE.data())
+                    let pendingValue = try! FirestoreDecoder().decode(Request.self, from: VALUE.data())
                     
                     self.pendingList.append(pendingValue)
                     self.pendingTable.reloadData()
@@ -85,8 +85,38 @@ class SitterPendingVC: UIViewController {
           
           let acceptAction  = UIAlertAction(title: "Accept", style: .default) { (action) in
                
+               
+               let info = self.pendingList[button.tag]
                print("ACCEPT")
-               self.dbStore.collection("Requests").document((self.pendingList[button.tag].requestUid)!).updateData(["Status":"Accepted"])
+               self.dbStore.collection("Requests").document((info.requestUid)!).updateData(["Status":"Accepted"])
+            
+               let appointId = self.randomString(length: 6)
+               
+            
+               
+            
+               let dict = ["appointmentId": appointId,
+                           "CreatedBy": info.CreatedBy!,
+                           "Address": info.Address,
+                           "Lat": info.Lat,
+                           "Long": info.Long,
+                           "ParentName": info.ParentName!,
+                           "ParentUid": info.ParentUid!,
+                           "ParentImage": info.ParentImage!,
+                           "SitterName": info.SitterName!,
+                           "SitterUid": info.SitterUid!,
+                           "SitterImage": info.SitterImage!,
+                           "SitterReview": info.SitterReview!,
+                           "Rate": info.Rate!,
+                           "Tip": info.Tip!,
+                           "Hours": info.Hours!,
+                           "Status": "Accepted",
+                           "Timestamp": info.Timestamp!,
+                           "requestUid": info.requestUid!] as [String : Any]
+               
+               self.dbStore.collection("Appointments").document(appointId).setData(dict)
+               
+               
                self.getData()
           }
           
@@ -108,6 +138,23 @@ class SitterPendingVC: UIViewController {
 
               
          }
+     
+     
+     func randomString(length: Int) -> String {
+
+         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+         let len = UInt32(letters.length)
+
+         var randomString = ""
+
+         for _ in 0 ..< length {
+             let rand = arc4random_uniform(len)
+             var nextChar = letters.character(at: Int(rand))
+             randomString += NSString(characters: &nextChar, length: 1) as String
+         }
+
+         return randomString
+     }
      
 //     @objc func declineButtonAction (button : UIButton){
 //

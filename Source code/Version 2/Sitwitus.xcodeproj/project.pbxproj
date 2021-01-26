@@ -31,7 +31,7 @@
 		F2444F9E23FD0B30009257FD /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */; };
 		F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */; };
 		F24C54CF240810B900906C2A /* ParentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C54CE240810B900906C2A /* ParentReviewTableViewController.swift */; };
-		F26D6B0F2408EF220035E9F7 /* Pending.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D6B0E2408EF220035E9F7 /* Pending.swift */; };
+		F26D6B0F2408EF220035E9F7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D6B0E2408EF220035E9F7 /* Request.swift */; };
 		F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32C923F3DC0800431708 /* ParentPendingVC.swift */; };
 		F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */; };
 		F28E390A2413980200EA5E6E /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28E39092413980200EA5E6E /* MonthYearPickerView.swift */; };
@@ -59,6 +59,9 @@
 		F2C0D5E223E011AB00DCF976 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5E123E011AB00DCF976 /* Sitter.storyboard */; };
 		F2C0D5E423E011BC00DCF976 /* Parent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C0D5E323E011BC00DCF976 /* Parent.storyboard */; };
 		F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */; };
+		F2CC08B925BFF91200C60CB7 /* AppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CC08B825BFF91200C60CB7 /* AppointmentVC.swift */; };
+		F2CC08BE25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CC08BD25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift */; };
+		F2CC08E025C017D600C60CB7 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CC08DF25C017D600C60CB7 /* Appointment.swift */; };
 		F2CCE2F223DFF588009B385E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F123DFF588009B385E /* AppDelegate.swift */; };
 		F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F323DFF588009B385E /* SceneDelegate.swift */; };
 		F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CCE2F523DFF588009B385E /* InitialController.swift */; };
@@ -128,7 +131,7 @@
 		F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMainVC.swift; sourceTree = "<group>"; };
 		F24C54CE240810B900906C2A /* ParentReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentReviewTableViewController.swift; sourceTree = "<group>"; };
-		F26D6B0E2408EF220035E9F7 /* Pending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pending.swift; sourceTree = "<group>"; };
+		F26D6B0E2408EF220035E9F7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		F27A32C923F3DC0800431708 /* ParentPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingVC.swift; sourceTree = "<group>"; };
 		F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingTableViewCell.swift; sourceTree = "<group>"; };
 		F28E39092413980200EA5E6E /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
@@ -156,6 +159,9 @@
 		F2C0D5E123E011AB00DCF976 /* Sitter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		F2C0D5E323E011BC00DCF976 /* Parent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parent.storyboard; sourceTree = "<group>"; };
 		F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectorVC.swift; sourceTree = "<group>"; };
+		F2CC08B825BFF91200C60CB7 /* AppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVC.swift; sourceTree = "<group>"; };
+		F2CC08BD25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		F2CC08DF25C017D600C60CB7 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		F2CCE2EE23DFF588009B385E /* Sitwitus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sitwitus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2CCE2F123DFF588009B385E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2CCE2F323DFF588009B385E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 			children = (
 				F2206D6B23EBF75200CCE6D4 /* PendingTableViewCell.swift */,
 				F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */,
+				F2CC08BD25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -275,7 +282,8 @@
 				F230FB7D25B96BE2005C7DC3 /* Card.swift */,
 				F2A6BF9723FBC58A00819D38 /* Users.swift */,
 				F2B4E19023FD23BE002C11D3 /* Message.swift */,
-				F26D6B0E2408EF220035E9F7 /* Pending.swift */,
+				F26D6B0E2408EF220035E9F7 /* Request.swift */,
+				F2CC08DF25C017D600C60CB7 /* Appointment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,6 +372,7 @@
 				F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */,
 				F2206D6923EBEBF700CCE6D4 /* SitterAddSKillVC.swift */,
 				F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */,
+				F2CC08B825BFF91200C60CB7 /* AppointmentVC.swift */,
 				F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */,
 				F2206D7123EC01AB00CCE6D4 /* TableView */,
 			);
@@ -633,12 +642,14 @@
 				F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */,
 				F2C0D5E723E0154100DCF976 /* UserSelectorVC.swift in Sources */,
 				F20E0ABC23E08CCF009A9F94 /* SitterSignUpVC.swift in Sources */,
+				F2CC08B925BFF91200C60CB7 /* AppointmentVC.swift in Sources */,
 				F2CCE2F623DFF588009B385E /* InitialController.swift in Sources */,
 				F21A53BA23FAE13D00AB1C00 /* SaveImageViewModel.swift in Sources */,
 				F2ED97BB23E809C10048C782 /* SignInVC.swift in Sources */,
 				F2EC5F8A23F144F2007F62DA /* ParentSignUpVC.swift in Sources */,
 				F2B5290B24137C4D005E8142 /* StripeViewModel.swift in Sources */,
 				F29386A023F53F8F00710155 /* ParentBookingReviewVC.swift in Sources */,
+				F2CC08E025C017D600C60CB7 /* Appointment.swift in Sources */,
 				F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */,
 				F291145723F16CC500D16BB1 /* ParentFaqVC.swift in Sources */,
 				F20C1A4823E3293400F058F8 /* MapMarkerView.swift in Sources */,
@@ -670,12 +681,13 @@
 				F2C0D5CA23DFFD3B00DCF976 /* Custom_Button.swift in Sources */,
 				F224905C242238B200BCC3A3 /* SaveVideoViewModel.swift in Sources */,
 				F2A6BF9823FBC58A00819D38 /* Users.swift in Sources */,
-				F26D6B0F2408EF220035E9F7 /* Pending.swift in Sources */,
+				F26D6B0F2408EF220035E9F7 /* Request.swift in Sources */,
 				F293869C23F5168000710155 /* ParentPaymentVC.swift in Sources */,
 				F2CCE2F423DFF588009B385E /* SceneDelegate.swift in Sources */,
 				F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */,
 				F2C0D5CC23DFFD3B00DCF976 /* Custom_Segment.swift in Sources */,
 				F2FC9937240CF1FE00A44F8A /* SitterBookingVC.swift in Sources */,
+				F2CC08BE25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
 				F2CE10352400276300805B90 /* MapMarkup.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,

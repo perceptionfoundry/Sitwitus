@@ -1,17 +1,18 @@
 //
-//  Pending.swift
+//  Appointment.swift
 //  Sitwitus
 //
-//  Created by Syed ShahRukh Haider on 28/02/2020.
-//  Copyright © 2020 Syed ShahRukh Haider. All rights reserved.
+//  Created by Syed ShahRukh Haider on 26/01/2021.
+//  Copyright © 2021 Syed ShahRukh Haider. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
 
-class Pending: Codable {
+struct Appointment: Codable {
      
+     var appointmentId : String!
      var CreatedBy : String!
      var Address: String
      var Lat : Double
