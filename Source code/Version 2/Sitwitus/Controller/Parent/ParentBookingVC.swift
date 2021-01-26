@@ -26,6 +26,8 @@ class ParentBookingVC: UIViewController {
      @IBOutlet weak var sitterImage: Custom_ImageView!
      @IBOutlet weak var sitterSkill: UILabel!
      @IBOutlet weak var sitterSpecialist: UILabel!
+     @IBOutlet weak var timeTF: UITextField!
+     @IBOutlet weak var dateTF: UITextField!
      @IBOutlet weak var rateLabel: UILabel!
      @IBOutlet weak var rateStars: HCSStarRatingView!
      @IBOutlet weak var tipLabel: UILabel!
@@ -51,6 +53,9 @@ class ParentBookingVC: UIViewController {
      var sitter : Users!
      var dbStore = Firestore.firestore()
      var tipPercent = 10
+     let datePicker = UIDatePicker()
+     var date = Date()
+     var time_combine  = ""
                                    //********* FUNCTIONS ***************
     
     
@@ -107,8 +112,102 @@ class ParentBookingVC: UIViewController {
      
      tipAmount.text = "$ \(sitter.Rate!)0"
      
+     timeTF.delegate = self
+     dateTF.delegate = self
+     
+     if #available(iOS 13.4, *) {
+         datePicker.preferredDatePickerStyle = .wheels
+     } else {
+         // Fallback on earlier versions
+     }
     }
 
+     // ******************* SHOW DATE FUNCTION
+     
+     
+     func showDatePicker(){
+         
+         datePicker.minimumDate = Date()
+         datePicker.datePickerMode = .date
+         
+         
+         //ToolBar
+         let toolbar = UIToolbar();
+         toolbar.sizeToFit()
+         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+         
+         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+         
+         dateTF.inputAccessoryView = toolbar
+         dateTF.inputView = datePicker
+         
+     }
+     
+     @objc func donedatePicker(){
+         
+         
+         let formatter = DateFormatter()
+         formatter.dateFormat = "dd/MMM/yyyy"
+         formatter.dateStyle = .medium
+         date = datePicker.date
+         
+         
+         
+         dateTF.text = formatter.string(from: datePicker.date)
+
+//         formatter.dateFormat = "MMMM dd, yyyy"
+//         self.date_combine = formatter.string(from: datePicker.date)
+         self.view.endEditing(true)
+     }
+     
+     @objc func cancelDatePicker(){
+         self.view.endEditing(true)
+     }
+     
+     
+     // ******************* SHOW TIME FUNCTION
+     
+     
+      func showTimePicker(){
+         //Formate Date
+         datePicker.datePickerMode = .time
+        
+     
+         
+         //ToolBar
+         let toolbar = UIToolbar();
+         toolbar.sizeToFit()
+         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTimePicker));
+         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTimePicker));
+         
+         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+         
+         timeTF.inputAccessoryView = toolbar
+         timeTF.inputView = datePicker
+         
+     }
+     
+     @objc func doneTimePicker(){
+         
+         let formatter = DateFormatter()
+         formatter.dateFormat = "h:mm a"
+         
+         date = datePicker.date
+     
+         timeTF.text = formatter.string(from: datePicker.date)
+//         formatter.dateFormat = "h:mm"
+//         self.time_combine = formatter.string(from: datePicker.date)
+
+         
+         self.view.endEditing(true)
+     }
+     
+     @objc func cancelTimePicker(){
+         self.view.endEditing(true)
+     }
 
 
                                     //*************** OUTLET ACTION ******************
@@ -186,7 +285,7 @@ class ParentBookingVC: UIViewController {
      @IBAction func bookingButton(){
           
 
-          if hours.text?.isEmpty == false{
+          if hours.text?.isEmpty == false && timeTF.text?.isEmpty == false{
           let dict = [
                "CreatedBy": (sharedVariable.signInUser?.UserId)!,
                "Address": (sharedVariable.signInUser?.Location)!,
@@ -201,6 +300,8 @@ class ParentBookingVC: UIViewController {
                "SitterImage":(sitter.ImageUrl)!,
                "Rate":sitter.Rate!,
                "Tip": self.tipPercent,
+               "Date": self.dateTF.text!,
+               "Time": self.timeTF.text!,
                "Hours": (self.hours.text)!,
                "Status": "Requested"] as [String : Any]
                
@@ -234,3 +335,20 @@ class ParentBookingVC: UIViewController {
 
 
                                       //*************** EXTENSION ******************
+
+extension ParentBookingVC : UITextFieldDelegate{
+     
+     func textFieldDidBeginEditing(_ textField: UITextField) {
+         
+          if textField == self.dateTF{
+              self.showDatePicker()
+
+          }
+          else if textField == self.timeTF{
+             self.showTimePicker()
+         }
+         else{
+             
+         }
+     }
+}

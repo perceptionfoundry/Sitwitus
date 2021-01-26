@@ -27,6 +27,8 @@ struct Appointment: Codable {
      var Rate : Double!
      var Tip : Int?
      var Hours : String!
+     var Date : String!
+     var Time : String!
      var Status : String!
      var Timestamp : Timestamp!
      var requestUid: String!

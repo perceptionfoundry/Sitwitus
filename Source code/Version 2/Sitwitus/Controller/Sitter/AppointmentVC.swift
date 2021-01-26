@@ -22,7 +22,7 @@ class AppointmentVC: UIViewController {
      
      var dbStore = Firestore.firestore()
      
-    var appointmentList = [Request]()
+    var appointmentList = [Appointment]()
     //********* FUNCTIONS ***************
 
 
@@ -52,17 +52,25 @@ super.viewWillAppear(animated)
           
           let currentUser = sharedVariable.signInUser
           
-          self.dbStore.collection("Requests").whereField("SitterUid", isEqualTo: (currentUser?.UserId)!).order(by: "Timestamp").getDocuments { (requestSnap, requestErr) in
+          
+          /*
+           dbStore.collection("Appointments").whereField("SitterUid", isEqualTo: (currentUser?.UserId)!).order(by: "Timestamp").getDocuments
+           */
+          self.dbStore.collection("Appointments").whereField("SitterUid", isEqualTo: (currentUser?.UserId)!).getDocuments { (requestSnap, requestErr) in
                
                guard let fetchData = requestSnap?.documents else{return}
                
                
+               let currentDate = Date()
+               
+               print(currentDate)
+              
                
                fetchData.forEach { (VALUE) in
                     
-                    let pendingValue = try! FirestoreDecoder().decode(Request.self, from: VALUE.data())
+                    let appointmentValue = try! FirestoreDecoder().decode(Appointment.self, from: VALUE.data())
                     
-                    self.appointmentList.append(pendingValue)
+                    self.appointmentList.append(appointmentValue)
                     self.appointmentTable.reloadData()
                }
                
