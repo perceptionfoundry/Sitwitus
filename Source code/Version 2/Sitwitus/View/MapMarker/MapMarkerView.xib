@@ -84,8 +84,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="G3m-xJ-gmE"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                    <state key="normal" title="Book">
+                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                    <state key="normal" title="REQUEST">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -121,7 +121,7 @@
             <size key="intrinsicContentSize" width="240" height="44"/>
         </designable>
         <designable name="gkf-0T-xg8">
-            <size key="intrinsicContentSize" width="39" height="35"/>
+            <size key="intrinsicContentSize" width="50" height="29"/>
         </designable>
     </designables>
     <resources>

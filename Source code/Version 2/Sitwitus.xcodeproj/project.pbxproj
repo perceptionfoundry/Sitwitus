@@ -31,6 +31,7 @@
 		F2444F9E23FD0B30009257FD /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */; };
 		F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */; };
 		F24C54CF240810B900906C2A /* ParentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C54CE240810B900906C2A /* ParentReviewTableViewController.swift */; };
+		F26970BB25C1E7B6006E0C9E /* CheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26970BA25C1E7B6006E0C9E /* CheckOutVC.swift */; };
 		F26D6B0F2408EF220035E9F7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26D6B0E2408EF220035E9F7 /* Request.swift */; };
 		F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32C923F3DC0800431708 /* ParentPendingVC.swift */; };
 		F27A32CC23F3DC8E00431708 /* ParentPendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */; };
@@ -131,6 +132,7 @@
 		F2444F9D23FD0B30009257FD /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		F24B4C5923E2C03800A14C20 /* SitterMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterMainVC.swift; sourceTree = "<group>"; };
 		F24C54CE240810B900906C2A /* ParentReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentReviewTableViewController.swift; sourceTree = "<group>"; };
+		F26970BA25C1E7B6006E0C9E /* CheckOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutVC.swift; sourceTree = "<group>"; };
 		F26D6B0E2408EF220035E9F7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		F27A32C923F3DC0800431708 /* ParentPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingVC.swift; sourceTree = "<group>"; };
 		F27A32CB23F3DC8E00431708 /* ParentPendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPendingTableViewCell.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				F2206D7223EC2A6F00CCE6D4 /* SitterFaqVC.swift */,
 				F2CC08B825BFF91200C60CB7 /* AppointmentVC.swift */,
 				F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */,
+				F26970BA25C1E7B6006E0C9E /* CheckOutVC.swift */,
 				F2206D7123EC01AB00CCE6D4 /* TableView */,
 			);
 			path = Sitter;
@@ -663,6 +666,7 @@
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */,
 				F21A53B723FADAB900AB1C00 /* AlertWindow.swift in Sources */,
+				F26970BB25C1E7B6006E0C9E /* CheckOutVC.swift in Sources */,
 				F228F74225BEBA650091C2D4 /* SitterAttendancePopVC.swift in Sources */,
 				F2206D6C23EBF75200CCE6D4 /* PendingTableViewCell.swift in Sources */,
 				F2C0D5C923DFFD3B00DCF976 /* Custom_View.swift in Sources */,

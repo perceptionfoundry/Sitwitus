@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +43,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9Mm-pd-7Wa" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="j9M-Pw-H9N"/>
@@ -50,13 +52,17 @@
                 <constraint firstItem="9Mm-pd-7Wa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yJL-VH-ST8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="personIamge" destination="3vQ-Yg-LCr" id="v1Q-tk-zS3"/>
             </connections>
             <point key="canvasLocation" x="-376.81159420289856" y="-225"/>
         </view>
     </objects>
+    <designables>
+        <designable name="3vQ-Yg-LCr">
+            <size key="intrinsicContentSize" width="453" height="453"/>
+        </designable>
+    </designables>
     <resources>
         <image name="me" width="453" height="453"/>
     </resources>

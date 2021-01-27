@@ -157,10 +157,28 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
      
           cell.dutyHours.text = "\(startTime) - \(finishTime)"
           
-          cell.attendanceButton.setTitle("Checkin", for: .normal)
-          cell.attendanceButton.tag = indexPath.row
-          cell.attendanceButton.addTarget(self, action: #selector(checkPopWindow), for: .touchUpInside)
           
+          if appointmentInfo.Status == "CheckIn" {
+               
+               cell.attendanceButton.setTitle("Check-In", for: .normal)
+               cell.attendanceButton.backgroundColor = .clear
+               cell.attendanceButton.setTitleColor(.systemGreen, for: .normal)
+               cell.attendanceButton.layer.borderColor = UIColor.systemGreen.cgColor
+               cell.attendanceButton.layer.borderWidth = 2.0
+               
+          }else if appointmentInfo.Status == "CheckOut" {
+               cell.attendanceButton.setTitle("Check-Out", for: .normal)
+               cell.attendanceButton.backgroundColor = .clear
+               cell.attendanceButton.setTitleColor(.systemRed, for: .normal)
+               cell.attendanceButton.layer.borderColor = UIColor.systemRed.cgColor
+               cell.attendanceButton.layer.borderWidth = 2.0
+          }
+//
+          cell.attendanceButton.tag = indexPath.row
+          
+          if appointmentInfo.Status != "CheckOut"{
+          cell.attendanceButton.addTarget(self, action: #selector(checkPopWindow), for: .touchUpInside)
+          }
           return cell
      }
      

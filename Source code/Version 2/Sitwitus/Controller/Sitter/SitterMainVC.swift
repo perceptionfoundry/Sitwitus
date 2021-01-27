@@ -202,11 +202,22 @@ extension SitterMainVC: CLLocationManagerDelegate{
 
           // *********************** Define user current location with Marker: ***********************
 
-//          let marker = GMSMarker(position: location.coordinate)
+          let marker = GMSMarker(position: location.coordinate)
 
-//          marker.tracksViewChanges = true
+          
+          
+          let markerInnerImage =  (UINib.init(nibName: "MapMarkup", bundle: nil).instantiate(withOwner: self, options: nil).first as! MapMarkup)
+          
+          
+          let imageString = (sharedVariable.signInUser?.ImageUrl)!
+          markerInnerImage.personIamge.sd_setImage(with: URL(string: imageString), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
+          
+           marker.iconView = markerInnerImage
+          marker.icon = UIImage(named: "new_image")
+          marker.isTappable = false
+         marker.map = self.mainMapView!
 
-//          mapMarkerAction()
+          mapMarkerAction()
      }
 
 
@@ -243,7 +254,7 @@ extension SitterMainVC: GMSMapViewDelegate{
           infoWindow.bookButton.tag = index
           infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
           infoWindow.center = self.mainMapView!.projection.point(for: location)
-          infoWindow.center.y = infoWindow.center.y + 260
+          infoWindow.center.y = infoWindow.center.y + 300
           infoWindow.center.x = infoWindow.center.x + 10
 
           infoWindow.frame.size.width = 225

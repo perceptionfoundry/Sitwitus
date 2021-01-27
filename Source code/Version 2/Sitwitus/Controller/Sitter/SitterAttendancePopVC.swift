@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class SitterAttendancePopVC: UIViewController {
      
@@ -25,6 +26,8 @@ class SitterAttendancePopVC: UIViewController {
 
      var selectedAppointment : Appointment!
      let dbStore = Firestore.firestore()
+     var locationManager = CLLocationManager()
+     var currentLocation : CLLocation!
     //********* FUNCTIONS ***************
 
 
@@ -33,13 +36,25 @@ class SitterAttendancePopVC: UIViewController {
 override func viewDidLoad() {
 super.viewDidLoad()
 
+     locationManager.delegate = self
+     locationManager.requestAlwaysAuthorization()
+     locationManager.desiredAccuracy = kCLLocationAccuracyBest
      
-     print(selectedAppointment.appointmentId)
+     locationManager.startUpdatingLocation()
+     
 
 }
 
 override func viewWillAppear(_ animated: Bool) {
 super.viewWillAppear(animated)
+     
+     if selectedAppointment.Status == "CheckIn"{
+          
+          checkButton.setTitle("Check-Out", for: .normal)
+          checkButton.backgroundColor = .systemRed
+         
+     }
+     
      self.bottomConstraint.constant = -150
      
      let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAction))
@@ -49,6 +64,19 @@ super.viewWillAppear(animated)
      UIView.animate(withDuration: 3, delay: 500, options: .curveEaseIn) {
                     self.bottomConstraint.constant += 150
                }
+     
+     
+
+     let formattor = DateFormatter()
+     
+     
+ 
+     formattor.dateFormat = "hh:mm a"
+     let time = formattor.string(from: Date())
+     print(time)
+     elapseTime.text = time
+     
+     
  
      
 }
@@ -74,14 +102,54 @@ super.viewWillAppear(animated)
           
           dbStore.collection("Appointments").document(selectedAppointment.appointmentId).updateData(["Status": "CheckIn"])
           
-          UIView.animate(withDuration: 3, delay: 0.5, options: .curveEaseOut) {
-                    self.bottomConstraint.constant -= 150
-               } completion: { (status) in
-                    
-                    if status{
-                         self.dismiss(animated: true, completion: nil)
+          
+          
+          let currentUser = sharedVariable.signInUser
+          
+          
+          if selectedAppointment.Status == "Accepted"{
+          let dict = ["appointmentId": (selectedAppointment.appointmentId)!,
+                      "CreatedBy": (currentUser?.UserId)!,
+                      "Address": selectedAppointment.Address,
+                      "Lat": self.currentLocation.coordinate.latitude,
+                      "Long": self.currentLocation.coordinate.longitude,
+                      "ParentName": selectedAppointment.ParentName!,
+                      "ParentUid": selectedAppointment.ParentUid!,
+                      "SitterName": (currentUser?.FullName)!,
+                      "SitterUid": (currentUser?.UserId)!,
+                      "SignInTime": FieldValue.serverTimestamp(),
+                      "SignOutTime": FieldValue.serverTimestamp(),
+                      "Status": "CheckIn",
+                      "Timestamp": FieldValue.serverTimestamp()
+                      ] as [String : Any]
+          
+          
+          dbStore.collection("Attendance").document(selectedAppointment.appointmentId).setData(dict)
+               
+               UIView.animate(withDuration: 3, delay: 0.5, options: .curveEaseOut) {
+                         self.bottomConstraint.constant -= 150
+                    } completion: { (status) in
+                         
+                         if status{
+                              self.dismiss(animated: true, completion: nil)
+                         }
                     }
-               }
+          }else if selectedAppointment.Status == "CheckIn"{
+               
+               
+               let dict = [
+                           "SignOutTime": FieldValue.serverTimestamp(),
+                           "Status": "CheckOut",
+                           "Timestamp": FieldValue.serverTimestamp()
+                           ] as [String : Any]
+               
+               dbStore.collection("Attendance").document(selectedAppointment.appointmentId).updateData(dict)
+               
+               dbStore.collection("Appointments").document(selectedAppointment.appointmentId).updateData(["Status": "CheckOut"])
+               
+               performSegue(withIdentifier: "CheckOut", sender: nil)
+          }
+         
           
      }
      
@@ -95,3 +163,16 @@ super.viewWillAppear(animated)
 
 
        //*************** EXTENSION ******************
+
+extension SitterAttendancePopVC: CLLocationManagerDelegate{
+     
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+
+          guard let location = locations.first else {return}
+
+          self.currentLocation = location
+          self.locationManager.stopUpdatingLocation()
+
+     }
+}
