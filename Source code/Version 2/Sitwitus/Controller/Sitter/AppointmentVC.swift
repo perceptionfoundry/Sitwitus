@@ -23,6 +23,8 @@ class AppointmentVC: UIViewController {
      var dbStore = Firestore.firestore()
      
     var appointmentList = [Appointment]()
+     
+     var appoint_Attendance : Appointment?
     //********* FUNCTIONS ***************
 
 
@@ -59,13 +61,7 @@ super.viewWillAppear(animated)
           self.dbStore.collection("Appointments").whereField("SitterUid", isEqualTo: (currentUser?.UserId)!).getDocuments { (requestSnap, requestErr) in
                
                guard let fetchData = requestSnap?.documents else{return}
-               
-               
-               let currentDate = Date()
-               
-               print(currentDate)
-              
-               
+      
                fetchData.forEach { (VALUE) in
                     
                     let appointmentValue = try! FirestoreDecoder().decode(Appointment.self, from: VALUE.data())
@@ -80,9 +76,23 @@ super.viewWillAppear(animated)
           
      }
 
-     @objc func checkPopWindow(){
+     @objc func checkPopWindow(_ sender : UIButton){
+          
+          self.appoint_Attendance = appointmentList[sender.tag]
+          
+          dbStore.collection("Appointments").document().updateData(["Status": "CheckIn"])
           performSegue(withIdentifier: "Pop", sender: nil)
 
+     }
+     
+    
+     
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          let dest = segue.destination as! SitterAttendancePopVC
+          
+          dest.selectedAppointment = appoint_Attendance
      }
 
      //*************** OUTLET ACTION ******************
@@ -113,15 +123,21 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           let appointmentInfo = appointmentList[indexPath.row]
           cell.personName.text = appointmentInfo.ParentName
           
+          
+          cell.personAddress.text = appointmentInfo.Address
+          cell.bookingNumber.text = appointmentInfo.appointmentId
+          
           let ImageString =  appointmentInfo.ParentImage ?? ""
-          
-     
           cell.personImage.sd_setImage(with: URL(string: ImageString), placeholderImage: UIImage(named: "pending"), options: .progressiveLoad, completed: nil)
+
+          
+          // ************ Start Time
+          let combine = appointmentInfo.Date + " " +  appointmentInfo.Time
+          let intoDate = combine.toDate()
+          let start = intoDate?.timeIntervalSince1970
           
           
-          let start = appointmentInfo.Timestamp.seconds
-          
-          let startDate = Date(timeIntervalSince1970: TimeInterval(start))
+          let startDate = Date(timeIntervalSince1970: TimeInterval(start!))
           let dateFormatter = DateFormatter()
           dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
           dateFormatter.locale = NSLocale.current
@@ -130,17 +146,18 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           
           let duration = appointmentInfo.Hours!
           
-          let convertInSecond = Int64(duration)! * 3600
           
-          let finish = start + convertInSecond
+          //********** Calculating end time
+          let convertInSecond = Double(duration)! * 3600
           
+          let finish = start! + convertInSecond
+//          
           let finishDate = Date(timeIntervalSince1970: TimeInterval(finish))
           let finishTime = dateFormatter.string(from: finishDate)
-          
-     print(UUID())
-          
+     
           cell.dutyHours.text = "\(startTime) - \(finishTime)"
           
+          cell.attendanceButton.setTitle("Checkin", for: .normal)
           cell.attendanceButton.tag = indexPath.row
           cell.attendanceButton.addTarget(self, action: #selector(checkPopWindow), for: .touchUpInside)
           
@@ -153,4 +170,22 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           return 160
      }
      
+}
+
+
+
+extension String {
+
+    func toDate(withFormat format: String = "dd-MMM-yyyy h:mm")-> Date?{
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeZone = TimeZone(identifier: "GMT")
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+
+        return date
+
+    }
 }

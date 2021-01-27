@@ -10,6 +10,7 @@ import UIKit
 
 class AppointmentTableViewCell: UITableViewCell {
 
+     @IBOutlet weak var bookingNumber: UILabel!
      @IBOutlet weak var personName: UILabel!
      @IBOutlet weak var personImage: UIImageView!
      @IBOutlet weak var personAddress: UILabel!

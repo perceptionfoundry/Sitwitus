@@ -110,6 +110,8 @@ class SitterPendingVC: UIViewController {
                            "Rate": info.Rate!,
                            "Tip": info.Tip!,
                            "Hours": info.Hours!,
+                           "Date": info.Date!,
+                           "Time": info.Time!,
                            "Status": "Accepted",
                            "Timestamp": info.Timestamp!,
                            "requestUid": info.requestUid!] as [String : Any]

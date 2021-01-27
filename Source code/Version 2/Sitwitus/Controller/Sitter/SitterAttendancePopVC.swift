@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SitterAttendancePopVC: UIViewController {
      
@@ -22,7 +23,8 @@ class SitterAttendancePopVC: UIViewController {
 
     //******** VARIABLES *************
 
-    
+     var selectedAppointment : Appointment!
+     let dbStore = Firestore.firestore()
     //********* FUNCTIONS ***************
 
 
@@ -31,6 +33,8 @@ class SitterAttendancePopVC: UIViewController {
 override func viewDidLoad() {
 super.viewDidLoad()
 
+     
+     print(selectedAppointment.appointmentId)
 
 }
 
@@ -66,6 +70,9 @@ super.viewWillAppear(animated)
      //*************** OUTLET ACTION ******************
 
      @IBAction func CheckButtonAction(_ sender: Any) {
+          
+          
+          dbStore.collection("Appointments").document(selectedAppointment.appointmentId).updateData(["Status": "CheckIn"])
           
           UIView.animate(withDuration: 3, delay: 0.5, options: .curveEaseOut) {
                     self.bottomConstraint.constant -= 150
