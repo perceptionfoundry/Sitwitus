@@ -67,8 +67,10 @@ class ParentPendingVC:  UIViewController {
                     
                     let pendingValue = try! FirestoreDecoder().decode(Request.self, from: VALUE.data())
                     
+                    if pendingValue.CreatedBy != currentUser?.UserId{
                     self.pendingList.append(pendingValue)
                     self.pendingTable.reloadData()
+                    }
                }
                
           }
@@ -80,8 +82,43 @@ class ParentPendingVC:  UIViewController {
      @objc func acceptButtonAction (button : UIButton){
               
               
+          let info = (pendingList[button.tag])
+          
               print("ACCEPT")
-          dbStore.collection("Requests").document((pendingList[button.tag].requestUid)!).updateData(["Status":"Accepted"])
+          dbStore.collection("Requests").document((info.requestUid)!).updateData(["Status":"Accepted"])
+          
+          
+          let appointId = randomString(length: 6)
+          
+          
+       
+     
+       
+          let dict = ["appointmentId": appointId,
+                      "CreatedBy": info.CreatedBy!,
+                      "Address": info.Address,
+                      "Lat": info.Lat,
+                      "Long": info.Long,
+                      "ParentName": info.ParentName!,
+                      "ParentUid": info.ParentUid!,
+                      "ParentImage": info.ParentImage!,
+                      "SitterName": info.SitterName!,
+                      "SitterUid": info.SitterUid!,
+                      "SitterImage": info.SitterImage!,
+                      "SitterReview": info.SitterReview!,
+                      "Rate": info.Rate!,
+                      "Tip": info.Tip!,
+                      "Hours": info.Hours!,
+                      "Date": info.Date!,
+                      "Time": info.Time!,
+                      "Status": "Accepted",
+                      "Timestamp": info.Timestamp!,
+                      "requestUid": info.requestUid!] as [String : Any]
+          
+          self.dbStore.collection("Appointments").document(appointId).setData(dict)
+          
+          
+          self.getData()
 
               
          }

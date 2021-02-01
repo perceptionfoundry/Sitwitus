@@ -95,7 +95,11 @@ class SignInVC: UIViewController {
                         //************ USER DEFAULT TO MANAGE AUTO SIGN IN
                               UserDefaults.standard.set(fetchData, forKey: "SIGN_DETAIL")
                               UserDefaults.standard.set(true, forKey: "SIGNIN")
+                              UserDefaults.standard.set(false, forKey: "isParent")
                               self.performSegue(withIdentifier: "Login_Segue", sender: nil)
+                              
+                              
+                     
                          }
                          
                      

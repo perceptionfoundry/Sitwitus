@@ -90,6 +90,7 @@
 		F2EBBE2D23E0607700E931D1 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */; };
 		F2EBBE2E23E0607700E931D1 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */; };
 		F2EBBE2F23E0607700E931D1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */; };
+		F2EBE96225C7D92200B717A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EBE96125C7D92200B717A6 /* Helper.swift */; };
 		F2EC5F8A23F144F2007F62DA /* ParentSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC5F8923F144F2007F62DA /* ParentSignUpVC.swift */; };
 		F2EC5F8C23F14658007F62DA /* ParentSignUpReasonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC5F8B23F14658007F62DA /* ParentSignUpReasonVC.swift */; };
 		F2ECEA0B23FA6C74004C2806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ECEA0A23FA6C73004C2806 /* GoogleService-Info.plist */; };
@@ -193,6 +194,7 @@
 		F2EBBE1A23E0607600E931D1 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		F2EBBE1B23E0607700E931D1 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		F2EBBE1C23E0607700E931D1 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		F2EBE96125C7D92200B717A6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F2EC5F8923F144F2007F62DA /* ParentSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignUpVC.swift; sourceTree = "<group>"; };
 		F2EC5F8B23F14658007F62DA /* ParentSignUpReasonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignUpReasonVC.swift; sourceTree = "<group>"; };
 		F2ECEA0A23FA6C73004C2806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		F2CCE2F023DFF588009B385E /* Sitwitus */ = {
 			isa = PBXGroup;
 			children = (
+				F2EBE96025C7D90100B717A6 /* Helper */,
 				F2A6BF9923FBC59300819D38 /* Model */,
 				F20C1A4423E328A200F058F8 /* View */,
 				F21A53B823FAE11300AB1C00 /* ViewModel */,
@@ -464,6 +467,14 @@
 				F2CE10342400276300805B90 /* MapMarkup.swift */,
 			);
 			path = MapMarker;
+			sourceTree = "<group>";
+		};
+		F2EBE96025C7D90100B717A6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F2EBE96125C7D92200B717A6 /* Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F2ED97B323E800900048C782 /* Message */ = {
@@ -702,6 +713,7 @@
 				F291144F23F1507200D16BB1 /* ParentSideMenuVC.swift in Sources */,
 				F2B4E19123FD23BE002C11D3 /* Message.swift in Sources */,
 				F2C0D5CB23DFFD3B00DCF976 /* Custom_Label.swift in Sources */,
+				F2EBE96225C7D92200B717A6 /* Helper.swift in Sources */,
 				F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */,
 				F235914A24163FF60074BBAF /* CardTableViewCell.swift in Sources */,
 			);

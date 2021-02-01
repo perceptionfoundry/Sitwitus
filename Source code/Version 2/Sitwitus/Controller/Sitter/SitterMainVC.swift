@@ -21,6 +21,8 @@ class SitterMainVC: UIViewController {
                                     //******** OUTLETS ***************
      
      @IBOutlet weak var localMapView : UIView!
+     @IBOutlet weak var locationTF : UITextField!
+     @IBOutlet weak var zipTF : UITextField!
 
 
                                    //******** VARIABLES *************
@@ -38,6 +40,7 @@ class SitterMainVC: UIViewController {
      
      var dbStore = Firestore.firestore()
         var parentList = [Users]()
+     var orginalList = [Users]()
         var selectedIndex = -1
         var signInUser = sharedVariable.signInUser!
                                    
@@ -57,7 +60,9 @@ class SitterMainVC: UIViewController {
         super.viewWillAppear(animated)
      
      
-          mainMapView?.clear()
+     locationTF.addTarget(self, action: #selector(searchLocation(_:)), for: .editingChanged)
+     zipTF.addTarget(self, action: #selector(searchZip(_:)), for: .editingChanged)
+     mainMapView?.clear()
           
           mapCameraAction()
           
@@ -89,7 +94,10 @@ class SitterMainVC: UIViewController {
                     
                     
                     if parentInfo.UserType == "Parent"{
+                         
+                         self.orginalList.append(parentInfo)
                     self.parentList.append(parentInfo)
+//                         self.populateParentMarker()
                     self.mapMarkerAction(lat: parentInfo.Lat!, long: parentInfo.Long!, ImageString: parentInfo.ImageUrl, indexNumber: count)
                     count += 1
                     }
@@ -99,6 +107,19 @@ class SitterMainVC: UIViewController {
      }
 
      
+     
+     func populateParentMarker(){
+             
+//             mainMapView?.clear()
+             var count = 0
+             
+          parentList.forEach { (sitter) in
+                  self.parentList.append(sitter)
+                       
+                  self.mapMarkerAction(lat: sitter.Lat!, long: sitter.Long!, ImageString: sitter.ImageUrl, indexNumber: count)
+                  count += 1
+             }
+        }
 //*************** GOOGLE MAP CAMERA
      
      func mapCameraAction(){
@@ -148,6 +169,52 @@ class SitterMainVC: UIViewController {
                marker.map = self.mainMapView!
                
           }
+     
+     
+     @objc func searchLocation(_ textField: UITextField){
+          self.parentList.removeAll()
+          
+          self.mainMapView?.clear()
+          
+          if textField.text?.count != 0{
+
+               orginalList.forEach { (sitter) in
+                    if let sitterSearch = textField.text{
+                         let range = sitter.Location.lowercased().range(of: sitterSearch, options: .caseInsensitive, range: nil, locale: nil)
+                         if range != nil{
+                              self.parentList.append(sitter)
+                         }
+                    }
+               }
+          }else{
+               self.parentList = self.orginalList
+          }
+          
+          self.populateParentMarker()
+     }
+     
+     
+     @objc func searchZip(_ textField: UITextField){
+          self.parentList.removeAll()
+          
+          self.mainMapView?.clear()
+          
+          if textField.text?.count != 0{
+
+               orginalList.forEach { (sitter) in
+                    if let sitterSearch = textField.text{
+                         let range = sitter.ZipCode.lowercased().range(of: sitterSearch, options: .caseInsensitive, range: nil, locale: nil)
+                         if range != nil{
+                              self.parentList.append(sitter)
+                         }
+                    }
+               }
+          }else{
+               self.parentList = self.orginalList
+          }
+          
+          self.populateParentMarker()
+     }
      
      
      @objc func BookingAction(button: UIButton){
@@ -258,7 +325,7 @@ extension SitterMainVC: GMSMapViewDelegate{
           infoWindow.center.x = infoWindow.center.x + 10
 
           infoWindow.frame.size.width = 225
-          infoWindow.frame.size.height = 150
+//          infoWindow.frame.size.height = 150
 //
 
           self.view.addSubview(infoWindow)

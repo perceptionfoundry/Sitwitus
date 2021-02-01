@@ -21,7 +21,7 @@ class SitterBookingVC: UIViewController{
      @IBOutlet weak var childrenQuantity: UILabel!
      @IBOutlet weak var duration: UILabel!
      @IBOutlet weak var duty: UILabel!
-     @IBOutlet weak var need: UITextView!
+     @IBOutlet weak var need: UILabel!
      @IBOutlet weak var rateStars: HCSStarRatingView!
       @IBOutlet weak var offerRate: UITextField!
      @IBOutlet weak var hours: UITextField!
@@ -109,7 +109,7 @@ class SitterBookingVC: UIViewController{
      }
      
      
- 
+     //MARK: Booking
      
      @IBAction func bookingButton(){
           
@@ -136,6 +136,8 @@ class SitterBookingVC: UIViewController{
                "Rate":Double((offerRate.text)!)!,
                "Tip": 0.0,
                "Hours": (self.hours.text)!,
+               "Date": "",
+               "Time": "",
                "Status": "Requested",
                "requestUid": colletionRef.documentID
                ] as [String:Any]

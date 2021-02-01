@@ -179,7 +179,14 @@ extension ParentLocationVC: GMSMapViewDelegate{
      }
      
 
-     
+     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+          
+          print("Position of marker is = \(marker.position.latitude),\(marker.position.longitude)")
+          
+          self.currentLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+          
+          return true
+     }
      
      func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
 

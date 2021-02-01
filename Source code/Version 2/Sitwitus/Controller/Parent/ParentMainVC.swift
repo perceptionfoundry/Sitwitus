@@ -20,6 +20,9 @@ class ParentMainVC: UIViewController {
                                     //******** OUTLETS ***************
      
      @IBOutlet weak var localMapView : UIView!
+     @IBOutlet weak var locationTF : UITextField!
+     @IBOutlet weak var zipTF : UITextField!
+     @IBOutlet weak var childrenTF : UITextField!
 
 
                                    //******** VARIABLES *************
@@ -37,6 +40,7 @@ class ParentMainVC: UIViewController {
      
      var dbStore = Firestore.firestore()
      var sitters = [Users]()
+     var originalSitter = [Users]()
      var selectedIndex = -1
      var signInUser = sharedVariable.signInUser!
      
@@ -50,6 +54,11 @@ class ParentMainVC: UIViewController {
         super.viewDidLoad()
 
          print(sharedVariable.signInUser?.Email)
+     
+     locationTF.delegate = self
+     zipTF.delegate = self
+     childrenTF.delegate = self
+//     locationTF.delegate = self
     }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -75,9 +84,10 @@ class ParentMainVC: UIViewController {
 
      }
 
-     
+     locationTF.addTarget(self, action: #selector(searchLocation(_:)), for: .editingChanged)
+     zipTF.addTarget(self, action: #selector(searchZip(_:)), for: .editingChanged)
      mainMapView?.clear()
-     
+          
      mapCameraAction()
 //     mapMarkerAction()
      
@@ -95,7 +105,7 @@ class ParentMainVC: UIViewController {
                
                guard  let fetchData = sitterSnap?.documents else{return}
                
-               var count = 0
+//               var count = 0
                
                fetchData.forEach { (value) in
                     
@@ -106,22 +116,36 @@ class ParentMainVC: UIViewController {
                     
                     
                     if sitterInfo.UserType == "Sitter"{
-                    self.sitters.append(sitterInfo)
-                    self.mapMarkerAction(lat: sitterInfo.Lat!, long: sitterInfo.Long!, ImageString: sitterInfo.ImageUrl, indexNumber: count)
-                    count += 1
+                    self.originalSitter.append(sitterInfo)
+                         
+                         self.sitters = self.originalSitter
+                         
+                         self.populateSitterMarker()
+//                    self.sitters.append(sitterInfo)
+//
+//                    self.mapMarkerAction(lat: sitterInfo.Lat!, long: sitterInfo.Long!, ImageString: sitterInfo.ImageUrl, indexNumber: count)
+//                    count += 1
+                         
+                         
                     }
                }
           }
           
      }
 
-     
-     func addToMaker(lat: Double, long: Double){
+  func populateSitterMarker(){
           
+          mainMapView?.clear()
+          var count = 0
           
-     
-          
+          sitters.forEach { (sitter) in
+               self.sitters.append(sitter)
+                    
+               self.mapMarkerAction(lat: sitter.Lat!, long: sitter.Long!, ImageString: sitter.ImageUrl, indexNumber: count)
+               count += 1
+          }
      }
+   
      
      
 //*************** GOOGLE MAP CAMERA
@@ -147,20 +171,90 @@ class ParentMainVC: UIViewController {
          
           let marker = GMSMarker()
           
-//          marker.position = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
+          //          marker.position = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude)
           
-           marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+          marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
           marker.title = "\(indexNumber)"
           
           let markerInnerImage =  (UINib.init(nibName: "MapMarkup", bundle: nil).instantiate(withOwner: self, options: nil).first as! MapMarkup)
           
           markerInnerImage.personIamge.sd_setImage(with: URL(string: ImageString), placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
           
-           marker.iconView = markerInnerImage
+          
+          marker.iconView = markerInnerImage
           marker.map = self.mainMapView!
           
      }
 
+     
+     @objc func searchLocation(_ textField: UITextField){
+          self.sitters.removeAll()
+          
+          self.mainMapView?.clear()
+          
+          if textField.text?.count != 0{
+
+               originalSitter.forEach { (sitter) in
+                    if let sitterSearch = textField.text{
+                         let range = sitter.Location.lowercased().range(of: sitterSearch, options: .caseInsensitive, range: nil, locale: nil)
+                         if range != nil{
+                              self.sitters.append(sitter)
+                         }
+                    }
+               }
+          }else{
+               self.sitters = self.originalSitter
+          }
+          
+          self.populateSitterMarker()
+     }
+     
+     
+     @objc func searchZip(_ textField: UITextField){
+          self.sitters.removeAll()
+          
+          self.mainMapView?.clear()
+          
+          if textField.text?.count != 0{
+
+               originalSitter.forEach { (sitter) in
+                    if let sitterSearch = textField.text{
+                         let range = sitter.ZipCode.lowercased().range(of: sitterSearch, options: .caseInsensitive, range: nil, locale: nil)
+                         if range != nil{
+                              self.sitters.append(sitter)
+                         }
+                    }
+               }
+          }else{
+               self.sitters = self.originalSitter
+          }
+          
+          self.populateSitterMarker()
+     }
+     
+     
+     
+     @objc func searchchildren(_ textField: UITextField){
+          self.sitters.removeAll()
+          
+          self.mainMapView?.clear()
+          
+          if textField.text?.count != 0{
+
+               originalSitter.forEach { (sitter) in
+                    if let sitterSearch = textField.text{
+                         let range = sitter.Mobile.lowercased().range(of: sitterSearch, options: .caseInsensitive, range: nil, locale: nil)
+                         if range != nil{
+                              self.sitters.append(sitter)
+                         }
+                    }
+               }
+          }else{
+               self.sitters = self.originalSitter
+          }
+          
+          self.populateSitterMarker()
+     }
      
      @objc func BookingAction(button: UIButton){
           
@@ -204,7 +298,7 @@ extension ParentMainVC: CLLocationManagerDelegate{
           self.locationManager.stopUpdatingLocation()
           
           
-          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
+          let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 12)
 
           
           // *********************** Creating Map View ***********************
@@ -252,9 +346,11 @@ extension ParentMainVC: GMSMapViewDelegate{
           
           infoWindow.bookButton.tag = index
           infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
+          
+          
           infoWindow.center = self.mainMapView!.projection.point(for: location)
-          infoWindow.center.y = infoWindow.center.y + 360
-          infoWindow.center.x = infoWindow.center.x + 10
+          infoWindow.center.y = infoWindow.center.y + 250
+//          infoWindow.center.x = infoWindow.center.x + 100
 
           infoWindow.frame.size.width = 225
           infoWindow.frame.size.height = 150
@@ -284,4 +380,13 @@ extension ParentMainVC: GMSMapViewDelegate{
           
      }
      
+}
+
+
+extension ParentMainVC: UITextFieldDelegate{
+     
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder()
+          return true
+     }
 }
