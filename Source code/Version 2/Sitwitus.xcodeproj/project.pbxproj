@@ -113,6 +113,7 @@
 		F20C1A4723E3293400F058F8 /* MapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerView.swift; sourceTree = "<group>"; };
 		F20C1A4923E3295100F058F8 /* MapMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerView.xib; sourceTree = "<group>"; };
 		F20E0ABB23E08CCF009A9F94 /* SitterSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSignUpVC.swift; sourceTree = "<group>"; };
+		F2172D8025C9442B00D6E73E /* Sitwitus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sitwitus.entitlements; sourceTree = "<group>"; };
 		F21A53B623FADAB900AB1C00 /* AlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		F21A53B923FAE13D00AB1C00 /* SaveImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewModel.swift; sourceTree = "<group>"; };
 		F2206D6723EBE10E00CCE6D4 /* SitterProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterProfileVC.swift; sourceTree = "<group>"; };
@@ -431,6 +432,7 @@
 		F2CCE2F023DFF588009B385E /* Sitwitus */ = {
 			isa = PBXGroup;
 			children = (
+				F2172D8025C9442B00D6E73E /* Sitwitus.entitlements */,
 				F2EBE96025C7D90100B717A6 /* Helper */,
 				F2A6BF9923FBC59300819D38 /* Model */,
 				F20C1A4423E328A200F058F8 /* View */,
@@ -860,6 +862,7 @@
 			baseConfigurationReference = CA9B8907B09297CCAE85BE14 /* Pods-Sitwitus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sitwitus/Sitwitus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4CZP9C7L6H;
 				INFOPLIST_FILE = Sitwitus/Info.plist;
@@ -880,6 +883,7 @@
 			baseConfigurationReference = 8FC46CB9A3B0D39A68DA7D05 /* Pods-Sitwitus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sitwitus/Sitwitus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4CZP9C7L6H;
 				INFOPLIST_FILE = Sitwitus/Info.plist;
