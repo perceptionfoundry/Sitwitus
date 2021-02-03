@@ -52,7 +52,7 @@ class SitterMainVC: UIViewController {
  override func viewDidLoad() {
         super.viewDidLoad()
 
-     print(sharedVariable.signInUser?.Email)
+//     print(sharedVariable.signInUser?.Email)
      
     }
 

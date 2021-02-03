@@ -113,7 +113,7 @@ extension ParentSelectedCardVC: UITableViewDelegate, UITableViewDataSource{
           let cell = tableView.dequeueReusableCell(withIdentifier: "CARD", for: indexPath) as! CardTableViewCell
           
           
-          print(cardList[indexPath.row].last4)
+//          print(cardList[indexPath.row].last4)
         
           cell.cardNumber.text = "********\(cardList[indexPath.row].last4!)"
           

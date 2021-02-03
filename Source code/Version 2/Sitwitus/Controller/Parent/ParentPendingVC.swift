@@ -135,7 +135,7 @@ class ParentPendingVC:  UIViewController {
      @objc func messageButtonAction (button : UIButton){
               print("Message")
           
-          let sender = (sharedVariable.signInUser?.UserId)!
+//          let sender = (sharedVariable.signInUser?.UserId)!
           let reciever = (pendingList[button.tag].SitterUid)!
           
           let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "CHAT") as! ParentInboxVC

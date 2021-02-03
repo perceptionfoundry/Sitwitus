@@ -69,37 +69,40 @@ class ParentSignInVC: UIViewController {
                          
                          let dbRef = Firestore.firestore()
                          
-                         dbRef.collection("Users").document((authResult?.user.uid)!).getDocument { (docSnap, docErr) in
-                              
-                              guard let fetchData = docSnap?.data() else{return}
-                              
-                              
-                              //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
-                              
-                              let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)
-                              
-                              
-                              
-                              var userInfo = Users.userDetail
-                              
-                              userInfo = value
-                              
-                              sharedVariable.signInUser = userInfo
-                              
-                              
-                              
-                              
-                        //************ USER DEFAULT TO MANAGE AUTO SIGN IN
-                              UserDefaults.standard.set(fetchData, forKey: "SIGN_DETAIL")
-                              UserDefaults.standard.set(true, forKey: "SIGNIN")
-                              UserDefaults.standard.set(true, forKey: "isParent")
-                              self.performSegue(withIdentifier: "Login_Segue", sender: nil)
-                         }
+                        
                          
-                     
+                         dbRef.collection("Users").document((Auth.auth().currentUser?.uid)!).updateData(["fcmToken":usrFcmToken])
                          
                          
-//
+                                   dbRef.collection("Users").document((authResult?.user.uid)!).getDocument { (docSnap, docErr) in
+                                        
+                                        guard let fetchData = docSnap?.data() else{return}
+                                        
+                                        
+                                        //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
+                                        
+                                        let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)
+                                        
+                                        
+                                        
+                                        var userInfo = Users.userDetail
+                                        
+                                        userInfo = value
+                                        
+                                        sharedVariable.signInUser = userInfo
+                                        
+                                        
+                                        
+                                        
+                                  //************ USER DEFAULT TO MANAGE AUTO SIGN IN
+                                        UserDefaults.standard.set(fetchData, forKey: "SIGN_DETAIL")
+                                        UserDefaults.standard.set(true, forKey: "SIGNIN")
+                                        UserDefaults.standard.set(true, forKey: "isParent")
+                                        self.performSegue(withIdentifier: "Login_Segue", sender: nil)
+                                   }
+
+                             
+   
                     }
                     else{
                          self.alert.simple_Window(Title: "Auth Error", Message: (authErr?.localizedDescription)!, View: self)

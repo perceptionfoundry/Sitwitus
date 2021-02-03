@@ -182,7 +182,7 @@ extension ParentInboxVC: UITableViewDelegate, UITableViewDataSource{
           
           let diff = getTimeDifferenceString(olderDate: msgTime)
           
-          print(diff)
+//          print(diff)
           
           cell.duration.text = diff ?? "now"
           

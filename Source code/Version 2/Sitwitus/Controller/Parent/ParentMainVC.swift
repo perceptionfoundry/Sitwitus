@@ -53,7 +53,9 @@ class ParentMainVC: UIViewController {
  override func viewDidLoad() {
         super.viewDidLoad()
 
-         print(sharedVariable.signInUser?.Email)
+     
+    
+//         print(sharedVariable.signInUser?.Email)
      
      locationTF.delegate = self
      zipTF.delegate = self

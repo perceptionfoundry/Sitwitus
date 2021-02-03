@@ -14,9 +14,9 @@ import IQKeyboardManagerSwift
 
 
 class SitterSignUpVC: UIViewController {
-
-
-                                    //******** OUTLETS ***************
+     
+     
+     //******** OUTLETS ***************
      @IBOutlet weak var sitterImage: UIImageView!
      @IBOutlet weak var nameTF: UITextField!
      @IBOutlet weak var emailTF: UITextField!
@@ -26,13 +26,13 @@ class SitterSignUpVC: UIViewController {
      @IBOutlet weak var LocationTF : UITextField!
      @IBOutlet weak var zipcodeTF: UITextField!
      @IBOutlet weak var rateTF: UITextField!
-      @IBOutlet weak var signUpButton: UIButton!
-      @IBOutlet weak var activity: UIActivityIndicatorView!
-
-
-                                   //******** VARIABLES *************
+     @IBOutlet weak var signUpButton: UIButton!
+     @IBOutlet weak var activity: UIActivityIndicatorView!
+     
+     
+     //******** VARIABLES *************
      override var preferredStatusBarStyle: UIStatusBarStyle {
-         return .lightContent
+          return .lightContent
      }
      
      var genderCatergory = ["","Male", "Female"]
@@ -49,36 +49,36 @@ class SitterSignUpVC: UIViewController {
      
      
      var uploadVdoUrl = ""
-                                   
-                                   //********* FUNCTIONS ***************
-    
-    
-//******* VIEW FUNCTIONS
-
- override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-    }
-
-  override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
      
-     activity.isHidden = true
+     //********* FUNCTIONS ***************
      
-     LocationTF.delegate = self
-     genderTF.delegate = self
-     rateTF.delegate = self
-     textfieldPickerView.delegate = self
      
-     let imageTap = UITapGestureRecognizer(target: self, action: #selector(addImageAction))
-     sitterImage.addGestureRecognizer(imageTap)
-
+     //******* VIEW FUNCTIONS
      
-
-     
+     override func viewDidLoad() {
+          super.viewDidLoad()
+          
+          
      }
-
+     
+     override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          
+          activity.isHidden = true
+          
+          LocationTF.delegate = self
+          genderTF.delegate = self
+          rateTF.delegate = self
+          textfieldPickerView.delegate = self
+          
+          let imageTap = UITapGestureRecognizer(target: self, action: #selector(addImageAction))
+          sitterImage.addGestureRecognizer(imageTap)
+          
+          
+          
+          
+     }
+     
      
      
      //********** ADD IMAGE ON TAP ACTION
@@ -104,7 +104,7 @@ class SitterSignUpVC: UIViewController {
                
                imagePicker.sourceType = .camera
                self.present(imagePicker, animated: true, completion: nil)
-
+               
           }
           
           let cancel = UIAlertAction(title: "Cancel", style: .destructive)
@@ -115,16 +115,16 @@ class SitterSignUpVC: UIViewController {
           
           self.present(selectionVC, animated: true, completion: nil)
           
-     
+          
      }
      
      
      
-    
-
-
-                                    //*************** OUTLET ACTION ******************
-
+     
+     
+     
+     //*************** OUTLET ACTION ******************
+     
      
      @IBAction func backButton(){
           self.navigationController?.popViewController(animated: true)
@@ -148,102 +148,103 @@ class SitterSignUpVC: UIViewController {
           
      }
      
-//*********** SIGN UP
+     //*********** SIGN UP
      @IBAction func signUpButtonAction(_ sender: Any) {
           
           activity.isHidden = false
           signUpButton.isUserInteractionEnabled = false
-     
+          
           if isImageAdded{
                
                
-         
-          
-          if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && genderTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false && rateTF.text?.isEmpty == false && zipcodeTF.text?.isEmpty == false{
-           
+               
+               
+               if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && genderTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false && rateTF.text?.isEmpty == false && zipcodeTF.text?.isEmpty == false{
+                    
+                    
+                    //************** Create User
+                    Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!) { (authResult, authError) in
                          
-                      //************** Create User
-                         Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!) { (authResult, authError) in
-                                           
-                                           if authError == nil{
-                                             
-                                             self.saveImageVM.SaveImageViewModel(Title: "\(self.nameTF.text!)_Profile", selectedImage: self.sitterImage.image!) { (imageURL, Status, Err) in
-
-                                                  if Status{
-                                                       //********* CREATE DATABASE
-                                                       let dbRef = Firestore.firestore()
-
-                                                       let uploaDict = ["FullName":self.nameTF.text!,
-                                                                        "Email":self.emailTF.text!,
-                                                                        "Gender":self.genderTF.text!,
-                                                                        "Mobile":self.mobileTF.text!,
-                                                                        "Location":self.LocationTF.text!,
-                                                                        "Rate":self.setRate,
-                                                                        "Lat":self.selectedLat,
-                                                                        "Long":self.selectedLong,
-                                                                        "UserId":(authResult?.user.uid)!,
-                                                                        "UserType":"Sitter",
-                                                                        "VideoUrl":self.uploadVdoUrl,
-                                                                        "ZipCode": self.zipcodeTF.text!,
-                                                                        "ImageUrl":imageURL!] as [String : Any]
-
-
-
-                                                       print(uploaDict)
-
-                                                       
-                                        dbRef.collection("Users").document((authResult?.user.uid)!).setData(uploaDict)
-                                                       
-                                   let successAlert = UIAlertController(title: "", message: "SUCCESS!", preferredStyle: .alert)
-                                   successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                                                                                 
-                                                       self.navigationController?.popViewController(animated: true)
-                                                                            }))
-                                                       
-                                                       self.present(successAlert, animated: true, completion: nil)
-                                                       
-                                                  }
-
-                                                  else{
-                                                  self.alert.simple_Window(Title: "IMAGE UPLOAD ERROR", Message: Err!, View: self)
-                                                       self.activity.isHidden = true
-                                                       self.signUpButton.isUserInteractionEnabled = true
-                                                                           }
-
-                                             }
-                                        
-                                      }
+                         if authError == nil{
                               
-                                           else{
-                                             self.alert.simple_Window(Title: "CREATE USER ERROR", Message: authError!.localizedDescription, View: self)
-                                             self.activity.isHidden = true
-                                             self.signUpButton.isUserInteractionEnabled = true
-                                             }
-//
+                              self.saveImageVM.SaveImageViewModel(Title: "\(self.nameTF.text!)_Profile", selectedImage: self.sitterImage.image!) { (imageURL, Status, Err) in
+                                   
+                                   if Status{
+                                        //********* CREATE DATABASE
+                                        let dbRef = Firestore.firestore()
+                                        
+                                        let uploaDict = ["FullName":self.nameTF.text!,
+                                                         "Email":self.emailTF.text!,
+                                                         "fcmToken":"",
+                                                         "Gender":self.genderTF.text!,
+                                                         "Mobile":self.mobileTF.text!,
+                                                         "Location":self.LocationTF.text!,
+                                                         "Rate":self.setRate,
+                                                         "Lat":self.selectedLat,
+                                                         "Long":self.selectedLong,
+                                                         "UserId":(authResult?.user.uid)!,
+                                                         "UserType":"Sitter",
+                                                         "VideoUrl":self.uploadVdoUrl,
+                                                         "ZipCode": self.zipcodeTF.text!,
+                                                         "ImageUrl":imageURL!] as [String : Any]
+                                        
+                                        
+                                        
+                                        print(uploaDict)
+                                        
+                                        
+                                        dbRef.collection("Users").document((authResult?.user.uid)!).setData(uploaDict)
+                                        
+                                        let successAlert = UIAlertController(title: "", message: "SUCCESS!", preferredStyle: .alert)
+                                        successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                             
+                                             self.navigationController?.popViewController(animated: true)
+                                        }))
+                                        
+                                        self.present(successAlert, animated: true, completion: nil)
+                                        
+                                   }
+                                   
+                                   else{
+                                        self.alert.simple_Window(Title: "IMAGE UPLOAD ERROR", Message: Err!, View: self)
+                                        self.activity.isHidden = true
+                                        self.signUpButton.isUserInteractionEnabled = true
+                                   }
+                                   
+                              }
+                              
+                         }
+                         
+                         else{
+                              self.alert.simple_Window(Title: "CREATE USER ERROR", Message: authError!.localizedDescription, View: self)
+                              self.activity.isHidden = true
+                              self.signUpButton.isUserInteractionEnabled = true
+                         }
+                         //
+                    }
+                    
+                    
+                    
+                    
                }
                
-            
                
-             
-          }
-         
-          
-          else{
-               alert.simple_Window(Title: "TEXTFIELD EMPTY!", Message: "Please assure all required textfield is filled", View: self)
-               activity.isHidden = true
-                             signUpButton.isUserInteractionEnabled = true
-          }
+               else{
+                    alert.simple_Window(Title: "TEXTFIELD EMPTY!", Message: "Please assure all required textfield is filled", View: self)
+                    activity.isHidden = true
+                    signUpButton.isUserInteractionEnabled = true
+               }
                
-          
+               
           }
-                       
+          
           
           
           else{
                alert.simple_Window(Title: "ADD IMAGE", Message: "Please add some image as your profile image", View: self)
                activity.isHidden = true
                signUpButton.isUserInteractionEnabled = true
-                        }
+          }
           
      }
 }
@@ -251,7 +252,7 @@ class SitterSignUpVC: UIViewController {
 
 
 
-                                      //*************** EXTENSION ******************
+//*************** EXTENSION ******************
 
 
 //******** TEXTFIELD
@@ -271,16 +272,16 @@ extension SitterSignUpVC: UITextFieldDelegate{
                locationPicker.delegate = self
                
                
-              let done = locationPicker.barButtonItems?.doneButtonItem
-              let cancel = locationPicker.barButtonItems?.cancelButtonItem
+               let done = locationPicker.barButtonItems?.doneButtonItem
+               let cancel = locationPicker.barButtonItems?.cancelButtonItem
                
                locationPicker.addBarButtons(doneButtonItem: done, cancelButtonItem: cancel, doneButtonOrientation: .right)
                
-//               locationPicker.addBarButtons()
-              
+               //               locationPicker.addBarButtons()
+               
                locationPicker.pickCompletion = { (pickedLocationItem) in
-                   
-//                    print(pickedLocationItem.addressDictionary)
+                    
+                    //                    print(pickedLocationItem.addressDictionary)
                }
                navigationController!.pushViewController(locationPicker, animated: true)
           }
@@ -322,7 +323,7 @@ extension SitterSignUpVC: UITextFieldDelegate{
 
 //******** LOCATIONPICKER
 extension SitterSignUpVC: LocationPickerDelegate{
-    
+     
      
      
      
@@ -332,14 +333,14 @@ extension SitterSignUpVC: LocationPickerDelegate{
      
      
      func locationDidSelect(locationItem: LocationItem) {
-
+          
           LocationTF.text = locationItem.name
           
           
           self.selectedLat = locationItem.coordinate!.latitude
-                        self.selectedLong = locationItem.coordinate!.longitude
-                        
-                        print("lat\(self.selectedLat) & Long\(self.selectedLong)")
+          self.selectedLong = locationItem.coordinate!.longitude
+          
+          print("lat\(self.selectedLat) & Long\(self.selectedLong)")
           
           
           
@@ -356,10 +357,10 @@ extension SitterSignUpVC: LocationPickerDelegate{
                self.selectedLong = locationItem.coordinate!.longitude
                
                print("lat\(self.selectedLat) & Long\(self.selectedLong)")
-
-
+               
+               
                self.navigationController?.popViewController(animated: true)
-
+               
           }
           
           alertVC.addAction(Pin)
@@ -369,12 +370,12 @@ extension SitterSignUpVC: LocationPickerDelegate{
      }
      
      
-  
+     
 }
 
 //******** PICKER VIEW
 extension SitterSignUpVC : UIPickerViewDelegate, UIPickerViewDataSource{
-    
+     
      func numberOfComponents(in pickerView: UIPickerView) -> Int {
           return 1
      }
@@ -410,13 +411,13 @@ extension SitterSignUpVC: UIImagePickerControllerDelegate, UINavigationControlle
           
           if let  selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                
-//               let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-                       
-                       sitterImage.image = selectedImage
-                       
-                       self.isImageAdded = true
-                       
-                       dismiss(animated: true, completion: nil)
+               //               let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+               
+               sitterImage.image = selectedImage
+               
+               self.isImageAdded = true
+               
+               dismiss(animated: true, completion: nil)
                
                
           }
@@ -442,19 +443,19 @@ extension SitterSignUpVC: UIImagePickerControllerDelegate, UINavigationControlle
                          let alert = UIAlertController(title: "Error", message: err!, preferredStyle: .alert)
                          alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
                               
-                               self.dismiss(animated: true, completion: nil)
+                              self.dismiss(animated: true, completion: nil)
                          }))
                     }
                }
                
-
+               
                
                
                
                
           }
           
-        
+          
      }
      
 }

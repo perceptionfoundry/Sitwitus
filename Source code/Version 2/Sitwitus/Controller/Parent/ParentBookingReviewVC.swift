@@ -123,7 +123,7 @@ class ParentBookingReviewVC: UIViewController {
                        colletionRef.setData(self.bookingDict)
                        
                        
-                       print(self.bookingDict["Rate"])
+//                       print(self.bookingDict["Rate"])
                        
                        let rate = self.bookingDict["Rate"] as! Double
                        let hours = Double(self.bookingDict["Hours"] as! String)

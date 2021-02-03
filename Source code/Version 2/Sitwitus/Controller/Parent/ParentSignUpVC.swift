@@ -140,6 +140,7 @@ class ParentSignUpVC: UIViewController {
                     
                     let personalDict = ["FullName":self.nameTF.text!,
                     "Email":self.emailTF.text!,
+                    "fcmToken":"",
                     "Gender":self.parentalTypeTF.text!,
                     "Mobile":self.mobileTF.text!,
                     "Location":self.LocationTF.text!,

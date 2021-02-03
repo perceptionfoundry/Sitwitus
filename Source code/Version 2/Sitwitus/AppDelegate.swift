@@ -13,6 +13,11 @@ import Firebase
 import FirebaseMessaging
 import Stripe
 
+
+
+// Firebase notification token
+var usrFcmToken = ""
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,12 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      var gcmMessageIDKey = "gcm.Message_IDKey"
   
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
      
+     FirebaseApp.configure()
+     
      IQKeyboardManager.shared.enable = true
-     
-     
+     Messaging.messaging().delegate = self
+    
      GMSServices.provideAPIKey(googleAPIkey)
      
      
@@ -53,10 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
      application.registerForRemoteNotifications()
 
-     Messaging.messaging().delegate = self
      
      
-     FirebaseApp.configure()
+     
+    
      
      
      StripeAPI.defaultPublishableKey = "pk_test_o8kIqRmXgSKq19OFCVOSc7rH00Bc0LCfgJ"
@@ -98,27 +106,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+       
     }
 
 
 }
 
+//MARK: MessagingDelegate
 extension AppDelegate: MessagingDelegate{
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(String(describing: fcmToken))")
+      
+     
+//     print("Firebase registration token: \(String(describing: fcmToken))")
 
       let dataDict:[String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+     
+     
+    
+     
+     
+     let authStatus = UserDefaults.standard.bool(forKey: "SIGNIN")
+     
+     print(authStatus)
+     
+     if authStatus{
+         
+          print("Firebase registration token: \(String(describing: fcmToken))")
+          
+          usrFcmToken = fcmToken!
+         
+
+          let dbRef = Firestore.firestore()
+          dbRef.collection("Users").document((Auth.auth().currentUser?.uid)!).updateData(["fcmToken":usrFcmToken])
+          
+//         profileVM.EditProfile(textValue: ["pushToken":usrFcmToken]) { (status, info) in
+//             
+//             if status{
+//                 
+//                 print("added fcm tokenn")
+//                 
+//             }else{
+//                 print(info)
+//             }
+//         }
+         
+     }
+     
       // TODO: If necessary send token to application server.
       // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
 
-
+//MARK: UNUserNotificationCenterDelegate
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
 

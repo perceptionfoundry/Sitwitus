@@ -71,6 +71,7 @@ class ParentSignUpReasonVC: UIViewController {
      accountTF.delegate = self
          left_TF.delegate = self
      right_TF.delegate = self
+     
 3    }
 
   override func viewWillAppear(_ animated: Bool) {
