@@ -32,4 +32,5 @@ struct Appointment: Codable {
      var Status : String!
      var Timestamp : Timestamp!
      var requestUid: String!
+     var requestedTo: String!
 }

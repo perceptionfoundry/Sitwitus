@@ -305,7 +305,8 @@ class ParentBookingVC: UIViewController {
                "Date": self.dateTF.text!,
                "Time": self.timeTF.text!,
                "Hours": (self.hours.text)!,
-               "Status": "Requested"] as [String : Any]
+               "Status": "Requested",
+               "requestedTo":(sitter.UserId)!] as [String : Any]
                
                
                sharedVariable.tempDict = dict

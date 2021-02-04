@@ -77,6 +77,14 @@ class SignInVC: UIViewController {
                               guard let fetchData = docSnap?.data() else{return}
                               
                               
+                              
+                              let dbRef = Firestore.firestore()
+                              
+                             
+                              
+                              dbRef.collection("Users").document((Auth.auth().currentUser?.uid)!).updateData(["fcmToken":usrFcmToken])
+                              
+                              
                               //************** CREATE SIGN IN USER DETAIL GLOBAL TO APP
                               
                               let value = try! FirestoreDecoder().decode(Users.self, from: fetchData)

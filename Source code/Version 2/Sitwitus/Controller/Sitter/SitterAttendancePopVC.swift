@@ -120,7 +120,8 @@ super.viewWillAppear(animated)
                       "SignInTime": FieldValue.serverTimestamp(),
                       "SignOutTime": FieldValue.serverTimestamp(),
                       "Status": "CheckIn",
-                      "Timestamp": FieldValue.serverTimestamp()
+                      "Timestamp": FieldValue.serverTimestamp(),
+                      "requestedTo":(selectedAppointment.ParentUid)!
                       ] as [String : Any]
           
           
@@ -140,7 +141,8 @@ super.viewWillAppear(animated)
                let dict = [
                            "SignOutTime": FieldValue.serverTimestamp(),
                            "Status": "CheckOut",
-                           "Timestamp": FieldValue.serverTimestamp()
+                           "Timestamp": FieldValue.serverTimestamp(),
+                         "requestedTo":(selectedAppointment.ParentUid)!
                            ] as [String : Any]
                
                dbStore.collection("Attendance").document(selectedAppointment.appointmentId).updateData(dict)

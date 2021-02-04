@@ -51,6 +51,125 @@ console.log(resp)
 
 
 
+//  REQUESTER CODE (
+exports.sendNotification_NewRequest = functions.firestore.document("Requests/{Uid}").onWrite(async (event) =>{
+
+  const uid = event.after.get('requestedTo');
+  const title = "New Request"
+  const content = "You have a new request";
+  
+  let userDoc = await admin.firestore().doc(`Users/${uid}`).get()
+  let fcmToken = userDoc.get('fcmToken')
+  
+  
+  console.log(`userId: ${uid}`)
+  console.log(`title: ${title}`)
+  console.log(`content: ${content}`)
+  await console.log(`fcm: ${fcmToken}`)
+  
+  
+  const message = {
+    notification: {
+        title: title,
+        body: content,
+    },
+    apns: {
+      payload: {
+          aps: {
+              sound: 'default',
+              type: 'Custom',
+          },
+      },
+  },
+    token: fcmToken
+  }
+  
+  let resp = await admin.messaging().send(message)
+  console.log(resp)
+  
+  })
+
+
+
+  //  Attendance CODE 
+exports.sendNotification_AttedanceRequest = functions.firestore.document("Attendance/{Uid}").onWrite(async (event) =>{
+
+  const uid = event.after.get('requestedTo');
+  const title = "Mark Attendance Request"
+  const content = "You have a new request";
+  
+  let userDoc = await admin.firestore().doc(`Users/${uid}`).get()
+  let fcmToken = userDoc.get('fcmToken')
+  
+  
+  console.log(`userId: ${uid}`)
+  console.log(`title: ${title}`)
+  console.log(`content: ${content}`)
+  await console.log(`fcm: ${fcmToken}`)
+  
+  
+  const message = {
+    notification: {
+        title: title,
+        body: content,
+    },
+    apns: {
+      payload: {
+          aps: {
+              sound: 'default',
+              type: 'Custom',
+          },
+      },
+  },
+    token: fcmToken
+  }
+  
+  let resp = await admin.messaging().send(message)
+  console.log(resp)
+  
+  })
+
+
+
+
+    //  Chat CODE 
+exports.sendNotification_NewMessage = functions.firestore.document("ChatRoom/{Uid}/Messages/{messageId}").onWrite(async (event) =>{
+
+  const uid = event.after.get('readerID');
+  const title = event.after.get('senderName')
+  const content = event.after.get('context');
+  
+  let userDoc = await admin.firestore().doc(`Users/${uid}`).get()
+  let fcmToken = userDoc.get('fcmToken')
+  
+  
+  console.log(`userId: ${uid}`)
+  console.log(`title: ${title}`)
+  console.log(`content: ${content}`)
+  await console.log(`fcm: ${fcmToken}`)
+  
+  
+  const message = {
+    notification: {
+        title: title,
+        body: content,
+    },
+    apns: {
+      payload: {
+          aps: {
+              sound: 'default',
+              type: 'Custom',
+          },
+      },
+  },
+    token: fcmToken
+  }
+  
+  let resp = await admin.messaging().send(message)
+  console.log(resp)
+  
+  })
+
 
 
 /* 

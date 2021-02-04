@@ -139,7 +139,8 @@ class SitterBookingVC: UIViewController{
                "Date": "",
                "Time": "",
                "Status": "Requested",
-               "requestUid": colletionRef.documentID
+               "requestUid": colletionRef.documentID,
+               "requestedTo":(parents.UserId)!
                ] as [String:Any]
 
                colletionRef.setData(dict)
