@@ -11,7 +11,20 @@ import Firebase
 import CodableFirebase
 import SDWebImage
 
-class AppointmentVC: UIViewController {
+
+
+protocol statusUpdate {
+     func triggerStatus(status: String)
+}
+
+class AppointmentVC: UIViewController, statusUpdate {
+    
+     
+     func triggerStatus(status: String) {
+          
+          self.getData()
+     }
+     
      
      
      //******** OUTLETS ***************
@@ -82,6 +95,7 @@ super.viewWillAppear(animated)
           
           dbStore.collection("Appointments").document().updateData(["Status": "CheckIn"])
           performSegue(withIdentifier: "Pop", sender: nil)
+          appointmentTable.reloadData()
 
      }
      
@@ -90,8 +104,9 @@ super.viewWillAppear(animated)
      
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           
-          let dest = segue.destination as! SitterAttendancePopVC
+          let dest = segue.destination as! SitterAttendancePopVC 
           
+          dest.statusProtocol = self
           dest.selectedAppointment = appoint_Attendance
      }
 
@@ -136,6 +151,7 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           let intoDate = combine.toDate()
           let start = intoDate?.timeIntervalSince1970
           
+//          let set = Date(timeIntervalSince1970: start!)
           
           let startDate = Date(timeIntervalSince1970: TimeInterval(start!))
           let dateFormatter = DateFormatter()
@@ -143,18 +159,18 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           dateFormatter.locale = NSLocale.current
           dateFormatter.dateFormat = "HH:mm" //Specify your format that you want
           let startTime = dateFormatter.string(from: startDate)
-          
+
           let duration = appointmentInfo.Hours!
-          
-          
+
+
           //********** Calculating end time
           let convertInSecond = Double(duration)! * 3600
-          
+
           let finish = start! + convertInSecond
-//          
+//
           let finishDate = Date(timeIntervalSince1970: TimeInterval(finish))
           let finishTime = dateFormatter.string(from: finishDate)
-     
+
           cell.dutyHours.text = "\(startTime) - \(finishTime)"
           
           
@@ -194,10 +210,10 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
 
 extension String {
 
-    func toDate(withFormat format: String = "dd-MMM-yyyy h:mm")-> Date?{
+    func toDate(withFormat format: String = "MMM dd, yyyy h:mm a")-> Date?{
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+//        dateFormatter.dateStyle = .medium
         dateFormatter.timeZone = TimeZone(identifier: "GMT")
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = format

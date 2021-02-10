@@ -79,6 +79,7 @@ class SitterInboxVC: UIViewController {
                               
                               let lastValue  = fetchMsgs.last?.data()
                               
+
                               let msgCodable = try! FirestoreDecoder().decode(Message.self, from: lastValue!)
                               
                               

@@ -33,4 +33,5 @@ struct Appointment: Codable {
      var Timestamp : Timestamp!
      var requestUid: String!
      var requestedTo: String!
+     var isVerified: Bool?
 }

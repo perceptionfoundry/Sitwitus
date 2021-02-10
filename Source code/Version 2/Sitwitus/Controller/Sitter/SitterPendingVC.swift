@@ -116,7 +116,9 @@ class SitterPendingVC: UIViewController {
                            "Time": info.Time!,
                            "Status": "Accepted",
                            "Timestamp": info.Timestamp!,
-                           "requestUid": info.requestUid!] as [String : Any]
+                           "requestUid": info.requestUid!,
+                           "requestedTo":(info.ParentUid)!,
+                           "isVerified": false,] as [String : Any]
                
                self.dbStore.collection("Appointments").document(appointId).setData(dict)
                

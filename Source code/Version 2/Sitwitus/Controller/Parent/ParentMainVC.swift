@@ -98,7 +98,7 @@ class ParentMainVC: UIViewController {
      
     }
      
-     //********** FETCH SITTER LIST
+     //MARK: FETCH SITTER LIST
      
      func fetchSitter(){
           
@@ -150,7 +150,7 @@ class ParentMainVC: UIViewController {
    
      
      
-//*************** GOOGLE MAP CAMERA
+//MARK: GOOGLE MAP CAMERA
      
      func mapCameraAction(){
           
@@ -278,6 +278,12 @@ class ParentMainVC: UIViewController {
      }
                                     //*************** OUTLET ACTION ******************
 
+     @IBAction func listButtonAction(){
+          
+          let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "SitterList")
+          
+          self.navigationController?.pushViewController(vc, animated: true)
+     }
 
 }
 
@@ -351,8 +357,8 @@ extension ParentMainVC: GMSMapViewDelegate{
           
           
           infoWindow.center = self.mainMapView!.projection.point(for: location)
-          infoWindow.center.y = infoWindow.center.y + 250
-//          infoWindow.center.x = infoWindow.center.x + 100
+          infoWindow.center.y = infoWindow.center.y + 300
+          infoWindow.center.x = infoWindow.center.x + 10
 
           infoWindow.frame.size.width = 225
           infoWindow.frame.size.height = 150

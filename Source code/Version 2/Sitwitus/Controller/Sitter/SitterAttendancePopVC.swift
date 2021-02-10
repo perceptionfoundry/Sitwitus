@@ -28,6 +28,7 @@ class SitterAttendancePopVC: UIViewController {
      let dbStore = Firestore.firestore()
      var locationManager = CLLocationManager()
      var currentLocation : CLLocation!
+     var statusProtocol : statusUpdate!
     //********* FUNCTIONS ***************
 
 
@@ -111,6 +112,10 @@ super.viewWillAppear(animated)
           let dict = ["appointmentId": (selectedAppointment.appointmentId)!,
                       "CreatedBy": (currentUser?.UserId)!,
                       "Address": selectedAppointment.Address,
+                      "BookingNumber": selectedAppointment.appointmentId!,
+                      "Hours": selectedAppointment.Hours!,
+                      "Date": selectedAppointment.Date!,
+                      "Time": selectedAppointment.Time!,
                       "Lat": self.currentLocation.coordinate.latitude,
                       "Long": self.currentLocation.coordinate.longitude,
                       "ParentName": selectedAppointment.ParentName!,
@@ -121,7 +126,9 @@ super.viewWillAppear(animated)
                       "SignOutTime": FieldValue.serverTimestamp(),
                       "Status": "CheckIn",
                       "Timestamp": FieldValue.serverTimestamp(),
-                      "requestedTo":(selectedAppointment.ParentUid)!
+                      "requestedTo":(selectedAppointment.ParentUid)!,
+                      "isVerified": false,
+                      
                       ] as [String : Any]
           
           
@@ -129,9 +136,10 @@ super.viewWillAppear(animated)
                
                UIView.animate(withDuration: 3, delay: 0.5, options: .curveEaseOut) {
                          self.bottomConstraint.constant -= 150
-                    } completion: { (status) in
+               } completion: { [self] (status) in
                          
                          if status{
+                              statusProtocol.triggerStatus(status: "CheckIn")
                               self.dismiss(animated: true, completion: nil)
                          }
                     }
@@ -142,7 +150,8 @@ super.viewWillAppear(animated)
                            "SignOutTime": FieldValue.serverTimestamp(),
                            "Status": "CheckOut",
                            "Timestamp": FieldValue.serverTimestamp(),
-                         "requestedTo":(selectedAppointment.ParentUid)!
+                         "requestedTo":(selectedAppointment.ParentUid)!,
+                         "isVerified": false,
                            ] as [String : Any]
                
                dbStore.collection("Attendance").document(selectedAppointment.appointmentId).updateData(dict)
