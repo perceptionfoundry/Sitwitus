@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import HCSStarRatingView
 
 class CheckOutVC: UIViewController {
+     
+     
+     
+     @IBOutlet weak var parentImage : UIImageView!
+     @IBOutlet weak var parentStar : HCSStarRatingView!
+     
+     
+     
+     var rateValue = 1
      
      override func viewDidLoad() {
          super.viewDidLoad()
 
          // Do any additional setup after loading the view.
+          
+     print(parentStar.value)
      }
      
      
@@ -26,18 +38,6 @@ class CheckOutVC: UIViewController {
          return Int(seconds!)
      }
 
-//     let t1 = 1611875400
-//     let t2 = 1611859500
-//
-//     let start = Date(timeIntervalSince1970: TimeInterval(t2))
-//     let end = Date(timeIntervalSince1970: TimeInterval(t1))
-//
-//
-//
-//
-//     let second = getDateDiff(start: end, end: start)
-//
-//     print("\(Float(second/3600))")
 
       
       
@@ -45,7 +45,6 @@ class CheckOutVC: UIViewController {
                       let story = UIStoryboard(name: "Sitter", bundle: nil)
                       let vc = story.instantiateViewController(withIdentifier: "SITTER_MAIN")
                       
-//          self.present(vc, animated: true, completion: nil)
                       self.navigationController?.pushViewController(vc, animated: true)
                   
              }

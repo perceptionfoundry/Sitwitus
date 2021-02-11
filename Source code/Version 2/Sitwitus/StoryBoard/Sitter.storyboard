@@ -3446,7 +3446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6L-Ir-RcO" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
-                                <rect key="frame" x="69" y="778" width="276" height="54"/>
+                                <rect key="frame" x="124.5" y="800" width="165" height="32"/>
                                 <color key="backgroundColor" red="0.34211480620000001" green="0.73010283710000001" blue="0.68236076830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="y6L-Ir-RcO" secondAttribute="height" multiplier="36:7" id="0Nk-G2-Ssj"/>
@@ -3464,24 +3464,77 @@
                                     <action selector="continueButton" destination="T8i-cY-Xum" eventType="touchUpInside" id="QAf-9s-bAB"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirm" translatesAutoresizingMaskIntoConstraints="NO" id="XHO-h7-GXX">
-                                <rect key="frame" x="66" y="137.5" width="282" height="540"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-dQ-Z6A">
+                                <rect key="frame" x="87" y="208" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bhD-dQ-Z6A" secondAttribute="height" multiplier="15:8" id="c1G-Nx-wvc"/>
+                                </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="VkE-6m-ayQ" customClass="Custom_ImageView" customModule="Sitwitus" customModuleProvider="target">
+                                <rect key="frame" x="157" y="356" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VkE-6m-ayQ" secondAttribute="height" multiplier="1:1" id="Wrb-Lp-mMC"/>
+                                    <constraint firstAttribute="height" constant="100" id="gXA-Wr-aIp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="C_Radius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="border_color">
+                                        <color key="value" red="0.13081493969999999" green="0.74203562739999995" blue="0.68236225839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="border_width">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-DO-Cxl" customClass="HCSStarRatingView">
+                                <rect key="frame" x="62" y="476" width="290" height="154.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LHi-DO-Cxl" secondAttribute="height" multiplier="15:8" id="D0O-uU-nGB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="starBorderColor">
+                                        <color key="value" systemColor="systemOrangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Th-Po-GEO"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LHi-DO-Cxl" firstAttribute="top" secondItem="VkE-6m-ayQ" secondAttribute="bottom" constant="20" id="0qt-ci-Uan"/>
                             <constraint firstItem="8Th-Po-GEO" firstAttribute="bottom" secondItem="y6L-Ir-RcO" secondAttribute="bottom" constant="30" id="28C-oc-lWv"/>
+                            <constraint firstItem="bhD-dQ-Z6A" firstAttribute="centerX" secondItem="8Th-Po-GEO" secondAttribute="centerX" id="2WA-fH-RfN"/>
                             <constraint firstItem="y6L-Ir-RcO" firstAttribute="centerX" secondItem="8Th-Po-GEO" secondAttribute="centerX" id="61j-8a-Raa"/>
-                            <constraint firstItem="XHO-h7-GXX" firstAttribute="centerX" secondItem="8Th-Po-GEO" secondAttribute="centerX" id="81b-qc-KYj"/>
-                            <constraint firstItem="XHO-h7-GXX" firstAttribute="width" secondItem="wUV-hy-hLn" secondAttribute="width" multiplier="0.68" id="MPS-PJ-a3i"/>
-                            <constraint firstItem="y6L-Ir-RcO" firstAttribute="height" secondItem="wUV-hy-hLn" secondAttribute="height" multiplier="0.06" id="Ynf-6S-f5u"/>
-                            <constraint firstItem="XHO-h7-GXX" firstAttribute="height" secondItem="wUV-hy-hLn" secondAttribute="height" multiplier="0.602699" id="b6q-jX-T7a"/>
-                            <constraint firstItem="XHO-h7-GXX" firstAttribute="centerY" secondItem="8Th-Po-GEO" secondAttribute="centerY" multiplier="0.9" id="meG-OO-IEg"/>
+                            <constraint firstItem="LHi-DO-Cxl" firstAttribute="width" secondItem="wUV-hy-hLn" secondAttribute="width" multiplier="0.7" id="E3K-Rp-iPK"/>
+                            <constraint firstItem="bhD-dQ-Z6A" firstAttribute="centerY" secondItem="8Th-Po-GEO" secondAttribute="centerY" multiplier="0.6" id="NKt-ib-dGP"/>
+                            <constraint firstItem="VkE-6m-ayQ" firstAttribute="top" secondItem="bhD-dQ-Z6A" secondAttribute="bottom" constant="20" id="Z9T-TP-5aY"/>
+                            <constraint firstItem="bhD-dQ-Z6A" firstAttribute="width" secondItem="wUV-hy-hLn" secondAttribute="width" multiplier="0.57971" id="Zf7-k3-XG4"/>
+                            <constraint firstItem="LHi-DO-Cxl" firstAttribute="centerX" secondItem="VkE-6m-ayQ" secondAttribute="centerX" id="gmz-uD-Ti8"/>
+                            <constraint firstItem="VkE-6m-ayQ" firstAttribute="centerX" secondItem="bhD-dQ-Z6A" secondAttribute="centerX" id="rSI-h3-vHe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OOO-8d-1Hz"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="parentImage" destination="VkE-6m-ayQ" id="fIk-Rl-dlh"/>
+                        <outlet property="parentStar" destination="LHi-DO-Cxl" id="NUL-RW-T2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtC-wW-oZB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3742,6 +3795,9 @@
         <designable name="G07-wR-K82">
             <size key="intrinsicContentSize" width="220" height="44"/>
         </designable>
+        <designable name="LHi-DO-Cxl">
+            <size key="intrinsicContentSize" width="236" height="44"/>
+        </designable>
         <designable name="LlR-Hc-asG">
             <size key="intrinsicContentSize" width="689" height="218"/>
         </designable>
@@ -3759,6 +3815,9 @@
         </designable>
         <designable name="UTV-4W-xov">
             <size key="intrinsicContentSize" width="834" height="125"/>
+        </designable>
+        <designable name="VkE-6m-ayQ">
+            <size key="intrinsicContentSize" width="453" height="453"/>
         </designable>
         <designable name="bKD-Cw-jBQ">
             <size key="intrinsicContentSize" width="64" height="32"/>
@@ -3803,13 +3862,13 @@
         <image name="back_arrow" width="27" height="42"/>
         <image name="checked" width="229" height="229"/>
         <image name="clock" width="221" height="221"/>
-        <image name="confirm" width="740" height="1094"/>
         <image name="contact" width="48" height="39"/>
         <image name="find_person" width="66" height="42"/>
         <image name="info" width="47" height="47"/>
         <image name="listView_button" width="229" height="53"/>
         <image name="logo" width="689" height="218"/>
         <image name="logout" width="47" height="61"/>
+        <image name="me" width="453" height="453"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="message_logo" width="52" height="52"/>
         <image name="msg" width="96" height="96"/>
@@ -3827,8 +3886,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
