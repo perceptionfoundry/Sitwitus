@@ -83,21 +83,23 @@ super.viewWillAppear(animated)
 
           self.appoint_Attendance = attendanceList[sender.tag]
 
-          dbStore.collection("Attendance").document((appoint_Attendance?.appointmentId)!).updateData(["Status": "DONE"])
+         
+         let dict = [ "requestedTo":(appoint_Attendance?.SitterUid)!,
+           "isVerified": true] as [String : Any]
+          
+        
+          dbStore.collection("Attendance").document((appoint_Attendance?.appointmentId)!).updateData(dict)
           attendanceTable.reloadData()
+          
+          dbStore.collection("Appointments").document((appoint_Attendance?.appointmentId)!).updateData(dict)
+         
+          getData()
+          
 
      }
      
     
-     
-//     
-//     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//          
-//          let dest = segue.destination as! SitterAttendancePopVC
-//          
-//        
-//          dest.selectedAppointment = appoint_Attendance
-//     }
+
 
      //*************** OUTLET ACTION ******************
      @IBAction func backButton(){
@@ -177,11 +179,19 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         cell.attendanceButton.layer.borderColor = UIColor.systemRed.cgColor
         cell.attendanceButton.layer.borderWidth = 2.0
    }
+    if attendancetInfo.isVerified == true {
+        cell.attendanceButton.setTitle("Completed", for: .normal)
+     cell.attendanceButton.backgroundColor = .clear
+        cell.attendanceButton.setTitleColor(.systemGreen, for: .normal)
+        cell.attendanceButton.layer.borderColor = UIColor.systemGreen.cgColor
+        cell.attendanceButton.layer.borderWidth = 2.0
+   }
 //
    cell.attendanceButton.tag = indexPath.row
    
    if attendancetInfo.Status == "CheckOut"{
    cell.attendanceButton.addTarget(self, action: #selector(taskComplete), for: .touchUpInside)
+    
    }
    return cell
 }

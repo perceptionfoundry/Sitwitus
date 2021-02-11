@@ -75,6 +75,7 @@
 		F2CCE2FE23DFF589009B385E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2CCE2FC23DFF589009B385E /* LaunchScreen.storyboard */; };
 		F2CE10332400254600805B90 /* MapMarkup.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CE10322400254600805B90 /* MapMarkup.xib */; };
 		F2CE10352400276300805B90 /* MapMarkup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE10342400276300805B90 /* MapMarkup.swift */; };
+		F2D2618D25D585730056CDA0 /* SitterListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2618C25D585730056CDA0 /* SitterListViewVC.swift */; };
 		F2E1A21E23F12E2C007AED5C /* ParentSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */; };
 		F2EBBE1D23E0607700E931D1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */; };
 		F2EBBE1E23E0607700E931D1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2EBBE0B23E0607500E931D1 /* OFL.txt */; };
@@ -185,6 +186,7 @@
 		F2CCE2FF23DFF589009B385E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2CE10322400254600805B90 /* MapMarkup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkup.xib; sourceTree = "<group>"; };
 		F2CE10342400276300805B90 /* MapMarkup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkup.swift; sourceTree = "<group>"; };
+		F2D2618C25D585730056CDA0 /* SitterListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterListViewVC.swift; sourceTree = "<group>"; };
 		F2E1A21D23F12E2C007AED5C /* ParentSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSignInVC.swift; sourceTree = "<group>"; };
 		F2EBBE0A23E0607500E931D1 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		F2EBBE0B23E0607500E931D1 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				F2CC08B825BFF91200C60CB7 /* AppointmentVC.swift */,
 				F228F74125BEBA650091C2D4 /* SitterAttendancePopVC.swift */,
 				F26970BA25C1E7B6006E0C9E /* CheckOutVC.swift */,
+				F2D2618C25D585730056CDA0 /* SitterListViewVC.swift */,
 				F2206D7123EC01AB00CCE6D4 /* TableView */,
 			);
 			path = Sitter;
@@ -692,6 +695,7 @@
 				F2B70F582417B4D300E56AFB /* ConfirmVC.swift in Sources */,
 				F27A32CA23F3DC0800431708 /* ParentPendingVC.swift in Sources */,
 				F24B4C5A23E2C03800A14C20 /* SitterMainVC.swift in Sources */,
+				F2D2618D25D585730056CDA0 /* SitterListViewVC.swift in Sources */,
 				F2206D6823EBE10E00CCE6D4 /* SitterProfileVC.swift in Sources */,
 				F2ED97B623E800B80048C782 /* TImeTableViewCell.swift in Sources */,
 				F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */,

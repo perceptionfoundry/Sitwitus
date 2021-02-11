@@ -239,6 +239,12 @@ class SitterMainVC: UIViewController {
 
                                     //*************** OUTLET ACTION ******************
 
+     @IBAction func listButtonAction(){
+          
+          let vc = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "ParentList")
+          
+          self.navigationController?.pushViewController(vc, animated: true)
+     }
 
 }
 
