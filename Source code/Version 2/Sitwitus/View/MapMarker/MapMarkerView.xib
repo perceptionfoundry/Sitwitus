@@ -108,6 +108,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="Star" destination="L5v-Vs-gwP" id="mYc-5A-ofm"/>
                 <outlet property="bgView" destination="f7Y-Ej-qpI" id="vHY-jN-13G"/>
                 <outlet property="bookButton" destination="gkf-0T-xg8" id="bVI-Xh-4yH"/>
                 <outlet property="personAddress" destination="Aoq-yd-JBb" id="3Yl-4K-7PV"/>

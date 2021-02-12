@@ -1,16 +1,18 @@
 //
-//  CheckOutVC.swift
+//  ParentCheckOutVC.swift
 //  Sitwitus
 //
-//  Created by Syed ShahRukh Haider on 27/01/2021.
+//  Created by Syed ShahRukh Haider on 12/02/2021.
 //  Copyright © 2021 Syed ShahRukh Haider. All rights reserved.
 //
+
+
 
 import UIKit
 import HCSStarRatingView
 import Firebase
 
-class CheckOutVC: UIViewController {
+class ParentCheckOutVC: UIViewController {
      
      
      
@@ -20,7 +22,7 @@ class CheckOutVC: UIViewController {
      
      
      var rateValue: CGFloat = 0.0
-     var parentUid = selectedAppointment.ParentUid
+     var sitterUid = ""
      
      override func viewDidLoad() {
          super.viewDidLoad()
@@ -28,7 +30,7 @@ class CheckOutVC: UIViewController {
          // Do any additional setup after loading the view.
           
           parentStar.value = 0
-          print(parentUid)
+          print(sitterUid)
           
      }
      
@@ -55,16 +57,11 @@ class CheckOutVC: UIViewController {
                
                let dbStore = Firestore.firestore()
                
-               dbStore.collection("Users").document(parentUid!).updateData(["Star": parentStar.value])
+               dbStore.collection("Users").document(sitterUid).updateData(["Star": parentStar.value])
           }
            
           
-          
-          
-                      let story = UIStoryboard(name: "Sitter", bundle: nil)
-                      let vc = story.instantiateViewController(withIdentifier: "SITTER_MAIN")
-                      
-                      self.navigationController?.pushViewController(vc, animated: true)
+          self.dismiss(animated: true, completion: nil)
                   
              }
 

@@ -60,6 +60,9 @@ super.viewWillAppear(animated)
 }
      
      
+     
+     
+     
      func getData(){
           
           appointmentList.removeAll()
@@ -107,7 +110,7 @@ super.viewWillAppear(animated)
           let dest = segue.destination as! SitterAttendancePopVC 
           
           dest.statusProtocol = self
-          dest.selectedAppointment = appoint_Attendance
+          selectedAppointment = appoint_Attendance
      }
 
      //*************** OUTLET ACTION ******************
@@ -150,8 +153,13 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
           let combine = appointmentInfo.Date + " " +  appointmentInfo.Time
           let intoDate = combine.toDate()
           let start = intoDate?.timeIntervalSince1970
-          
 //          let set = Date(timeIntervalSince1970: start!)
+          
+          print("****************")
+          print(combine)
+          print(intoDate)
+          print("****************")
+          
           
           let startDate = Date(timeIntervalSince1970: TimeInterval(start!))
           let dateFormatter = DateFormatter()
@@ -189,10 +197,18 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
                cell.attendanceButton.layer.borderColor = UIColor.systemRed.cgColor
                cell.attendanceButton.layer.borderWidth = 2.0
           }
+          
+          if appointmentInfo.isVerified == true {
+              cell.attendanceButton.setTitle("Completed", for: .normal)
+           cell.attendanceButton.backgroundColor = .clear
+              cell.attendanceButton.setTitleColor(.systemGreen, for: .normal)
+              cell.attendanceButton.layer.borderColor = UIColor.systemGreen.cgColor
+              cell.attendanceButton.layer.borderWidth = 2.0
+         }
 //
           cell.attendanceButton.tag = indexPath.row
           
-          if appointmentInfo.Status != "CheckOut"{
+          if appointmentInfo.Status != "CheckOut" && appointmentInfo.isVerified == false{
           cell.attendanceButton.addTarget(self, action: #selector(checkPopWindow), for: .touchUpInside)
           }
           return cell
@@ -210,7 +226,7 @@ extension AppointmentVC: UITableViewDelegate,UITableViewDataSource{
 
 extension String {
 
-    func toDate(withFormat format: String = "MMM dd, yyyy h:mm a")-> Date?{
+    func toDate(withFormat format: String = "MMM dd, yyyy HH:mm a")-> Date?{
 
         let dateFormatter = DateFormatter()
 //        dateFormatter.dateStyle = .medium
@@ -218,6 +234,8 @@ extension String {
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = format
         let date = dateFormatter.date(from: self)
+     
+     print(date?.timeIntervalSince1970)
 
         return date
 

@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 import CoreLocation
 
+
+var selectedAppointment : Appointment!
+
 class SitterAttendancePopVC: UIViewController {
      
      
@@ -24,7 +27,6 @@ class SitterAttendancePopVC: UIViewController {
 
     //******** VARIABLES *************
 
-     var selectedAppointment : Appointment!
      let dbStore = Firestore.firestore()
      var locationManager = CLLocationManager()
      var currentLocation : CLLocation!
@@ -160,10 +162,14 @@ super.viewWillAppear(animated)
                
                performSegue(withIdentifier: "CheckOut", sender: nil)
           }
+          
+          
+          
          
           
      }
      
+    
      @IBAction func smsButtonAction(_ sender: Any) {
      }
      @IBAction func emergencyButtonAction(_ sender: Any) {

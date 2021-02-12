@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HCSStarRatingView
 
 class MapMarkerView: UIView {
 
@@ -14,7 +15,7 @@ class MapMarkerView: UIView {
      @IBOutlet weak var personName: UILabel!
      @IBOutlet weak var personAddress: UILabel!
      @IBOutlet weak var bookButton: UIButton!
-     
+     @IBOutlet weak var Star: HCSStarRatingView!
 
 
 }

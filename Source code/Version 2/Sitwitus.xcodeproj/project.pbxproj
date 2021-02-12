@@ -25,6 +25,7 @@
 		F235914A24163FF60074BBAF /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914924163FF60074BBAF /* CardTableViewCell.swift */; };
 		F235914F241697080074BBAF /* ParentSelectedCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235914E241697080074BBAF /* ParentSelectedCardVC.swift */; };
 		F235B56023F3D331000BB61D /* ParentBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B55F23F3D331000BB61D /* ParentBookingVC.swift */; };
+		F23BDB8C25D66413006071C2 /* ParentCheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BDB8B25D66413006071C2 /* ParentCheckOutVC.swift */; };
 		F240267323E415050066A027 /* SitterPendingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267223E415050066A027 /* SitterPendingVC.swift */; };
 		F240267523E418860066A027 /* SitterSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267423E418860066A027 /* SitterSideMenuVC.swift */; };
 		F240267723E41DA80066A027 /* SitterInboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F240267623E41DA80066A027 /* SitterInboxVC.swift */; };
@@ -134,6 +135,7 @@
 		F235914924163FF60074BBAF /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		F235914E241697080074BBAF /* ParentSelectedCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSelectedCardVC.swift; sourceTree = "<group>"; };
 		F235B55F23F3D331000BB61D /* ParentBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingVC.swift; sourceTree = "<group>"; };
+		F23BDB8B25D66413006071C2 /* ParentCheckOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCheckOutVC.swift; sourceTree = "<group>"; };
 		F240267223E415050066A027 /* SitterPendingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterPendingVC.swift; sourceTree = "<group>"; };
 		F240267423E418860066A027 /* SitterSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterSideMenuVC.swift; sourceTree = "<group>"; };
 		F240267623E41DA80066A027 /* SitterInboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitterInboxVC.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				F2B70F572417B4D300E56AFB /* ConfirmVC.swift */,
 				F254630325D3AB14004754FE /* ParentListViewVC.swift */,
 				F254631125D3D522004754FE /* ParentAttendanceVC.swift */,
+				F23BDB8B25D66413006071C2 /* ParentCheckOutVC.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				F2FC9937240CF1FE00A44F8A /* SitterBookingVC.swift in Sources */,
 				F2CC08BE25BFFB7A00C60CB7 /* AppointmentTableViewCell.swift in Sources */,
 				F2ED97B923E802810048C782 /* SitterMessageVC.swift in Sources */,
+				F23BDB8C25D66413006071C2 /* ParentCheckOutVC.swift in Sources */,
 				F2CE10352400276300805B90 /* MapMarkup.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,

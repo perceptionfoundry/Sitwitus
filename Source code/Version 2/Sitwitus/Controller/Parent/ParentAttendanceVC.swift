@@ -95,6 +95,11 @@ super.viewWillAppear(animated)
          
           getData()
           
+          let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "CheckOut") as ParentCheckOutVC
+          
+          vc.sitterUid = (appoint_Attendance?.SitterUid)!
+          
+          self.present(vc, animated: true, completion: nil)
 
      }
      
@@ -141,8 +146,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
    let intoDate = combine.toDate()
    let start = intoDate?.timeIntervalSince1970
    
-//          let set = Date(timeIntervalSince1970: start!)
-   
+     print("****************")
+     print(combine)
+     print(intoDate)
+     print("****************")
+
+     
    let startDate = Date(timeIntervalSince1970: TimeInterval(start!))
    let dateFormatter = DateFormatter()
    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want

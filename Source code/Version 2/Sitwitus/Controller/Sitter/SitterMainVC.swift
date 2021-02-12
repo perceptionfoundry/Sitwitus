@@ -323,7 +323,8 @@ extension SitterMainVC: GMSMapViewDelegate{
 
           infoWindow.personName.text = parentList[index].FullName
           infoWindow.personAddress.text = parentList[index].Location
-
+          infoWindow.Star.value = CGFloat(parentList[index].Star ?? 0.0)
+          
           infoWindow.bookButton.tag = index
           infoWindow.bookButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
           infoWindow.center = self.mainMapView!.projection.point(for: location)
