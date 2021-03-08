@@ -11,6 +11,7 @@ import LocationPickerViewController
 import FirebaseAuth
 import Firebase
 import IQKeyboardManagerSwift
+import AVFoundation
 
 
 class SitterSignUpVC: UIViewController {
@@ -49,6 +50,7 @@ class SitterSignUpVC: UIViewController {
      
      
      var uploadVdoUrl = ""
+     var isVideoLong = false
      
      //********* FUNCTIONS ***************
      
@@ -132,6 +134,7 @@ class SitterSignUpVC: UIViewController {
      
      
      
+     // MARKS: VIDEO UPLOAD
      
      @IBAction func addVideoButtonAction(_ sender: Any) {
           
@@ -148,7 +151,7 @@ class SitterSignUpVC: UIViewController {
           
      }
      
-     //*********** SIGN UP
+     //MARKS: SIGN UP
      @IBAction func signUpButtonAction(_ sender: Any) {
           
           activity.isHidden = false
@@ -156,8 +159,9 @@ class SitterSignUpVC: UIViewController {
           
           if isImageAdded{
                
+               print(isVideoLong)
                
-               
+               if  isVideoLong == false{
                
                if nameTF.text?.isEmpty == false && emailTF.text?.isEmpty == false && passwordTF.text?.isEmpty == false && genderTF.text?.isEmpty == false && mobileTF.text?.isEmpty == false && LocationTF.text?.isEmpty == false && rateTF.text?.isEmpty == false && zipcodeTF.text?.isEmpty == false{
                     
@@ -234,14 +238,16 @@ class SitterSignUpVC: UIViewController {
                     activity.isHidden = true
                     signUpButton.isUserInteractionEnabled = true
                }
-               
+               }else{
+                    alert.simple_Window(Title: "Long Video", Message: "Please assure your video is not long then 30", View: self)
+               }
                
           }
           
           
           
           else{
-               alert.simple_Window(Title: "ADD IMAGE", Message: "Please add some image as your profile image", View: self)
+               alert.simple_Window(Title: "Error", Message: "Please assure you have added your display image", View: self)
                activity.isHidden = true
                signUpButton.isUserInteractionEnabled = true
           }
@@ -427,37 +433,60 @@ extension SitterSignUpVC: UIImagePickerControllerDelegate, UINavigationControlle
                
                print(selectedVideo.absoluteString)
                
-               let saveFB = SaveVideoViewModel()
                
-               saveFB.SaveVideoViewModel(Title: "MyVideo", selectedVideoUrl: selectedVideo) { (videoURL, status, err) in
+               let duration = AVURLAsset(url: selectedVideo.absoluteURL).duration.seconds
+                   print(duration)
+               let time: String
+               if duration > 3600 {
+                   time = String(format:"%dh %dm %ds",
+                       Int(duration/3600),
+                       Int((duration/60).truncatingRemainder(dividingBy: 60)),
+                       Int(duration.truncatingRemainder(dividingBy: 60)))
+               } else {
+                   time = String(format:"%dm %ds",
+                       Int((duration/60).truncatingRemainder(dividingBy: 60)),
+                       Int(duration.truncatingRemainder(dividingBy: 60)))
+               }
+               print(time)
+
+               
+               if duration > 34{
+                    isVideoLong = true
+                    self.dismiss(animated: true, completion: nil)
+
+               }
+               else{
+                    isVideoLong = false
                     
-                    if status{
-                         print(videoURL!)
+                    let saveFB = SaveVideoViewModel()
+                    
+                    saveFB.SaveVideoViewModel(Title: "MyVideo", selectedVideoUrl: selectedVideo) { (videoURL, status, err) in
                          
-                         self.uploadVdoUrl = videoURL!
-                         self.dismiss(animated: true, completion: nil)
-                    }
-                    else{
-                         print(err!)
-                         
-                         let alert = UIAlertController(title: "Error", message: err!, preferredStyle: .alert)
-                         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                         if status{
+                              print(videoURL!)
                               
+                              self.uploadVdoUrl = videoURL!
                               self.dismiss(animated: true, completion: nil)
-                         }))
+                         }
+                         else{
+                              print(err!)
+                              
+                              
+                              let alert = UIAlertController(title: "Error", message: err!, preferredStyle: .alert)
+                              alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                                   
+                                   self.dismiss(animated: true, completion: nil)
+                              }))
+                         }
                     }
                }
-               
-               
-               
-               
-               
-               
-          }
+           
+                    
+         
           
           
      }
      
 }
-
+}
 

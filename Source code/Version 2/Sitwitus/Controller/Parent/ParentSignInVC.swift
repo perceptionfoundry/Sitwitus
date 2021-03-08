@@ -122,6 +122,12 @@ class ParentSignInVC: UIViewController {
           
      }
 
+     @IBAction func forgetButtonAction(){
+          
+          let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FORGET")
+          
+          self.navigationController?.pushViewController(vc, animated: true)
+     }
 }
 
 

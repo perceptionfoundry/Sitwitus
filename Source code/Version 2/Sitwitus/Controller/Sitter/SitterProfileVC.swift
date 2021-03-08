@@ -213,6 +213,9 @@ extension SitterProfileVC: UIImagePickerControllerDelegate, UINavigationControll
                     
                     if status{
                          print(videoURL!)
+                         
+                         self.dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).updateData(["VideoUrl":videoURL!])
+                         
                          self.dismiss(animated: true, completion: nil)
                     }
                     else{

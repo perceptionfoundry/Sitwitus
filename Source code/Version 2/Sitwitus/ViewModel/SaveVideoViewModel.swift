@@ -10,6 +10,7 @@ import Foundation
 import FirebaseStorage
 import FirebaseAuth
 import Firebase
+import AVFoundation
 
 class SaveVideoViewModel{
 
@@ -20,16 +21,13 @@ func SaveVideoViewModel(Title : String, selectedVideoUrl : URL, completion: @esc
 //    print(selectedImage)
 //    print(Auth.auth().currentUser?.uid)
     
+     
+     
+     
     let storage  = Storage.storage()
     let storageRef = storage.reference()
     
-    
-    
-//    var imageData = Data()
-//
-//
-//
-//    imageData = selectedImage.jpegData(compressionQuality: 0.7)!
+
   
      let vdoData = NSData(contentsOf: selectedVideoUrl)
      let uploadMetadata = StorageMetadata()

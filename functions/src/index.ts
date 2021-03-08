@@ -94,9 +94,32 @@ exports.sendNotification_NewRequest = functions.firestore.document("Requests/{Ui
   //  Attendance CODE 
 exports.sendNotification_AttedanceRequest = functions.firestore.document("Attendance/{Uid}").onWrite(async (event) =>{
 
+
+  //Status, CheckIn, CheckOut,
+  const status = event.after.get('Status');
+  //isVerified == true
+  const verified = event.after.get('isVerified');
+
+  var title = ""
+  var content = ""
+
+  if (verified == true){
+    title = "Attendance Verfied"
+    content = "Congratz! Your Attendance has been verified";
+  }else{
+    if (status == "CheckIn"){
+      title = "Mark Attendance"
+      content = "Your Babysitter has checked In";
+    }else{
+      title = "Mark Attendance"
+      content = "Your Babysitter has checked Out, Please verify it";
+    }
+
+  }
+
   const uid = event.after.get('requestedTo');
-  const title = "Mark Attendance Request"
-  const content = "You have a new request";
+  // const title = "Mark Attendance Request"
+  // const content = "You have a new request";
   
   let userDoc = await admin.firestore().doc(`Users/${uid}`).get()
   let fcmToken = userDoc.get('fcmToken')

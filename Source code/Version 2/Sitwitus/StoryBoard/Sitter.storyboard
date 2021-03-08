@@ -633,6 +633,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="forgetButtonAction" destination="pwB-2w-PaU" eventType="touchUpInside" id="dyw-OC-yyK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D8-tD-uyf" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
                                 <rect key="frame" x="213" y="776.5" width="80" height="31"/>
@@ -2271,7 +2274,7 @@
                                 <rect key="frame" x="41.5" y="318.5" width="331" height="269"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Skills" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Jl-bb-O2I">
-                                        <rect key="frame" x="35" y="58" width="211" height="18.5"/>
+                                        <rect key="frame" x="35" y="58.5" width="211" height="17.5"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2332,7 +2335,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-tF-mWB">
-                                        <rect key="frame" x="35" y="28" width="67" height="20"/>
+                                        <rect key="frame" x="35" y="28.5" width="67" height="20"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2952,7 +2955,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-In!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1F-m8-Kzk">
-                                        <rect key="frame" x="136" y="79" width="102.5" height="59.5"/>
+                                        <rect key="frame" x="136" y="79" width="102.5" height="60.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="21"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -2960,7 +2963,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-Ab-xzb" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="158.5" width="299" height="37.5"/>
+                                        <rect key="frame" x="37.5" y="159.5" width="299" height="37.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3s-Kg-Ncu">
                                                 <rect key="frame" x="59.5" y="7" width="180" height="24"/>
@@ -2993,7 +2996,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oD4-lo-ls6" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="273.5" width="134.5" height="37"/>
+                                        <rect key="frame" x="37.5" y="274.5" width="134.5" height="37"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6s-7G-QhP">
                                                 <rect key="frame" x="52.5" y="8.5" width="29" height="20"/>
@@ -3043,7 +3046,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-uv-e8m" customClass="Custom_Button" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="216" width="299" height="37.5"/>
+                                        <rect key="frame" x="37.5" y="217" width="299" height="37.5"/>
                                         <color key="backgroundColor" red="0.22377365830000001" green="0.76811820269999997" blue="0.76924055810000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Check In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3058,10 +3061,10 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttK-Jb-F3L" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
-                                        <rect key="frame" x="199.5" y="271.5" width="137" height="41"/>
+                                        <rect key="frame" x="199.5" y="273.5" width="137" height="39"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JDj-sc-I2W">
-                                                <rect key="frame" x="28.5" y="9.5" width="80" height="22.5"/>
+                                                <rect key="frame" x="28.5" y="8.5" width="80" height="22.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="Djr-jU-9I0"/>
                                                 </constraints>
@@ -3070,14 +3073,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pVn-dK-JaE">
-                                                <rect key="frame" x="10" y="11" width="20.5" height="19"/>
+                                                <rect key="frame" x="10" y="10.5" width="19.5" height="18"/>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pVn-dK-JaE" secondAttribute="height" multiplier="1:1" id="9Kk-72-VOm"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka4-MX-CFo">
-                                                <rect key="frame" x="0.0" y="0.0" width="137" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137" height="39"/>
                                                 <connections>
                                                     <action selector="emergencyButtonAction:" destination="uKx-jb-w1i" eventType="touchUpInside" id="UeV-mm-U1Z"/>
                                                 </connections>
@@ -3543,7 +3546,6 @@
         <!--Navigation Controller-->
         <scene sceneID="a6U-TA-yF6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QNE-qT-NNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="ndC-BI-kU9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fse-U7-qOn"/>
@@ -3556,6 +3558,7 @@
                         <segue destination="T8i-cY-Xum" kind="relationship" relationship="rootViewController" id="2JX-0d-0BZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNE-qT-NNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6534.7826086956529" y="2952.4553571428569"/>
         </scene>
@@ -3570,7 +3573,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rh3-uj-IwY" customClass="Custom_View" customModule="Sitwitus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitters " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va5-Ga-UPf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va5-Ga-UPf">
                                         <rect key="frame" x="103.5" y="64" width="207" height="28"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

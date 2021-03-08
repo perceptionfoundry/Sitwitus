@@ -31,6 +31,9 @@ class ParentSideMenuVC: UIViewController {
      let swipe = UISwipeGestureRecognizer(target: self, action: #selector(backAction))
      swipe.direction = .left
      view.addGestureRecognizer(swipe)
+     
+     
+ 
     }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +43,9 @@ class ParentSideMenuVC: UIViewController {
      
 //***** BACK
      
+     
+  
+     
      @objc func backAction(){
           self.dismiss(animated: true, completion: nil)
 
@@ -48,7 +54,10 @@ class ParentSideMenuVC: UIViewController {
 
                                     //*************** OUTLET ACTION ******************
           @IBAction func sitterButton(){
-               self.dismiss(animated: true, completion: nil)
+//               self.dismiss(animated: true, completion: nil)
+               let vc = UIStoryboard(name: "Parent", bundle: nil).instantiateViewController(identifier: "SitterList")
+               
+               self.navigationController?.pushViewController(vc, animated: true)
           }
      
      @IBAction func contactButtonAction(){

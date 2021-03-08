@@ -131,6 +131,7 @@ extension SitterListViewVC: UITableViewDelegate, UITableViewDataSource{
           
           cell.sitterImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "new_image"), options: .progressiveLoad, completed: nil)
           
+          cell.requestButton.tag = indexPath.row
           cell.requestButton.addTarget(self, action: #selector(BookingAction), for: .touchUpInside)
           
           return cell

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Firebase
 
 class ParentProfileVC: UIViewController {
 
@@ -25,7 +26,8 @@ class ParentProfileVC: UIViewController {
 
                                    //******** VARIABLES *************
      var isEdit = false
-                                   
+                            
+     var dbRef = Firestore.firestore()
                                    //********* FUNCTIONS ***************
     
     
@@ -87,6 +89,19 @@ class ParentProfileVC: UIViewController {
           alert.simple_Window(Title: "EDIT DESIRE FIELD", Message: "You can edit respective", View: self)
           }
           else{
+               
+               let dict = ["Location":parentAddress.text!,
+                           "Mobile":parentMobile.text!,
+                           "ZipCode":parentZipcode.text!]
+               
+               sharedVariable.signInUser?.Location = parentAddress.text!
+               sharedVariable.signInUser?.Mobile = parentMobile.text!
+               sharedVariable.signInUser?.ZipCode = parentZipcode.text!
+                    
+                    
+                    dbRef.collection("Users").document((sharedVariable.signInUser?.UserId)!).updateData(dict)
+               
+               
                self.navigationController?.popViewController(animated: true)
           }
      }

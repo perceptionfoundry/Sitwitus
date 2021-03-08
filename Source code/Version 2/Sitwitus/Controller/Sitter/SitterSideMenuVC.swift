@@ -65,7 +65,9 @@ class SitterSideMenuVC: UIViewController {
      }
      
           @IBAction func familyButton(){
-               self.dismiss(animated: true, completion: nil)
+               let vc = UIStoryboard(name: "Sitter", bundle: nil).instantiateViewController(identifier: "ParentList")
+               
+               self.navigationController?.pushViewController(vc, animated: true)
           }
      
      

@@ -74,7 +74,7 @@ class ParentSignUpVC: UIViewController {
 
      
      
-     //********** ADD IMAGE ON TAP ACTION
+     //MARKS: ADD IMAGE ON TAP ACTION
      
      @objc func addImageAction(){
           
@@ -125,7 +125,7 @@ class ParentSignUpVC: UIViewController {
      
   
      
-//*********** SIGN UP
+//MARKS: SIGN UP
      @IBAction func continueButtonAction(_ sender: Any) {
           
         

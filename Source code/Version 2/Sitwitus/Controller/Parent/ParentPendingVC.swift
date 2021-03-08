@@ -26,6 +26,8 @@ class ParentPendingVC:  UIViewController {
      
      let dbStore = Firestore.firestore()
      var pendingList = [Request]()
+     
+     var originalSitter = [Users]()
   
                                    //********* FUNCTIONS ***************
     
@@ -84,38 +86,40 @@ class ParentPendingVC:  UIViewController {
               
           let info = (pendingList[button.tag])
           
-              print("ACCEPT")
-          dbStore.collection("Requests").document((info.requestUid)!).updateData(["Status":"Accepted"])
           
+          fetchSitter(userId: info.SitterUid)
+//              print("ACCEPT")
+//          dbStore.collection("Requests").document((info.requestUid)!).updateData(["Status":"Accepted"])
+//
           
-          let appointId = randomString(length: 6)
-          
-          
-       
-     
-       
-          let dict = ["appointmentId": appointId,
-                      "CreatedBy": info.CreatedBy!,
-                      "Address": info.Address,
-                      "Lat": info.Lat,
-                      "Long": info.Long,
-                      "ParentName": info.ParentName!,
-                      "ParentUid": info.ParentUid!,
-                      "ParentImage": info.ParentImage!,
-                      "SitterName": info.SitterName!,
-                      "SitterUid": info.SitterUid!,
-                      "SitterImage": info.SitterImage!,
-                      "SitterReview": info.SitterReview!,
-                      "Rate": info.Rate!,
-                      "Tip": info.Tip!,
-                      "Hours": info.Hours!,
-                      "Date": info.Date!,
-                      "Time": info.Time!,
-                      "Status": "Accepted",
-                      "Timestamp": info.Timestamp!,
-                      "requestUid": info.requestUid!] as [String : Any]
-          
-          self.dbStore.collection("Appointments").document(appointId).setData(dict)
+//          let appointId = randomString(length: 6)
+//
+//
+//
+//
+//
+//          let dict = ["appointmentId": appointId,
+//                      "CreatedBy": info.CreatedBy!,
+//                      "Address": info.Address,
+//                      "Lat": info.Lat,
+//                      "Long": info.Long,
+//                      "ParentName": info.ParentName!,
+//                      "ParentUid": info.ParentUid!,
+//                      "ParentImage": info.ParentImage!,
+//                      "SitterName": info.SitterName!,
+//                      "SitterUid": info.SitterUid!,
+//                      "SitterImage": info.SitterImage!,
+//                      "SitterReview": info.SitterReview!,
+//                      "Rate": info.Rate!,
+//                      "Tip": info.Tip!,
+//                      "Hours": info.Hours!,
+//                      "Date": info.Date!,
+//                      "Time": info.Time!,
+//                      "Status": "Accepted",
+//                      "Timestamp": info.Timestamp!,
+//                      "requestUid": info.requestUid!] as [String : Any]
+//
+//          self.dbStore.collection("Appointments").document(appointId).setData(dict)
           
           
           self.getData()
@@ -147,6 +151,49 @@ class ParentPendingVC:  UIViewController {
          }
 
 
+     
+     func fetchSitter(userId : String){
+          
+          
+          dbStore.collection("Users").whereField("UserId", isEqualTo: userId).getDocuments { (sitterSnap, sitterErr) in
+               
+               guard  let fetchData = sitterSnap?.documents else{return}
+               
+//               var count = 0
+               
+               fetchData.forEach { (value) in
+                    
+                    let dict = value.data()
+                    
+                    let sitterInfo = try! FirebaseDecoder().decode(Users.self, from: dict)
+                    
+                    
+                    
+                    if sitterInfo.UserType == "Sitter"{
+                    self.originalSitter.append(sitterInfo)
+                         
+                         self.performSegue(withIdentifier: "Booking_Segue", sender: nil)
+                         
+                         print(self.originalSitter.first?.FullName!)
+                         
+                         
+                    }
+               }
+          }
+          
+     }
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          
+          
+          if segue.identifier == "Booking_Segue"{
+          let dest = segue.destination  as! ParentBookingVC
+          
+               dest.sitter = originalSitter.first
+          }
+     }
+
+     
                                     //*************** OUTLET ACTION ******************
 
      @IBAction func backButton(){

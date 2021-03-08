@@ -51,6 +51,7 @@
 		F293869E23F52F6100710155 /* ParentProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869D23F52F6100710155 /* ParentProfileVC.swift */; };
 		F29386A023F53F8F00710155 /* ParentBookingReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */; };
 		F2A6BF9823FBC58A00819D38 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A6BF9723FBC58A00819D38 /* Users.swift */; };
+		F2A76E3D25F69B02005C7B3E /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A76E3C25F69B02005C7B3E /* ForgetPasswordVC.swift */; };
 		F2B4E18F23FD1000002C11D3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */; };
 		F2B4E19123FD23BE002C11D3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B4E19023FD23BE002C11D3 /* Message.swift */; };
 		F2B5290B24137C4D005E8142 /* StripeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B5290A24137C4D005E8142 /* StripeViewModel.swift */; };
@@ -161,6 +162,7 @@
 		F293869D23F52F6100710155 /* ParentProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentProfileVC.swift; sourceTree = "<group>"; };
 		F293869F23F53F8F00710155 /* ParentBookingReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentBookingReviewVC.swift; sourceTree = "<group>"; };
 		F2A6BF9723FBC58A00819D38 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F2A76E3C25F69B02005C7B3E /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		F2B4E18E23FD1000002C11D3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		F2B4E19023FD23BE002C11D3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F2B5290A24137C4D005E8142 /* StripeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViewModel.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			children = (
 				F2CCE2F523DFF588009B385E /* InitialController.swift */,
 				F2C0D5E623E0154100DCF976 /* UserSelectorVC.swift */,
+				F2A76E3C25F69B02005C7B3E /* ForgetPasswordVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				F23BDB8C25D66413006071C2 /* ParentCheckOutVC.swift in Sources */,
 				F2CE10352400276300805B90 /* MapMarkup.swift in Sources */,
 				F2206D6F23EC019800CCE6D4 /* FAQTableViewCell.swift in Sources */,
+				F2A76E3D25F69B02005C7B3E /* ForgetPasswordVC.swift in Sources */,
 				F2206D6A23EBEBF700CCE6D4 /* SitterAddSKillVC.swift in Sources */,
 				F254630725D3AD2C004754FE /* SitterListTableViewCell.swift in Sources */,
 				F2F75D5324041E670038BD58 /* ParentLocationVC.swift in Sources */,
@@ -898,7 +902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -919,7 +923,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.victoriawilliams.Sitwitus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

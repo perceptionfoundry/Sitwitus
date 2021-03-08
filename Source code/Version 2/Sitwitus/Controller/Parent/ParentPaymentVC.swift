@@ -126,7 +126,9 @@ class ParentPaymentVC:  UIViewController {
                print(self.left_TF.text!)
                print(self.right_TF.text!)
                
-                        self.stripeVM.addCard(userid: (sharedVariable.signInUser?.UserId)!, cardNumber: self.card_Bank_TF.text!, cardExpiry: self.left_TF.text!, cvv: self.right_TF.text!, completion: { (status, Message) in
+               self.stripeVM.addCard(userid: (sharedVariable.signInUser?.UserId)!, cardNumber: self.card_Bank_TF.text!, cardExpiry: self.left_TF.text!, cvv: self.right_TF.text!, completion: { (status, Message) in
+               
+               
                              
                              
                              if status{
@@ -177,10 +179,12 @@ class ParentPaymentVC:  UIViewController {
 
           }
           else{
+               
                addHighlighter.isHidden = true
                cardHighlighter.isHidden = false
                addCardView.isHidden = true
                cardTable.isHidden = false
+               
 
 
           }
